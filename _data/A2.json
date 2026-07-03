@@ -1,0 +1,192 @@
+[
+  {
+    "id": "airport-checkin",
+    "icon": "✈️",
+    "title": "機場報到",
+    "titleEn": "Airport Check-in",
+    "desc": "劃位、託運行李、找登機門、安檢與轉機",
+    "country": "US",
+    "words": [
+      { "en": "aisle", "zh": "走道", "ico": "🚶" },
+      { "en": "window", "zh": "靠窗", "ico": "🪟" },
+      { "en": "passport", "zh": "護照", "ico": "🛂" },
+      { "en": "boarding pass", "zh": "登機證", "ico": "🎫" },
+      { "en": "gate", "zh": "登機門", "ico": "🚪" },
+      { "en": "carry-on", "zh": "手提行李", "ico": "🎒" },
+      { "en": "check in", "zh": "報到", "ico": "✅" },
+      { "en": "baggage", "zh": "行李", "ico": "🧳" },
+      { "en": "scale", "zh": "磅秤", "ico": "⚖️" },
+      { "en": "upgrade", "zh": "升等", "ico": "⬆️" }
+    ],
+    "patterns": [
+      { "en": "Could I have ___, please?", "zh": "我可以要…嗎？", "slots": ["a window seat", "an aisle seat", "a receipt"] },
+      { "en": "Where's ___?", "zh": "…在哪裡？", "slots": ["gate 23", "the transfer desk", "the restroom"] },
+      { "en": "What time does ___ start?", "zh": "…幾點開始？", "slots": ["boarding", "check-in"] }
+    ],
+    "phrases": [
+      { "en": "Here are our passports.", "zh": "這是我們的護照。", "tag": "報到", "level": 1, "survival": true, "homophone": "西爾 阿 趴斯波" },
+      { "en": "Hi, we're checking in for the flight to Tokyo.", "zh": "你好，我們要辦飛東京的登機手續。", "tip": "check in = 報到；報班機號更清楚：flight JL802", "tag": "報到", "level": 2 },
+      { "en": "There are four of us, traveling together.", "zh": "我們四個人一起旅行。", "tip": "希望坐一起可加：Could we sit together?", "tag": "報到", "level": 2 },
+      { "en": "Could we get seats together, please?", "zh": "可以幫我們劃在一起嗎？", "tip": "seats together = 相鄰座位", "tag": "劃位", "level": 2 },
+      { "en": "Aisle seat, please.", "zh": "走道位子，麻煩你。", "tag": "劃位", "level": 1, "survival": true, "homophone": "愛歐 西特 普利司" },
+      { "en": "Window seat, please.", "zh": "靠窗位子，麻煩你。", "tip": "window = 靠窗；aisle = 走道", "tag": "劃位", "level": 1 },
+      { "en": "Is there any chance of an upgrade to premium economy?", "zh": "有機會升等豪華經濟艙嗎？", "tip": "委婉問法；upgrade = 升等", "tag": "劃位", "level": 3 },
+      { "en": "I'd like to check in these two bags.", "zh": "我要託運這兩件行李。", "tip": "check in bags = 託運行李", "tag": "託運", "level": 2 },
+      { "en": "This one's a carry-on, I'll take it on board.", "zh": "這件是手提行李，我要帶上飛機。", "tip": "carry-on = 手提／登機行李", "tag": "託運", "level": 2 },
+      { "en": "How much is the excess baggage fee?", "zh": "行李超重要收多少錢？", "tip": "excess baggage = 超重行李；美式幣別講 dollars", "tag": "託運", "level": 2 },
+      { "en": "Could you tag this bag as fragile, please?", "zh": "可以幫這件貼易碎標籤嗎？", "tip": "fragile = 易碎", "tag": "託運", "level": 3 },
+      { "en": "Will our bags be checked all the way through to Osaka?", "zh": "我們的行李會直接掛到大阪嗎？", "tip": "轉機時很實用；all the way through = 直掛到底", "tag": "託運", "level": 2 },
+      { "en": "Do I need to take out my laptop and liquids?", "zh": "我需要把筆電和液體拿出來嗎？", "tip": "安檢常見問；liquids = 液體（有100ml限制）", "tag": "安檢", "level": 2 },
+      { "en": "What time does boarding start?", "zh": "幾點開始登機？", "tip": "boarding = 登機", "tag": "問路", "level": 2 },
+      { "en": "Which gate?", "zh": "哪個登機門？", "tag": "問路", "level": 1, "survival": true, "homophone": "委取 給特" },
+      { "en": "Where's the transfer desk?", "zh": "轉機櫃檯在哪裡？", "tag": "轉機", "level": 1, "survival": true, "homophone": "威爾斯 惹 全斯佛 戴斯克" },
+      { "en": "Where's the gate for connecting flights?", "zh": "轉機（下一段）的登機門在哪？", "tip": "connecting flight = 銜接／轉乘班機", "tag": "轉機", "level": 2 },
+      { "en": "Our connection is really tight — is there anything you can do to help us make it?", "zh": "我們轉機時間很趕，能不能幫我們趕上？", "tip": "connection = 轉機；報到櫃檯不主導登機順序，改請對方協助趕班機較自然", "tag": "問題", "level": 3 }
+    ],
+    "dialogue": {
+      "title": "在櫃檯辦理登機",
+      "youRole": "旅客（爸爸）",
+      "npcRole": "地勤人員",
+      "lines": [
+        { "who": "npc", "en": "Good morning! Where are you flying today?", "zh": "早安！請問今天飛哪裡？", "alt": [ { "en": "Hello! What's your final destination?", "zh": "哈囉！請問您的最終目的地是？" } ] },
+        { "who": "you", "en": "Good morning. We're going to Tokyo. Here are our four passports.", "zh": "早安。我們要去東京，這是我們四個人的護照。" },
+        { "who": "npc", "en": "Thank you. How many bags are you checking in?", "zh": "謝謝。請問要託運幾件行李？", "alt": [ { "en": "Any bags to check today?", "zh": "今天有要託運行李嗎？" } ] },
+        { "who": "you", "en": "Three bags to check in, and each of us has a carry-on.", "zh": "託運三件，我們每個人各有一件手提行李。" },
+        { "who": "npc", "en": "Perfect. Please put the first bag on the scale.", "zh": "好的，請把第一件行李放上磅秤。" },
+        { "who": "you", "en": "Sure. Could you seat us all together? And I'd like an aisle seat if possible.", "zh": "好。可以幫我們劃在一起嗎？如果可以，我想要走道的位子。" },
+        { "who": "npc", "en": "Of course. I've got you in a row of four, with two aisle seats.", "zh": "沒問題，我幫你們安排同一排四個位子，有兩個走道座位。" },
+        { "who": "you", "en": "That's great, thank you. What time does boarding start?", "zh": "太好了，謝謝。請問幾點開始登機？" },
+        { "who": "npc", "en": "Boarding begins at 10:30 from gate 42. It's a bit of a walk, so leave some time.", "zh": "十點半從42號登機門開始登機，路有點遠，請預留一點時間。", "alt": [ { "en": "You'll board at 10:30 from gate 42.", "zh": "10:30 在42號門登機。" } ] },
+        { "who": "you", "en": "Got it. And will our bags go all the way through to our final stop?", "zh": "了解。我們的行李會直掛到最終目的地嗎？" },
+        { "who": "npc", "en": "Yes, they're tagged straight through. Here are your boarding passes. Have a great trip!", "zh": "會的，行李直掛到底。這是你們的登機證，祝旅途愉快！" },
+        { "who": "you", "en": "Thank you so much. Have a nice day!", "zh": "非常謝謝你，祝你有美好的一天！" }
+      ]
+    }
+  },
+  {
+    "id": "immigration",
+    "icon": "🛂",
+    "title": "出入境海關",
+    "titleEn": "Immigration & Customs",
+    "desc": "移民官問答、入境卡、海關申報",
+    "country": "US",
+    "words": [
+      { "en": "passport", "zh": "護照", "ico": "🛂" },
+      { "en": "visa", "zh": "簽證", "ico": "📄" },
+      { "en": "vacation", "zh": "度假", "ico": "🏖️" },
+      { "en": "customs", "zh": "海關", "ico": "🛃" },
+      { "en": "declare", "zh": "申報", "ico": "🗣️" },
+      { "en": "arrival card", "zh": "入境卡", "ico": "📝" },
+      { "en": "occupation", "zh": "職業", "ico": "💼" },
+      { "en": "return ticket", "zh": "回程機票", "ico": "🎟️" },
+      { "en": "fingerprint", "zh": "指紋", "ico": "👆" }
+    ],
+    "patterns": [
+      { "en": "We're here on ___.", "zh": "我們是來…的。", "slots": ["vacation", "business", "a family trip"] },
+      { "en": "We're staying for ___.", "zh": "我們會待…。", "slots": ["ten days", "a week", "two weeks"] },
+      { "en": "I have nothing to ___.", "zh": "我沒有要…的東西。", "slots": ["declare"] }
+    ],
+    "phrases": [
+      { "en": "Here's my passport.", "zh": "這是我的護照。", "tag": "移民", "level": 1, "survival": true, "homophone": "西爾斯 麥 趴斯波" },
+      { "en": "We're here on vacation.", "zh": "我們是來度假的。", "tag": "移民", "level": 1, "survival": true, "homophone": "威爾 希爾 昂 崴凱訓" },
+      { "en": "We're staying for ten days.", "zh": "我們會待十天。", "tip": "直接講天數最清楚", "tag": "移民", "level": 1 },
+      { "en": "We're staying at a hotel in the city center.", "zh": "我們住在市中心的一間飯店。", "tip": "可補：the address is on the form", "tag": "移民", "level": 2 },
+      { "en": "This is my wife, and these are our two kids.", "zh": "這是我太太，這兩位是我們的小孩。", "tip": "全家一起過關時很好用", "tag": "移民", "level": 2 },
+      { "en": "I'm a teacher.", "zh": "我是老師。", "tip": "移民官問職業時：回答簡短、只答被問的、別開玩笑，官員沒問就別多說", "tag": "移民", "level": 1 },
+      { "en": "Yes, we have a return ticket on the 20th.", "zh": "有，我們20號的回程機票。", "tip": "return ticket = 回程票；被問就照實答", "tag": "移民", "level": 2 },
+      { "en": "Sorry? Again, please.", "zh": "抱歉？請再說一次。", "tag": "移民", "level": 1, "survival": true, "homophone": "搜瑞 阿乾 普利司" },
+      { "en": "Excuse me, could you speak a little slower?", "zh": "不好意思，可以講慢一點嗎？", "tip": "speak slower = 講慢一點", "tag": "移民", "level": 2 },
+      { "en": "Where can I get help filling out this arrival card?", "zh": "我要去哪裡找人幫忙填這張入境卡？", "tip": "移民官不會代填；改向服務台問；arrival card = 入境卡", "tag": "入境卡", "level": 2 },
+      { "en": "What should I write in this box?", "zh": "這一欄要寫什麼？", "tip": "box = 欄位；field 也可", "tag": "入境卡", "level": 2 },
+      { "en": "Nothing to declare.", "zh": "沒有東西要申報。", "tag": "海關", "level": 1, "survival": true, "homophone": "那訊 兔 迪克萊爾" },
+      { "en": "These are just some snacks and gifts for family.", "zh": "這些只是一些零食和給家人的禮物。", "tip": "被問時解釋用；gifts = 禮物", "tag": "海關", "level": 2 },
+      { "en": "Do I need to declare this? It's for personal use.", "zh": "這個需要申報嗎？是自己用的。", "tip": "personal use = 個人使用", "tag": "海關", "level": 2 },
+      { "en": "We're not carrying any food or fresh fruit.", "zh": "我們沒有帶任何食物或新鮮水果。", "tip": "很多國家管制農產品", "tag": "海關", "level": 2 },
+      { "en": "Where's baggage claim?", "zh": "行李提領在哪裡？", "tag": "問路", "level": 1, "survival": true, "homophone": "威爾斯 貝格取 克連姆" },
+      { "en": "Is this the right line for foreign passports?", "zh": "這是外國護照排的隊嗎？", "tip": "line = 隊伍（英式：queue，此差異移到 tip）", "tag": "問路", "level": 2 }
+    ],
+    "dialogue": {
+      "title": "通過入境查驗",
+      "youRole": "旅客",
+      "npcRole": "移民官",
+      "lines": [
+        { "who": "npc", "en": "Next, please. Passports, everyone.", "zh": "下一位，請大家出示護照。" },
+        { "who": "you", "en": "Good morning. Here are the four passports for our family.", "zh": "早安，這是我們一家四口的護照。" },
+        { "who": "npc", "en": "Thank you. What's the purpose of your visit?", "zh": "謝謝。請問來訪目的是什麼？" },
+        { "who": "you", "en": "We're here on vacation, just sightseeing with the kids.", "zh": "我們來度假，帶小孩觀光而已。" },
+        { "who": "npc", "en": "What's your occupation?", "zh": "請問您的職業是？", "alt": [ { "en": "What do you do for a living?", "zh": "您是做什麼工作的？" } ] },
+        { "who": "you", "en": "I'm a teacher.", "zh": "我是老師。" },
+        { "who": "npc", "en": "How long are you planning to stay?", "zh": "你們打算待多久？" },
+        { "who": "you", "en": "Ten days. Then we fly back to Taiwan.", "zh": "十天，然後就飛回台灣。" },
+        { "who": "npc", "en": "Do you have a return ticket?", "zh": "你們有回程機票嗎？", "alt": [ { "en": "Have you booked your flight home?", "zh": "回家的機票訂好了嗎？" } ] },
+        { "who": "you", "en": "Yes, we fly home on the 20th.", "zh": "有，我們20號飛回去。" },
+        { "who": "npc", "en": "How much cash are you carrying?", "zh": "你們帶了多少現金？", "alt": [ { "en": "Are you carrying any large amounts of cash?", "zh": "有攜帶大筆現金嗎？" } ] },
+        { "who": "you", "en": "About five hundred dollars.", "zh": "大約五百美元。" },
+        { "who": "npc", "en": "Alright. Please look at the camera. Thank you — enjoy your stay!", "zh": "好的，請看鏡頭。謝謝，祝你們玩得愉快！" },
+        { "who": "you", "en": "Thank you very much. Have a good day!", "zh": "非常謝謝你，祝你有美好的一天！" }
+      ]
+    }
+  },
+  {
+    "id": "baggage",
+    "icon": "🧳",
+    "title": "行李提領",
+    "titleEn": "Baggage Claim",
+    "desc": "領行李、行李遺失、行李推車",
+    "country": "US",
+    "words": [
+      { "en": "carousel", "zh": "行李轉盤", "ico": "🎠" },
+      { "en": "belt", "zh": "輸送帶", "ico": "➿" },
+      { "en": "suitcase", "zh": "行李箱", "ico": "🧳" },
+      { "en": "cart", "zh": "行李推車", "ico": "🛒" },
+      { "en": "tag", "zh": "行李吊牌", "ico": "🏷️" },
+      { "en": "missing", "zh": "遺失", "ico": "❓" },
+      { "en": "damaged", "zh": "損壞", "ico": "💥" },
+      { "en": "claim", "zh": "認領／申報", "ico": "📋" },
+      { "en": "wheel", "zh": "輪子", "ico": "🛞" },
+      { "en": "exit", "zh": "出口", "ico": "🚪" }
+    ],
+    "patterns": [
+      { "en": "Where's ___?", "zh": "…在哪裡？", "slots": ["a luggage cart", "the exit", "the taxi stand"] },
+      { "en": "My ___ is missing.", "zh": "我的…不見了。", "slots": ["suitcase", "bag", "stroller"] }
+    ],
+    "phrases": [
+      { "en": "Which carousel is for the flight from Taipei?", "zh": "台北來的班機是哪個行李轉盤？", "tip": "carousel = 行李轉盤；belt 也可", "tag": "領行李", "level": 2 },
+      { "en": "The board says our bags are on belt five.", "zh": "看板顯示我們的行李在五號轉盤。", "tip": "belt = 行李輸送帶", "tag": "領行李", "level": 2 },
+      { "en": "Where's a cart?", "zh": "推車在哪裡？", "tag": "推車", "level": 1, "survival": true, "homophone": "威爾斯 阿 卡特" },
+      { "en": "Are the carts free, or do I need coins?", "zh": "推車是免費的，還是要投幣？", "tip": "美式：luggage cart（英式 trolley，差異移到 tip）", "tag": "推車", "level": 2 },
+      { "en": "Could you give me a hand with this heavy bag?", "zh": "可以幫我搬一下這件很重的行李嗎？", "tip": "give me a hand = 幫個忙", "tag": "領行李", "level": 2 },
+      { "en": "I think that black suitcase is ours.", "zh": "我想那個黑色行李箱是我們的。", "tip": "suitcase = 行李箱", "tag": "領行李", "level": 2 },
+      { "en": "Wait, that one looks just like ours — let me check the tag.", "zh": "等等，那個跟我們的很像，我看一下吊牌。", "tip": "很多行李長得一樣，先核對", "tag": "領行李", "level": 2 },
+      { "en": "That's my bag.", "zh": "那是我的行李。", "tag": "領行李", "level": 1, "survival": true, "homophone": "戴茲 麥 貝格" },
+      { "en": "We've been waiting a while and one bag hasn't come out.", "zh": "我們等了一陣子，有一件行李還沒出來。", "tip": "行李遲遲不來時說", "tag": "遺失", "level": 2 },
+      { "en": "My bag is missing.", "zh": "我的行李不見了。", "tag": "遺失", "level": 1, "survival": true, "homophone": "麥 貝格 伊斯 密辛" },
+      { "en": "Here's my baggage claim tag and boarding pass.", "zh": "這是我的行李託運吊牌和登機證。", "tip": "報遺失要填 PIR（Property Irregularity Report，行李異常報告）；claim tag = 託運吊牌", "tag": "遺失", "level": 2 },
+      { "en": "It's a large red hard-shell suitcase with wheels.", "zh": "那是一個紅色的大硬殼行李箱，有輪子。", "tip": "描述特徵：顏色+材質+大小", "tag": "遺失", "level": 2 },
+      { "en": "Could you deliver it to our hotel once you find it?", "zh": "找到之後可以幫我們送到飯店嗎？", "tip": "deliver = 送達；常見服務", "tag": "遺失", "level": 2 },
+      { "en": "How long does it usually take to find it?", "zh": "找回遺失行李通常要多久？", "tip": "口語就用 find it；track down 較正式書面", "tag": "遺失", "level": 2 },
+      { "en": "One of our bags looks damaged — the wheel is broken.", "zh": "我們有一件行李看起來壞了，輪子斷了。", "tip": "damaged = 損壞；可要求理賠，並填 PIR", "tag": "遺失", "level": 2 },
+      { "en": "Where's the exit?", "zh": "出口在哪裡？", "tag": "問路", "level": 1, "survival": true, "homophone": "威爾斯 惹 唉格季特" },
+      { "en": "Is the taxi stand right outside this exit?", "zh": "計程車招呼站就在這個出口外面嗎？", "tip": "taxi stand = 計程車招呼站", "tag": "問路", "level": 2 }
+    ],
+    "dialogue": {
+      "title": "行李沒出來，去服務櫃檯",
+      "youRole": "旅客",
+      "npcRole": "行李服務人員",
+      "lines": [
+        { "who": "you", "en": "Hi, we've collected three bags, but one suitcase never came out.", "zh": "你好，我們領到三件行李，但有一個行李箱一直沒出來。" },
+        { "who": "npc", "en": "I'm sorry to hear that. May I see your claim tag and boarding pass?", "zh": "很抱歉。可以看一下您的行李吊牌和登機證嗎？", "alt": [ { "en": "No problem. Do you have your claim tag?", "zh": "沒問題。您有行李吊牌嗎？" } ] },
+        { "who": "you", "en": "Sure, here they are. It was on the flight from Taipei.", "zh": "當然，在這裡。是台北來的那班飛機。" },
+        { "who": "npc", "en": "Thank you. Can you describe the missing bag for me?", "zh": "謝謝。可以描述一下遺失的行李嗎？", "alt": [ { "en": "What does the bag look like?", "zh": "行李長什麼樣子？" } ] },
+        { "who": "you", "en": "It's a large red hard-shell suitcase with four wheels.", "zh": "那是一個紅色的大硬殼行李箱，有四個輪子。" },
+        { "who": "npc", "en": "Got it. It looks like it's still in Taipei and will arrive tonight.", "zh": "了解。看起來它還在台北，今晚會到。" },
+        { "who": "you", "en": "Oh no. Could you deliver it to our hotel once it arrives?", "zh": "糟糕。到了之後可以幫我們送到飯店嗎？" },
+        { "who": "npc", "en": "Of course. Please write your hotel name and address here.", "zh": "當然可以。請在這裡寫下飯店名稱和地址。" },
+        { "who": "you", "en": "Done. How long does it usually take?", "zh": "寫好了。通常要多久呢？" },
+        { "who": "npc", "en": "I'll file a report and give you a reference number to track it.", "zh": "我會建立行李異常報告，並給您一個查詢編號來追蹤。", "alt": [ { "en": "I'll file a PIR (Property Irregularity Report) and give you a tracking number.", "zh": "我會建立 PIR（行李異常報告），並給您追蹤編號。" } ] },
+        { "who": "you", "en": "Thank you. Is there any compensation for the delay?", "zh": "謝謝。延誤有任何賠償嗎？" },
+        { "who": "npc", "en": "You can claim basic expenses. Keep your receipts and contact us anytime.", "zh": "您可以申請基本費用補償，請保留收據，隨時與我們聯絡。" }
+      ]
+    }
+  }
+]

@@ -1,0 +1,860 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#4f46e5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="旅遊英文">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<title>旅遊英文 · 全家出國會話</title>
+
+<style>
+:root{
+  --sky:#0ea5e9; --sky2:#38bdf8; --sky3:#7dd3fc; --deep:#0369a1;
+  --bg:#f0f9ff; --card:#ffffff; --ink:#0f172a; --sub:#64748b; --line:#e2e8f0;
+  --good:#10b981; --bad:#ef4444; --gold:#f59e0b; --sos:#e11d48; --shadow:0 6px 22px rgba(2,132,199,.12);
+  --r:18px; --fs:1;
+}
+html[data-theme=dark]{
+  --bg:#0b1220; --card:#131c2e; --ink:#e8eefc; --sub:#94a3b8; --line:#233047;
+  --sky:#38bdf8; --deep:#7dd3fc; --shadow:0 6px 22px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--bg); color:var(--ink);
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+  overscroll-behavior-y:contain; font-size:calc(16px * var(--fs));
+}
+body.big{--fs:1.22}
+h1,h2,h3,p{margin:0}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.hidden{display:none!important}
+
+.topbar{position:sticky;top:0;z-index:40;background:linear-gradient(135deg,var(--sky),var(--sky2));
+  color:#fff;padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;box-shadow:0 4px 16px rgba(2,132,199,.25)}
+.topbar .row{display:flex;align-items:center;gap:10px}
+.topbar h1{font-size:1.2rem;font-weight:800;letter-spacing:.5px;flex:1}
+.chip{background:rgba(255,255,255,.22);border-radius:999px;padding:5px 11px;font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:5px}
+.iconbtn{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:18px;flex:none}
+.stats{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+.stats .chip{background:rgba(255,255,255,.16)}
+
+.wrap{max-width:640px;margin:0 auto;padding:14px}
+.section-title{font-size:.88rem;font-weight:800;color:var(--sub);margin:18px 4px 10px;letter-spacing:.5px}
+
+.banner{background:linear-gradient(135deg,#fff7ed,#ffedd5);border-radius:var(--r);padding:15px 16px;
+  display:flex;align-items:center;gap:14px;box-shadow:var(--shadow);margin-bottom:8px;border:1px solid #fde3c4}
+html[data-theme=dark] .banner{background:linear-gradient(135deg,#3a2a12,#2a1f10);border-color:#4a3618}
+.banner .big{font-size:30px}
+.banner .t{flex:1}
+.banner .t b{font-size:1rem}
+.banner .t small{color:var(--sub);font-size:.78rem}
+.banner .go{background:var(--gold);color:#fff;font-weight:800;padding:9px 15px;border-radius:12px;font-size:.88rem;white-space:nowrap}
+.banner.rev{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe}
+html[data-theme=dark] .banner.rev{background:linear-gradient(135deg,#122036,#0f1a2e);border-color:#1e3a5f}
+.banner.rev .go{background:var(--sky)}
+.banner.sos{background:linear-gradient(135deg,#fff1f2,#ffe4e6);border-color:#fecdd3}
+html[data-theme=dark] .banner.sos{background:linear-gradient(135deg,#3a1220,#2a0f18);border-color:#5a1a2a}
+.banner.sos .go{background:var(--sos)}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.scard{background:var(--card);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);position:relative;overflow:hidden;text-align:left;transition:transform .1s}
+.scard:active{transform:scale(.97)}
+.scard .ico{font-size:30px;line-height:1}
+.scard .nm{font-weight:800;font-size:.95rem;margin-top:8px}
+.scard .en{font-size:.68rem;color:var(--sub);margin-top:1px}
+.scard .desc{font-size:.72rem;color:var(--sub);margin-top:6px;line-height:1.35;min-height:31px}
+.pbar{height:6px;border-radius:99px;background:var(--line);margin-top:10px;overflow:hidden}
+.pbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--sky),var(--sky2));border-radius:99px;transition:width .4s}
+.scard .pct{position:absolute;top:12px;right:12px;font-size:.68rem;font-weight:800;color:var(--sky)}
+.scard .done-badge{position:absolute;top:10px;right:10px;font-size:18px}
+
+.back{display:flex;align-items:center;gap:6px;font-weight:700;color:var(--sky);font-size:.95rem;padding:4px 0}
+.detail-head{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);margin:8px 0 4px;text-align:center}
+.detail-head .ico{font-size:44px}
+.detail-head h2{font-size:1.25rem;font-weight:800;margin-top:4px}
+.detail-head .en{color:var(--sub);font-size:.82rem}
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.mode{background:var(--card);border-radius:14px;padding:11px 4px;box-shadow:var(--shadow);text-align:center;transition:transform .1s}
+.mode:active{transform:scale(.95)}
+.mode .mi{font-size:21px}
+.mode .ml{font-size:.68rem;font-weight:700;margin-top:4px;line-height:1.2}
+
+.pitem{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);margin-bottom:9px;display:flex;gap:11px;align-items:flex-start}
+.pitem.sos-item{border-left:4px solid var(--sos)}
+.pitem .body{flex:1;min-width:0}
+.pitem .en{font-weight:700;font-size:.97rem;line-height:1.35}
+.pitem .zh{color:var(--sub);font-size:.85rem;margin-top:3px}
+.pitem .homo{color:var(--sos);font-size:.8rem;margin-top:2px;font-weight:600}
+.pitem .tip{color:var(--sky);font-size:.75rem;margin-top:4px;background:rgba(14,165,233,.08);padding:3px 8px;border-radius:8px;display:inline-block}
+.pitem .metarow{display:flex;gap:6px;align-items:center;margin-top:5px;flex-wrap:wrap}
+.lv{font-size:.62rem;font-weight:800;padding:2px 6px;border-radius:6px;color:#fff}
+.lv1{background:#22c55e}.lv2{background:#f59e0b}.lv3{background:#ef4444}
+.stars{font-size:.68rem;letter-spacing:1px;color:var(--gold)}
+.pitem .acts{display:flex;flex-direction:column;gap:8px}
+.rbtn{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:17px;background:var(--bg);border:1px solid var(--line)}
+.rbtn.fav.on{color:var(--gold);background:rgba(245,158,11,.12);border-color:transparent}
+
+.tagbar{display:flex;gap:7px;overflow-x:auto;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
+.tagbar::-webkit-scrollbar{display:none}
+.tg{white-space:nowrap;font-size:.82rem;font-weight:700;padding:6px 13px;border-radius:99px;background:var(--card);border:1px solid var(--line);color:var(--sub)}
+.tg.on{background:var(--sky);color:#fff;border-color:transparent}
+
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -4px 16px rgba(0,0,0,.05)}
+.nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.68rem;color:var(--sub);padding:5px 0;font-weight:700}
+.nav button .ni{font-size:20px}
+.nav button.on{color:var(--sky)}
+.nav button.sosnav.on{color:var(--sos)}
+
+.overlay{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column;animation:slideup .25s}
+@keyframes slideup{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.ovhead{display:flex;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top) + 12px) 16px 10px}
+.ovhead .x{font-size:24px;width:34px}
+.ovprog{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.ovprog>i{display:block;height:100%;background:linear-gradient(90deg,var(--sky),var(--sky2));width:0;transition:width .3s}
+.ovhead .cnt{font-weight:800;font-size:.85rem;color:var(--sub)}
+.ovbody{flex:1;overflow-y:auto;padding:10px 18px 20px;display:flex;flex-direction:column}
+.ovfoot{padding:12px 18px calc(16px + env(safe-area-inset-bottom));display:flex;gap:10px}
+.pbtn{flex:1;padding:15px;border-radius:15px;font-weight:800;font-size:1rem;background:var(--sky);color:#fff;box-shadow:var(--shadow)}
+.pbtn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.pbtn.good{background:var(--good)}.pbtn.bad{background:var(--bad)}
+.pbtn:disabled{opacity:.4}
+
+.flash{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:14px}
+.flash .card3d{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:32px 24px;width:100%;min-height:220px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.flash .big-en{font-size:1.6rem;font-weight:800;line-height:1.35}
+.flash .big-zh{font-size:1.2rem;color:var(--sub)}
+.flash .homo2{font-size:1rem;color:var(--sos);font-weight:700}
+.flash .tip2{font-size:.85rem;color:var(--sky);background:rgba(14,165,233,.08);padding:7px 12px;border-radius:10px}
+.flash .wico{font-size:56px}
+.speak{background:linear-gradient(135deg,var(--sky),var(--sky2));color:#fff;border-radius:99px;padding:12px 22px;font-weight:800;font-size:.95rem;display:inline-flex;gap:8px;align-items:center;box-shadow:var(--shadow)}
+.tapkuce{color:var(--sub);font-size:.82rem}
+
+.qword{font-size:1.5rem;font-weight:800;text-align:center;margin:12px 0 4px;line-height:1.4}
+.qsub{text-align:center;color:var(--sub);margin-bottom:16px;font-size:.88rem}
+.opt{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:15px;margin-bottom:11px;font-size:1rem;font-weight:600;text-align:left;transition:.15s;width:100%}
+.opt:active{transform:scale(.98)}
+.opt.ok{border-color:var(--good);background:rgba(16,185,129,.1);color:var(--good);font-weight:800}
+.opt.no{border-color:var(--bad);background:rgba(239,68,68,.1);color:var(--bad)}
+
+.teach{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:16px;margin-top:6px;border-left:4px solid var(--sky);animation:pop .2s}
+.teach .r{margin:5px 0;font-size:.95rem}
+.teach .r.wrong{color:var(--bad)}.teach .r.right{color:var(--good);font-weight:800}
+.teach .tipbox{background:rgba(14,165,233,.08);color:var(--sky);border-radius:10px;padding:9px 12px;margin-top:8px;font-size:.85rem}
+
+.scz-target{min-height:60px;background:var(--card);border:2px dashed var(--line);border-radius:14px;padding:12px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;margin-bottom:6px}
+.scz-target.err{border-color:var(--bad);animation:shake .35s}
+.scz-target.ok{border-color:var(--good)}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.scz-pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.tok{background:var(--sky);color:#fff;border-radius:11px;padding:9px 14px;font-size:1rem;font-weight:700;box-shadow:var(--shadow)}
+.tok.inpool{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+
+.mic-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center}
+.mic{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--sky2));color:#fff;font-size:38px;display:grid;place-items:center;box-shadow:0 10px 30px rgba(14,165,233,.4);transition:transform .15s}
+.mic.rec{animation:pulse 1s infinite;background:linear-gradient(135deg,var(--bad),#f87171)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.heard{font-size:.9rem;color:var(--sub);min-height:22px}
+.scorebig{font-size:3.1rem;font-weight:900}
+.w-good{color:var(--good)}.w-mid{color:var(--gold)}.w-bad{color:var(--bad)}
+
+.chat{flex:1;display:flex;flex-direction:column;gap:10px;padding:6px 0}
+.bubble{max-width:82%;padding:11px 14px;border-radius:16px;font-size:.97rem;line-height:1.4;box-shadow:var(--shadow);animation:pop .2s}
+@keyframes pop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
+.bubble .z{font-size:.78rem;opacity:.75;margin-top:3px}
+.bubble.npc{background:var(--card);align-self:flex-start;border-bottom-left-radius:5px}
+.bubble.you{background:linear-gradient(135deg,var(--sky),var(--sky2));color:#fff;align-self:flex-end;border-bottom-right-radius:5px}
+.roleask{text-align:center;color:var(--sub);font-size:.82rem;margin:6px 0}
+
+.patcard{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px;text-align:center}
+.patcard .frame{font-size:1.4rem;font-weight:800;line-height:1.5;margin-bottom:6px}
+.patcard .slot{color:var(--sky);border-bottom:2px dashed var(--sky)}
+.slotbtns{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:14px}
+.slotbtn{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 15px;font-weight:700;font-size:.95rem}
+.slotbtn.on{background:var(--sky);color:#fff;border-color:transparent}
+
+.toast{position:fixed;left:50%;top:22%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:14px;font-weight:800;z-index:100;box-shadow:var(--shadow);animation:pop .2s;max-width:86vw;text-align:center}
+.pop-heart{position:fixed;font-size:30px;z-index:120;pointer-events:none;animation:floatUp 1s ease-out forwards}
+@keyframes floatUp{to{transform:translateY(-90px) scale(1.6);opacity:0}}
+
+.searchbox{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1rem;box-shadow:var(--shadow)}
+.searchbox:focus{outline:2px solid var(--sky)}
+
+.prof{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.pill{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:11px 16px;font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:8px}
+.pill.on{border-color:var(--sky);color:var(--sky);background:rgba(14,165,233,.08)}
+.bandsel{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:8px 0}
+.bandopt{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px;text-align:left;box-shadow:var(--shadow)}
+.bandopt.on{border-color:var(--sky);background:rgba(14,165,233,.06)}
+.bandopt b{font-size:.95rem}.bandopt small{display:block;color:var(--sub);font-size:.72rem;margin-top:3px;line-height:1.3}
+.setrow{background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.setrow .lab b{font-size:.95rem}.setrow .lab small{color:var(--sub);font-size:.78rem;display:block;margin-top:2px}
+.switch{width:52px;height:30px;border-radius:99px;background:var(--line);position:relative;transition:.2s;flex:none}
+.switch.on{background:var(--sky)}
+.switch>i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}
+.switch.on>i{left:25px}
+.stepper{display:flex;align-items:center;gap:12px}
+.stepper button{width:34px;height:34px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:20px;font-weight:800}
+.emptybox{text-align:center;color:var(--sub);padding:40px 20px;font-size:.88rem}
+.emptybox .e{font-size:40px}
+
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0}
+.badge{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:12px 4px;text-align:center;opacity:.35;filter:grayscale(1)}
+.badge.got{opacity:1;filter:none}
+.badge .bi{font-size:26px}
+.badge .bn{font-size:.62rem;font-weight:700;margin-top:4px;color:var(--sub)}
+
+.refcard{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:14px 16px;margin-bottom:11px}
+.refcard h3{font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px}
+.refrow{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.85rem;align-items:baseline}
+.refrow:last-child{border:none}
+.refrow .flag{font-size:1.1rem;flex:none}
+.refrow .rc{font-weight:800;flex:none;min-width:64px}
+.refrow .rt{color:var(--sub);font-size:.8rem}
+#installBar:empty{display:none}
+#installBar{margin:12px 0}
+#installBar .ib{display:block;width:100%;border:0;border-radius:14px;padding:13px 15px;font-size:15px;font-weight:800;cursor:pointer;background:#4f46e5;color:#fff;box-shadow:0 6px 16px rgba(79,70,229,.32)}
+#installBar .ib.sec{background:#eef0fe;color:#4f46e5}
+#installBar .tip{background:#fff7e6;border:1px solid #ffe0a3;border-radius:14px;padding:13px;font-size:13px;line-height:1.85;color:#5a4a1a}
+#installBar .x{display:inline-block;margin-top:6px;color:#4f46e5;font-weight:800;cursor:pointer}
+</style>
+
+<div class="topbar">
+  <div class="row">
+    <div class="iconbtn" onclick="go('profile')">👤</div>
+    <h1>🧳 旅遊英文</h1>
+    <div class="chip" id="profChip" onclick="go('profile')">👤 —</div>
+  </div>
+  <div class="stats">
+    <div class="chip">🔥 <span id="stStreak">0</span> 天</div>
+    <div class="chip">⭐ <span id="stStars">0</span></div>
+    <div class="chip">🎯 <span id="stToday">0</span>/<span id="stGoal">20</span></div>
+    <div class="chip">🔁 待複習 <span id="stDue">0</span></div>
+  </div>
+</div>
+
+<div id="view-home" class="wrap">
+  <div id="dailyBanner"></div>
+  <div id="installBar"></div>
+  <div class="section-title" id="gridTitle">🗺️ 情境關卡</div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div id="view-detail" class="wrap hidden"></div>
+
+<div id="view-sos" class="wrap hidden"></div>
+
+<div id="view-search" class="wrap hidden">
+  <div class="section-title">🔎 全句庫搜尋（出國隨查）</div>
+  <input class="searchbox" id="searchInput" placeholder="輸入中文或英文，例：退稅、window seat" oninput="doSearch(this.value)">
+  <div id="searchRes" style="margin-top:12px"></div>
+</div>
+
+<div id="view-fav" class="wrap hidden">
+  <div class="section-title">⭐ 我的收藏</div>
+  <div id="favList"></div>
+</div>
+
+<div id="view-profile" class="wrap hidden">
+  <div class="section-title">👨‍👩‍👧‍👦 家庭成員</div>
+  <div class="prof" id="profList"></div>
+  <button class="pbtn ghost" style="margin-top:4px" onclick="addProfile()">＋ 新增成員</button>
+
+  <div class="section-title">🎚️ 使用模式（依成員程度）</div>
+  <div class="bandsel" id="bandSel"></div>
+
+  <div class="section-title">🏅 成就徽章</div>
+  <div class="badges" id="badges"></div>
+
+  <div class="section-title">⚙️ 設定</div>
+  <div class="setrow"><div class="lab"><b>每日目標</b><small>每天要練幾張卡</small></div>
+    <div class="stepper"><button onclick="setGoal(-5)">−</button><b id="goalView">20</b><button onclick="setGoal(5)">＋</button></div></div>
+  <div class="setrow"><div class="lab"><b>發音速度</b><small>語音朗讀語速</small></div>
+    <div class="stepper"><button onclick="setRate(-.1)">−</button><b id="rateView">1.0×</b><button onclick="setRate(.1)">＋</button></div></div>
+  <div class="setrow"><div class="lab"><b>大字模式</b><small>字體放大，長輩好讀</small></div>
+    <div class="switch" id="swBig" onclick="toggleBig()"><i></i></div></div>
+  <div class="setrow"><div class="lab"><b>深色模式</b><small>夜間護眼</small></div>
+    <div class="switch" id="swDark" onclick="toggleDark()"><i></i></div></div>
+  <div class="setrow"><div class="lab"><b>顯示中文</b><small>學習卡是否顯示中文</small></div>
+    <div class="switch on" id="swZh" onclick="toggleZh()"><i></i></div></div>
+
+  <div class="section-title">📊 這位成員的進度</div>
+  <div id="progSummary"></div>
+  <button class="pbtn ghost" style="margin-top:14px;color:var(--bad)" onclick="resetProgress()">🗑️ 重設此成員進度</button>
+  <p style="text-align:center;color:var(--sub);font-size:.72rem;margin-top:18px">離線可用 · 資料存在本機 · 全家共用一支手機也各自記錄</p>
+</div>
+
+<div class="nav">
+  <button id="nav-home" class="on" onclick="go('home')"><span class="ni">🏠</span>首頁</button>
+  <button id="nav-review" onclick="startReview()"><span class="ni">🔁</span>複習</button>
+  <button id="nav-sos" class="sosnav" onclick="go('sos')"><span class="ni">🆘</span>救命</button>
+  <button id="nav-search" onclick="go('search')"><span class="ni">🔎</span>搜尋</button>
+  <button id="nav-profile" onclick="go('profile')"><span class="ni">👤</span>我的</button>
+</div>
+
+<div id="overlayMount"></div>
+
+<script id="REF">
+window.__REF__ = {
+  emergency:[
+    {flag:"🇹🇼",c:"台灣海外急難",police:"+886-800-085-095",amb:"外交部急難救助專線（國外免付費 800-0885-0885）"},
+    {flag:"🇺🇸",c:"美國/加拿大",police:"911",amb:"911（警消救護同號）"},
+    {flag:"🇯🇵",c:"日本",police:"110",amb:"119（火警與救護）"},
+    {flag:"🇰🇷",c:"南韓",police:"112",amb:"119"},
+    {flag:"🇬🇧",c:"英國",police:"999",amb:"999 或 112"},
+    {flag:"🇪🇺",c:"歐盟通用",police:"112",amb:"112（全歐通用）"},
+    {flag:"🇦🇺",c:"澳洲/紐西蘭",police:"000",amb:"000（紐西蘭 111）"},
+    {flag:"🇹🇭",c:"泰國",police:"191",amb:"1669；觀光警察 1155"},
+    {flag:"🇸🇬",c:"新加坡",police:"999",amb:"995"},
+    {flag:"🇨🇳",c:"中國大陸",police:"110",amb:"120"}
+  ],
+  tipping:[
+    {flag:"🇺🇸",c:"美國 / 加拿大",t:"幾乎都要給。餐廳 18–22%、計程車/Uber 15%、房務每天 $2–5、行李員每件 $1–2。刷卡在帳單加，付現桌上留。"},
+    {flag:"🇯🇵",c:"日本",t:"⚠️ 不用給小費！給了對方會困惑甚至覺得失禮，服務費通常已含在帳單。追出來還你別驚訝。"},
+    {flag:"🇪🇺",c:"歐洲多數國家",t:"帳單多已含 service charge，不必再加 20%。湊整數或加 5–10% 即可，用美式習慣會多花冤枉錢。"},
+    {flag:"🇬🇧",c:"英國",t:"餐廳約 10–15%（先看帳單是否已含 service charge），酒吧點酒不用給。"},
+    {flag:"🇹🇼",c:"台灣 / 南韓",t:"一般不給小費，餐廳多已收 10% 服務費。"},
+    {flag:"🇹🇭",c:"泰國 / 東南亞",t:"非必要，小額即可（20–50 泰銖、找零的零錢）。高級餐廳看帳單是否已含。"}
+  ]
+};
+</script>
+
+<script id="DATA">
+window.__SCENARIOS__ = [{"id":"airport-checkin","icon":"✈️","title":"機場報到","titleEn":"Airport Check-in","desc":"劃位、託運行李、找登機門、安檢與轉機","country":"US","words":[{"en":"aisle","zh":"走道","ico":"🚶"},{"en":"window","zh":"靠窗","ico":"🪟"},{"en":"passport","zh":"護照","ico":"🛂"},{"en":"boarding pass","zh":"登機證","ico":"🎫"},{"en":"gate","zh":"登機門","ico":"🚪"},{"en":"carry-on","zh":"手提行李","ico":"🎒"},{"en":"check in","zh":"報到","ico":"✅"},{"en":"baggage","zh":"行李","ico":"🧳"},{"en":"scale","zh":"磅秤","ico":"⚖️"},{"en":"upgrade","zh":"升等","ico":"⬆️"}],"patterns":[{"en":"Could I have ___, please?","zh":"我可以要…嗎？","slots":["a window seat","an aisle seat","a receipt"]},{"en":"Where's ___?","zh":"…在哪裡？","slots":["gate 23","the transfer desk","the restroom"]},{"en":"What time does ___ start?","zh":"…幾點開始？","slots":["boarding","check-in"]}],"phrases":[{"en":"Here are our passports.","zh":"這是我們的護照。","tag":"報到","level":1,"survival":true,"homophone":"西爾 阿 趴斯波"},{"en":"Hi, we're checking in for the flight to Tokyo.","zh":"你好，我們要辦飛東京的登機手續。","tip":"check in = 報到；報班機號更清楚：flight JL802","tag":"報到","level":2},{"en":"There are four of us, traveling together.","zh":"我們四個人一起旅行。","tip":"希望坐一起可加：Could we sit together?","tag":"報到","level":2},{"en":"Could we get seats together, please?","zh":"可以幫我們劃在一起嗎？","tip":"seats together = 相鄰座位","tag":"劃位","level":2},{"en":"Aisle seat, please.","zh":"走道位子，麻煩你。","tag":"劃位","level":1,"survival":true,"homophone":"愛歐 西特 普利司"},{"en":"Window seat, please.","zh":"靠窗位子，麻煩你。","tip":"window = 靠窗；aisle = 走道","tag":"劃位","level":1},{"en":"Is there any chance of an upgrade to premium economy?","zh":"有機會升等豪華經濟艙嗎？","tip":"委婉問法；upgrade = 升等","tag":"劃位","level":3},{"en":"I'd like to check in these two bags.","zh":"我要託運這兩件行李。","tip":"check in bags = 託運行李","tag":"託運","level":2},{"en":"This one's a carry-on, I'll take it on board.","zh":"這件是手提行李，我要帶上飛機。","tip":"carry-on = 手提／登機行李","tag":"託運","level":2},{"en":"How much is the excess baggage fee?","zh":"行李超重要收多少錢？","tip":"excess baggage = 超重行李；美式幣別講 dollars","tag":"託運","level":2},{"en":"Could you tag this bag as fragile, please?","zh":"可以幫這件貼易碎標籤嗎？","tip":"fragile = 易碎","tag":"託運","level":3},{"en":"Will our bags be checked all the way through to Osaka?","zh":"我們的行李會直接掛到大阪嗎？","tip":"轉機時很實用；all the way through = 直掛到底","tag":"託運","level":2},{"en":"Do I need to take out my laptop and liquids?","zh":"我需要把筆電和液體拿出來嗎？","tip":"安檢常見問；liquids = 液體（有100ml限制）","tag":"安檢","level":2},{"en":"What time does boarding start?","zh":"幾點開始登機？","tip":"boarding = 登機","tag":"問路","level":2},{"en":"Which gate?","zh":"哪個登機門？","tag":"問路","level":1,"survival":true,"homophone":"委取 給特"},{"en":"Where's the transfer desk?","zh":"轉機櫃檯在哪裡？","tag":"轉機","level":1,"survival":true,"homophone":"威爾斯 惹 全斯佛 戴斯克"},{"en":"Where's the gate for connecting flights?","zh":"轉機（下一段）的登機門在哪？","tip":"connecting flight = 銜接／轉乘班機","tag":"轉機","level":2},{"en":"Our connection is really tight — is there anything you can do to help us make it?","zh":"我們轉機時間很趕，能不能幫我們趕上？","tip":"connection = 轉機；報到櫃檯不主導登機順序，改請對方協助趕班機較自然","tag":"問題","level":3}],"dialogue":{"title":"在櫃檯辦理登機","youRole":"旅客（爸爸）","npcRole":"地勤人員","lines":[{"who":"npc","en":"Good morning! Where are you flying today?","zh":"早安！請問今天飛哪裡？","alt":[{"en":"Hello! What's your final destination?","zh":"哈囉！請問您的最終目的地是？"}]},{"who":"you","en":"Good morning. We're going to Tokyo. Here are our four passports.","zh":"早安。我們要去東京，這是我們四個人的護照。"},{"who":"npc","en":"Thank you. How many bags are you checking in?","zh":"謝謝。請問要託運幾件行李？","alt":[{"en":"Any bags to check today?","zh":"今天有要託運行李嗎？"}]},{"who":"you","en":"Three bags to check in, and each of us has a carry-on.","zh":"託運三件，我們每個人各有一件手提行李。"},{"who":"npc","en":"Perfect. Please put the first bag on the scale.","zh":"好的，請把第一件行李放上磅秤。"},{"who":"you","en":"Sure. Could you seat us all together? And I'd like an aisle seat if possible.","zh":"好。可以幫我們劃在一起嗎？如果可以，我想要走道的位子。"},{"who":"npc","en":"Of course. I've got you in a row of four, with two aisle seats.","zh":"沒問題，我幫你們安排同一排四個位子，有兩個走道座位。"},{"who":"you","en":"That's great, thank you. What time does boarding start?","zh":"太好了，謝謝。請問幾點開始登機？"},{"who":"npc","en":"Boarding begins at 10:30 from gate 42. It's a bit of a walk, so leave some time.","zh":"十點半從42號登機門開始登機，路有點遠，請預留一點時間。","alt":[{"en":"You'll board at 10:30 from gate 42.","zh":"10:30 在42號門登機。"}]},{"who":"you","en":"Got it. And will our bags go all the way through to our final stop?","zh":"了解。我們的行李會直掛到最終目的地嗎？"},{"who":"npc","en":"Yes, they're tagged straight through. Here are your boarding passes. Have a great trip!","zh":"會的，行李直掛到底。這是你們的登機證，祝旅途愉快！"},{"who":"you","en":"Thank you so much. Have a nice day!","zh":"非常謝謝你，祝你有美好的一天！"}]}},{"id":"immigration","icon":"🛂","title":"出入境海關","titleEn":"Immigration & Customs","desc":"移民官問答、入境卡、海關申報","country":"US","words":[{"en":"passport","zh":"護照","ico":"🛂"},{"en":"visa","zh":"簽證","ico":"📄"},{"en":"vacation","zh":"度假","ico":"🏖️"},{"en":"customs","zh":"海關","ico":"🛃"},{"en":"declare","zh":"申報","ico":"🗣️"},{"en":"arrival card","zh":"入境卡","ico":"📝"},{"en":"occupation","zh":"職業","ico":"💼"},{"en":"return ticket","zh":"回程機票","ico":"🎟️"},{"en":"fingerprint","zh":"指紋","ico":"👆"}],"patterns":[{"en":"We're here on ___.","zh":"我們是來…的。","slots":["vacation","business","a family trip"]},{"en":"We're staying for ___.","zh":"我們會待…。","slots":["ten days","a week","two weeks"]},{"en":"I have nothing to ___.","zh":"我沒有要…的東西。","slots":["declare"]}],"phrases":[{"en":"Here's my passport.","zh":"這是我的護照。","tag":"移民","level":1,"survival":true,"homophone":"西爾斯 麥 趴斯波"},{"en":"We're here on vacation.","zh":"我們是來度假的。","tag":"移民","level":1,"survival":true,"homophone":"威爾 希爾 昂 崴凱訓"},{"en":"We're staying for ten days.","zh":"我們會待十天。","tip":"直接講天數最清楚","tag":"移民","level":1},{"en":"We're staying at a hotel in the city center.","zh":"我們住在市中心的一間飯店。","tip":"可補：the address is on the form","tag":"移民","level":2},{"en":"This is my wife, and these are our two kids.","zh":"這是我太太，這兩位是我們的小孩。","tip":"全家一起過關時很好用","tag":"移民","level":2},{"en":"I'm a teacher.","zh":"我是老師。","tip":"移民官問職業時：回答簡短、只答被問的、別開玩笑，官員沒問就別多說","tag":"移民","level":1},{"en":"Yes, we have a return ticket on the 20th.","zh":"有，我們20號的回程機票。","tip":"return ticket = 回程票；被問就照實答","tag":"移民","level":2},{"en":"Sorry? Again, please.","zh":"抱歉？請再說一次。","tag":"移民","level":1,"survival":true,"homophone":"搜瑞 阿乾 普利司"},{"en":"Excuse me, could you speak a little slower?","zh":"不好意思，可以講慢一點嗎？","tip":"speak slower = 講慢一點","tag":"移民","level":2},{"en":"Where can I get help filling out this arrival card?","zh":"我要去哪裡找人幫忙填這張入境卡？","tip":"移民官不會代填；改向服務台問；arrival card = 入境卡","tag":"入境卡","level":2},{"en":"What should I write in this box?","zh":"這一欄要寫什麼？","tip":"box = 欄位；field 也可","tag":"入境卡","level":2},{"en":"Nothing to declare.","zh":"沒有東西要申報。","tag":"海關","level":1,"survival":true,"homophone":"那訊 兔 迪克萊爾"},{"en":"These are just some snacks and gifts for family.","zh":"這些只是一些零食和給家人的禮物。","tip":"被問時解釋用；gifts = 禮物","tag":"海關","level":2},{"en":"Do I need to declare this? It's for personal use.","zh":"這個需要申報嗎？是自己用的。","tip":"personal use = 個人使用","tag":"海關","level":2},{"en":"We're not carrying any food or fresh fruit.","zh":"我們沒有帶任何食物或新鮮水果。","tip":"很多國家管制農產品","tag":"海關","level":2},{"en":"Where's baggage claim?","zh":"行李提領在哪裡？","tag":"問路","level":1,"survival":true,"homophone":"威爾斯 貝格取 克連姆"},{"en":"Is this the right line for foreign passports?","zh":"這是外國護照排的隊嗎？","tip":"line = 隊伍（英式：queue，此差異移到 tip）","tag":"問路","level":2}],"dialogue":{"title":"通過入境查驗","youRole":"旅客","npcRole":"移民官","lines":[{"who":"npc","en":"Next, please. Passports, everyone.","zh":"下一位，請大家出示護照。"},{"who":"you","en":"Good morning. Here are the four passports for our family.","zh":"早安，這是我們一家四口的護照。"},{"who":"npc","en":"Thank you. What's the purpose of your visit?","zh":"謝謝。請問來訪目的是什麼？"},{"who":"you","en":"We're here on vacation, just sightseeing with the kids.","zh":"我們來度假，帶小孩觀光而已。"},{"who":"npc","en":"What's your occupation?","zh":"請問您的職業是？","alt":[{"en":"What do you do for a living?","zh":"您是做什麼工作的？"}]},{"who":"you","en":"I'm a teacher.","zh":"我是老師。"},{"who":"npc","en":"How long are you planning to stay?","zh":"你們打算待多久？"},{"who":"you","en":"Ten days. Then we fly back to Taiwan.","zh":"十天，然後就飛回台灣。"},{"who":"npc","en":"Do you have a return ticket?","zh":"你們有回程機票嗎？","alt":[{"en":"Have you booked your flight home?","zh":"回家的機票訂好了嗎？"}]},{"who":"you","en":"Yes, we fly home on the 20th.","zh":"有，我們20號飛回去。"},{"who":"npc","en":"How much cash are you carrying?","zh":"你們帶了多少現金？","alt":[{"en":"Are you carrying any large amounts of cash?","zh":"有攜帶大筆現金嗎？"}]},{"who":"you","en":"About five hundred dollars.","zh":"大約五百美元。"},{"who":"npc","en":"Alright. Please look at the camera. Thank you — enjoy your stay!","zh":"好的，請看鏡頭。謝謝，祝你們玩得愉快！"},{"who":"you","en":"Thank you very much. Have a good day!","zh":"非常謝謝你，祝你有美好的一天！"}]}},{"id":"baggage","icon":"🧳","title":"行李提領","titleEn":"Baggage Claim","desc":"領行李、行李遺失、行李推車","country":"US","words":[{"en":"carousel","zh":"行李轉盤","ico":"🎠"},{"en":"belt","zh":"輸送帶","ico":"➿"},{"en":"suitcase","zh":"行李箱","ico":"🧳"},{"en":"cart","zh":"行李推車","ico":"🛒"},{"en":"tag","zh":"行李吊牌","ico":"🏷️"},{"en":"missing","zh":"遺失","ico":"❓"},{"en":"damaged","zh":"損壞","ico":"💥"},{"en":"claim","zh":"認領／申報","ico":"📋"},{"en":"wheel","zh":"輪子","ico":"🛞"},{"en":"exit","zh":"出口","ico":"🚪"}],"patterns":[{"en":"Where's ___?","zh":"…在哪裡？","slots":["a luggage cart","the exit","the taxi stand"]},{"en":"My ___ is missing.","zh":"我的…不見了。","slots":["suitcase","bag","stroller"]}],"phrases":[{"en":"Which carousel is for the flight from Taipei?","zh":"台北來的班機是哪個行李轉盤？","tip":"carousel = 行李轉盤；belt 也可","tag":"領行李","level":2},{"en":"The board says our bags are on belt five.","zh":"看板顯示我們的行李在五號轉盤。","tip":"belt = 行李輸送帶","tag":"領行李","level":2},{"en":"Where's a cart?","zh":"推車在哪裡？","tag":"推車","level":1,"survival":true,"homophone":"威爾斯 阿 卡特"},{"en":"Are the carts free, or do I need coins?","zh":"推車是免費的，還是要投幣？","tip":"美式：luggage cart（英式 trolley，差異移到 tip）","tag":"推車","level":2},{"en":"Could you give me a hand with this heavy bag?","zh":"可以幫我搬一下這件很重的行李嗎？","tip":"give me a hand = 幫個忙","tag":"領行李","level":2},{"en":"I think that black suitcase is ours.","zh":"我想那個黑色行李箱是我們的。","tip":"suitcase = 行李箱","tag":"領行李","level":2},{"en":"Wait, that one looks just like ours — let me check the tag.","zh":"等等，那個跟我們的很像，我看一下吊牌。","tip":"很多行李長得一樣，先核對","tag":"領行李","level":2},{"en":"That's my bag.","zh":"那是我的行李。","tag":"領行李","level":1,"survival":true,"homophone":"戴茲 麥 貝格"},{"en":"We've been waiting a while and one bag hasn't come out.","zh":"我們等了一陣子，有一件行李還沒出來。","tip":"行李遲遲不來時說","tag":"遺失","level":2},{"en":"My bag is missing.","zh":"我的行李不見了。","tag":"遺失","level":1,"survival":true,"homophone":"麥 貝格 伊斯 密辛"},{"en":"Here's my baggage claim tag and boarding pass.","zh":"這是我的行李託運吊牌和登機證。","tip":"報遺失要填 PIR（Property Irregularity Report，行李異常報告）；claim tag = 託運吊牌","tag":"遺失","level":2},{"en":"It's a large red hard-shell suitcase with wheels.","zh":"那是一個紅色的大硬殼行李箱，有輪子。","tip":"描述特徵：顏色+材質+大小","tag":"遺失","level":2},{"en":"Could you deliver it to our hotel once you find it?","zh":"找到之後可以幫我們送到飯店嗎？","tip":"deliver = 送達；常見服務","tag":"遺失","level":2},{"en":"How long does it usually take to find it?","zh":"找回遺失行李通常要多久？","tip":"口語就用 find it；track down 較正式書面","tag":"遺失","level":2},{"en":"One of our bags looks damaged — the wheel is broken.","zh":"我們有一件行李看起來壞了，輪子斷了。","tip":"damaged = 損壞；可要求理賠，並填 PIR","tag":"遺失","level":2},{"en":"Where's the exit?","zh":"出口在哪裡？","tag":"問路","level":1,"survival":true,"homophone":"威爾斯 惹 唉格季特"},{"en":"Is the taxi stand right outside this exit?","zh":"計程車招呼站就在這個出口外面嗎？","tip":"taxi stand = 計程車招呼站","tag":"問路","level":2}],"dialogue":{"title":"行李沒出來，去服務櫃檯","youRole":"旅客","npcRole":"行李服務人員","lines":[{"who":"you","en":"Hi, we've collected three bags, but one suitcase never came out.","zh":"你好，我們領到三件行李，但有一個行李箱一直沒出來。"},{"who":"npc","en":"I'm sorry to hear that. May I see your claim tag and boarding pass?","zh":"很抱歉。可以看一下您的行李吊牌和登機證嗎？","alt":[{"en":"No problem. Do you have your claim tag?","zh":"沒問題。您有行李吊牌嗎？"}]},{"who":"you","en":"Sure, here they are. It was on the flight from Taipei.","zh":"當然，在這裡。是台北來的那班飛機。"},{"who":"npc","en":"Thank you. Can you describe the missing bag for me?","zh":"謝謝。可以描述一下遺失的行李嗎？","alt":[{"en":"What does the bag look like?","zh":"行李長什麼樣子？"}]},{"who":"you","en":"It's a large red hard-shell suitcase with four wheels.","zh":"那是一個紅色的大硬殼行李箱，有四個輪子。"},{"who":"npc","en":"Got it. It looks like it's still in Taipei and will arrive tonight.","zh":"了解。看起來它還在台北，今晚會到。"},{"who":"you","en":"Oh no. Could you deliver it to our hotel once it arrives?","zh":"糟糕。到了之後可以幫我們送到飯店嗎？"},{"who":"npc","en":"Of course. Please write your hotel name and address here.","zh":"當然可以。請在這裡寫下飯店名稱和地址。"},{"who":"you","en":"Done. How long does it usually take?","zh":"寫好了。通常要多久呢？"},{"who":"npc","en":"I'll file a report and give you a reference number to track it.","zh":"我會建立行李異常報告，並給您一個查詢編號來追蹤。","alt":[{"en":"I'll file a PIR (Property Irregularity Report) and give you a tracking number.","zh":"我會建立 PIR（行李異常報告），並給您追蹤編號。"}]},{"who":"you","en":"Thank you. Is there any compensation for the delay?","zh":"謝謝。延誤有任何賠償嗎？"},{"who":"npc","en":"You can claim basic expenses. Keep your receipts and contact us anytime.","zh":"您可以申請基本費用補償，請保留收據，隨時與我們聯絡。"}]}},{"id":"flight-trouble","icon":"🛫","title":"航班異常","titleEn":"Flight Problems","desc":"誤點、取消、改簽、轉機、安檢","country":"US","words":[{"en":"rebook","zh":"改訂/改簽","ico":"🔁"},{"en":"standby","zh":"候補","ico":"🕓"},{"en":"delay","zh":"誤點","ico":"⏱️"},{"en":"cancelled","zh":"取消","ico":"❌"},{"en":"connection","zh":"轉機/銜接","ico":"🔗"},{"en":"gate","zh":"登機門","ico":"🚪"},{"en":"transfer desk","zh":"轉機櫃台","ico":"🛄"},{"en":"voucher","zh":"兌換券","ico":"🎟️"},{"en":"compensation","zh":"賠償","ico":"💰"},{"en":"boarding pass","zh":"登機證","ico":"🎫"}],"patterns":[{"en":"Can you ___?","zh":"你可以…嗎？","slots":["rebook me","put me on standby","call the transfer desk"]},{"en":"My flight was ___.","zh":"我的班機…。","slots":["cancelled","delayed","overbooked"]}],"phrases":[{"en":"My flight was cancelled.","zh":"我的班機取消了。","tip":"cancelled = 取消","tag":"狀況","level":1,"survival":true,"homophone":"買 福賴 瓦斯 坎叟"},{"en":"How long is the delay?","zh":"誤點多久？","tip":"delay = 誤點","tag":"誤點","level":1,"survival":true,"homophone":"好 龍 意思 惹 低累"},{"en":"Which gate?","zh":"哪個登機門？","tip":"指示牌看不懂就直接問","tag":"登機門","level":1,"survival":true,"homophone":"委去 給特"},{"en":"Where's the transfer desk?","zh":"轉機櫃台在哪裡？","tip":"transfer desk = 轉機/改簽櫃台","tag":"轉機","level":2,"survival":true,"homophone":"威爾斯 傳斯佛 戴斯克"},{"en":"My flight was cancelled — can you rebook me on the next flight?","zh":"我的班機取消了，可以幫我改訂下一班嗎？","tip":"rebook = 改訂／改簽","tag":"改簽","level":2},{"en":"Can you rebook me at no extra charge?","zh":"可以免加價幫我改簽嗎？","tip":"no extra charge = 不另外收費","tag":"改簽","level":2},{"en":"How much is the change fee?","zh":"改票要多少手續費？","tip":"change fee = 改票費","tag":"費用","level":2},{"en":"Can I get on an earlier flight?","zh":"我可以搭更早的班機嗎？","tip":"earlier flight = 更早的班機","tag":"改簽","level":2},{"en":"Can you put me on standby?","zh":"可以幫我排候補嗎？","tip":"standby = 候補","tag":"候補","level":2},{"en":"I missed my connection.","zh":"我沒趕上轉機。","tip":"connection = 轉機班機","tag":"轉機","level":2},{"en":"Which gate for connecting flights?","zh":"轉機要去哪個登機門？","tip":"connecting flight = 轉接班機","tag":"轉機","level":2},{"en":"Do I need to take out my laptop and liquids?","zh":"我需要把筆電和液體拿出來嗎？","tip":"安檢常見要求","tag":"安檢","level":2},{"en":"Will the airline cover a hotel for tonight?","zh":"航空公司會提供今晚的住宿嗎？","tip":"cover = 負擔費用","tag":"賠償","level":2},{"en":"Do I get a meal voucher for the delay?","zh":"誤點有提供餐券嗎？","tip":"meal voucher = 餐券","tag":"賠償","level":2},{"en":"Am I entitled to compensation for the delay?","zh":"這次誤點我可以申請賠償嗎？","tip":"entitled to = 有權獲得","tag":"賠償","level":3},{"en":"Is my checked bag going to make the connection?","zh":"我托運的行李來得及轉機嗎？","tip":"checked bag = 托運行李","tag":"行李","level":3}],"dialogue":{"title":"班機取消，在櫃台改簽","youRole":"你（旅客）","npcRole":"地勤","lines":[{"who":"npc","en":"Good evening. How can I help you?","zh":"晚安，有什麼需要幫忙的嗎？","alt":[{"en":"Hi there, what can I do for you?","zh":"你好，需要我幫什麼忙嗎？"},{"en":"Next in line, please. How may I help?","zh":"下一位，請問需要什麼服務？"}]},{"who":"you","en":"My flight was cancelled. Can you rebook me on the next flight?","zh":"我的班機取消了，可以幫我改訂下一班嗎？"},{"who":"npc","en":"I'm sorry about that. Let me check availability.","zh":"很抱歉，我幫你查一下還有沒有位子。","alt":[{"en":"So sorry for the trouble. One moment while I look.","zh":"造成不便很抱歉，稍等我查一下。"},{"en":"Apologies. Let me see what flights are open.","zh":"抱歉，我看看還有哪些班機。"}]},{"who":"you","en":"Can you rebook me at no extra charge?","zh":"可以免加價幫我改簽嗎？"},{"who":"npc","en":"Yes, since the cancellation was our fault, there's no charge.","zh":"可以，因為是我們的取消，不會收費。","alt":[{"en":"Of course, the change fee is waived for a cancellation.","zh":"當然，取消改票免手續費。"},{"en":"Absolutely, no extra charge in this case.","zh":"沒問題，這種情況不另外收費。"}]},{"who":"you","en":"Great. I also missed my connection. Which gate for connecting flights?","zh":"太好了。我還錯過了轉機，轉機要去哪個登機門？"},{"who":"npc","en":"The next flight leaves from Gate 22. I'll put you on it.","zh":"下一班從22號登機門起飛，我幫你排上去。"},{"who":"you","en":"How long is the delay? Will the airline cover a hotel for tonight?","zh":"誤點多久？航空公司會提供今晚的住宿嗎？"},{"who":"npc","en":"About five hours. Yes, we'll provide a hotel and a meal voucher.","zh":"大約五小時。會的，我們提供住宿和餐券。"},{"who":"you","en":"Thank you. Can you put me on standby for an earlier flight too?","zh":"謝謝。也可以幫我排更早班機的候補嗎？"},{"who":"npc","en":"Of course. You're on the standby list now. Here's your new boarding pass.","zh":"當然，你已在候補名單上了，這是你的新登機證。"},{"who":"you","en":"Thank you so much for your help.","zh":"非常感謝你的幫忙。"}]}},{"id":"transport","icon":"🚇","title":"大眾運輸","titleEn":"Public Transport","desc":"買票、地鐵公車、轉乘、班次","country":"US","words":[{"en":"ticket","zh":"車票","ico":"🎫"},{"en":"platform","zh":"月台","ico":"🚉"},{"en":"one-way","zh":"單程","ico":"➡️"},{"en":"round-trip","zh":"來回","ico":"🔁"},{"en":"transfer","zh":"轉乘","ico":"🔀"},{"en":"stop","zh":"站","ico":"🚏"},{"en":"day pass","zh":"一日票","ico":"📅"},{"en":"last train","zh":"末班車","ico":"🌙"},{"en":"metro","zh":"地鐵","ico":"🚇"},{"en":"fare","zh":"車資","ico":"💵"}],"patterns":[{"en":"___, please.","zh":"我要…，謝謝。","slots":["One ticket","Two tickets to Central Station","A day pass"]},{"en":"Which platform for ___?","zh":"往…是哪個月台？","slots":["the airport","the Old Town","the red line"]},{"en":"How many stops to ___?","zh":"到…還有幾站？","slots":["the harbor","the museum","City Hall"]}],"phrases":[{"en":"One ticket, please.","zh":"一張票，謝謝。","tip":"最短的買票句；two tickets = 兩張","tag":"買票","level":1,"survival":true,"homophone":"萬 踢殻特 普利斯"},{"en":"Which platform?","zh":"哪個月台？","tip":"platform = 月台","tag":"月台","level":1,"survival":true,"homophone":"威取 普雷特佛姆"},{"en":"Two tickets to Central Station, please.","zh":"兩張到中央車站的票，謝謝。","tip":"把 Central Station 換成你的目的地","tag":"買票","level":1,"survival":true,"homophone":"兔 踢殻茲 兔 深戳 斯得訊 普利斯"},{"en":"Take the train to Platform 2.","zh":"到第 2 月台搭車。","tip":"數字填空練習：把「2」換成聽到的月台號","tag":"月台","level":1},{"en":"It's four stops from here.","zh":"從這裡還有 4 站。","tip":"數字填空練習：把「four」換成聽到的站數","tag":"下車","level":2},{"en":"The last train is at midnight.","zh":"末班車是午夜 12 點。","tip":"數字填空練習：把「midnight」換成聽到的時間","tag":"班次","level":2},{"en":"How much is a one-way ticket to the airport?","zh":"到機場的單程票多少錢？","tip":"one-way 單程／round-trip 來回","tag":"買票","level":2},{"en":"Is there a day pass for the whole family?","zh":"有全家可以用的一日票嗎？","tip":"day pass 一日票／group ticket 團體票","tag":"票種","level":2},{"en":"Does this train go to the Old Town?","zh":"這班車有到舊城區嗎？","tip":"換 this bus 這班公車","tag":"確認路線","level":2},{"en":"Which platform does the train to the airport leave from?","zh":"往機場的車是從哪個月台出發？","tip":"platform 月台","tag":"月台","level":2},{"en":"Do I need to change trains, or is it a direct line?","zh":"我需要轉車嗎，還是這條線直達？","tip":"change trains 轉車／direct 直達","tag":"轉乘","level":2},{"en":"Where do I transfer to the blue line?","zh":"我要在哪裡轉搭藍線？","tip":"transfer = 轉乘／換線","tag":"轉乘","level":2},{"en":"How many stops is it to the harbor?","zh":"到港口還有幾站？","tip":"stops = 站數","tag":"下車","level":2},{"en":"What time is the last train tonight?","zh":"今晚的末班車是幾點？","tip":"last train 末班車／first train 首班車","tag":"班次","level":2},{"en":"Does this card work on both the metro and the buses?","zh":"這張卡地鐵和公車都能用嗎？","tip":"美式 subway/metro，英式 underground/tube","tag":"票種","level":3},{"en":"Could you tell me when we reach my stop?","zh":"到我那一站時可以跟我說一聲嗎？","tip":"請司機或乘客提醒你下車","tag":"下車","level":3}],"dialogue":{"title":"在地鐵站買票與問路","youRole":"旅客（爸爸）","npcRole":"站務人員","lines":[{"who":"you","en":"Hi, we'd like to go to the Old Town. Two adults and two kids.","zh":"你好，我們想去舊城區，兩個大人、兩個小孩。"},{"who":"npc","en":"Sure. Are you planning to travel around all day?","zh":"好的，你們打算一整天都在市區移動嗎？","alt":[{"en":"Of course. Will you be riding all day?","zh":"當然。你們會搭一整天嗎？"},{"en":"Sure thing. Just this trip, or all day?","zh":"沒問題。只有這趟，還是一整天？"}]},{"who":"you","en":"Yes, we'll be sightseeing the whole day. Is there a day pass?","zh":"對，我們一整天都會觀光。有一日票嗎？"},{"who":"npc","en":"There is. A family day pass covers all metro and bus lines.","zh":"有的，家庭一日票地鐵和公車路線都可以搭。"},{"who":"you","en":"Great, we'll take one. Does the metro go directly to the Old Town?","zh":"太好了，我們買一張。地鐵有直達舊城區嗎？"},{"who":"npc","en":"Almost. Take the red line, then transfer to the blue line at City Hall.","zh":"差不多，搭紅線，然後在市政廳站轉搭藍線。","alt":[{"en":"Not quite. Red line first, then switch to the blue line at City Hall.","zh":"不完全。先搭紅線，在市政廳換藍線。"},{"en":"Nearly. Ride the red line and change to blue at City Hall.","zh":"差不多。搭紅線，在市政廳換藍線。"}]},{"who":"you","en":"Which platform is the red line?","zh":"紅線在哪個月台？"},{"who":"npc","en":"Platform 2, just down the stairs on your right.","zh":"第二月台，下樓梯右手邊就是。","alt":[{"en":"That's Platform 2, down the stairs to your right.","zh":"是第 2 月台，下樓梯右手邊。"},{"en":"Platform 2. Take the stairs on the right.","zh":"第 2 月台，走右邊樓梯。"}]},{"who":"you","en":"And how many stops until we transfer?","zh":"到轉車那站還有幾站？"},{"who":"npc","en":"Four stops to City Hall, then two more on the blue line.","zh":"到市政廳四站，再搭藍線兩站。"},{"who":"you","en":"Perfect. One more thing—what time is the last train back?","zh":"太好了。還有一件事，回程的末班車是幾點？"},{"who":"npc","en":"Around midnight. Enjoy your day in the Old Town!","zh":"大約午夜。祝你們在舊城區玩得愉快！"}]}},{"id":"taxi","icon":"🚕","title":"計程車Uber","titleEn":"Taxi & Uber","desc":"叫車、告知目的地、跳表、下車","country":"US","words":[{"en":"taxi","zh":"計程車","ico":"🚕"},{"en":"meter","zh":"計程表","ico":"📟"},{"en":"airport","zh":"機場","ico":"✈️"},{"en":"address","zh":"地址","ico":"📍"},{"en":"luggage","zh":"行李","ico":"🧳"},{"en":"highway","zh":"高速公路","ico":"🛣️"},{"en":"change","zh":"找零","ico":"💰"},{"en":"receipt","zh":"收據","ico":"🧾"}],"patterns":[{"en":"Could you take us to ___?","zh":"可以載我們到…嗎？","slots":["this address","the airport","the Grand Hotel"]},{"en":"Could you ___, please?","zh":"可以請你…嗎？","slots":["use the meter","slow down","pull over here"]}],"phrases":[{"en":"Could you call a taxi for us, please?","zh":"可以幫我們叫一台計程車嗎？","tip":"在飯店櫃檯常用這句請人代叫。","tag":"叫車","level":2},{"en":"Are you available? We're going to the airport.","zh":"有空嗎？我們要去機場。","tip":"路邊攔車先確認對方 available；別用 Are you free?（會被誤解成免費）。","tag":"叫車","level":1},{"en":"To the airport, please.","zh":"到機場，謝謝。","tip":"把目的地換成地名即可，最短最好用。","tag":"叫車","level":1,"survival":true,"homophone":"兔 the 誒兒破特，普利斯"},{"en":"Hi, are you the Uber for Lin?","zh":"你好，你是林叫的 Uber 嗎？","tip":"上 Uber 前先核對名字，較安全。","tag":"叫車","level":2},{"en":"Could you take us to this address?","zh":"可以載我們到這個地址嗎？","tip":"直接把手機地址給司機看最保險。","tag":"告知目的地","level":1},{"en":"We'd like to go to the Grand Hotel, please.","zh":"我們要去圓山大飯店，謝謝。","tag":"告知目的地","level":2},{"en":"It's on the corner of Fifth and Main.","zh":"就在第五街和大街的轉角。","tip":"on the corner of A and B＝在 A 街和 B 街的轉角。","tag":"告知目的地","level":2},{"en":"About how much will it cost?","zh":"大約要多少錢？","tip":"上車前先問價，避免爭議。","tag":"車資跳表","level":1},{"en":"Please use the meter.","zh":"請跳表。","tip":"meter＝計程表；不肯跳表多半是喊價，要堅持。","tag":"車資跳表","level":1,"survival":true,"homophone":"普利斯 use the 米特"},{"en":"Is there an extra charge for luggage?","zh":"行李要另外加錢嗎？","tag":"車資跳表","level":2},{"en":"Could you take the highway? We're in a bit of a hurry.","zh":"可以走高速公路嗎？我們有點趕。","tip":"英式高速公路叫 motorway。","tag":"路線","level":2},{"en":"Could you avoid the traffic if possible?","zh":"可以的話盡量避開塞車好嗎？","tag":"路線","level":2},{"en":"I think you're going the wrong way.","zh":"我覺得你好像走錯路了。","tip":"看導航發現繞路時，禮貌但明確提出。","tag":"路線爭議","level":2},{"en":"Could you slow down a little, please?","zh":"可以請你開慢一點嗎？","tip":"覺得太快時禮貌提醒司機。","tag":"路線爭議","level":2},{"en":"Is it okay if we make a quick stop?","zh":"可以中途稍微停一下嗎？","tag":"路線","level":2},{"en":"You can just stop here, thanks.","zh":"在這裡停就好，謝謝。","tip":"下車前一段先講，讓司機有時間靠邊。","tag":"下車付款","level":1,"survival":true,"homophone":"You can just 斯踏普 here，thanks"},{"en":"Could you pull over up ahead?","zh":"可以在前面靠邊停嗎？","tip":"pull over＝靠邊停車。","tag":"下車付款","level":2},{"en":"How much do I owe you?","zh":"我要付你多少錢？","tag":"下車付款","level":1},{"en":"This is more than I expected.","zh":"這比我預期的還多。","tip":"覺得車資偏高時，禮貌但明確地質疑。","tag":"車資爭議","level":2},{"en":"Keep the change, thanks for the ride.","zh":"不用找了，謝謝載我們。","tip":"在美國搭計程車通常也會給一點小費，此句適用。","tag":"下車付款","level":2},{"en":"Could I get a receipt, please?","zh":"可以給我收據嗎？","tip":"報帳或核對車資都用得到。","tag":"下車付款","level":1}],"dialogue":{"title":"從飯店搭車去景點","youRole":"你（帶家人趕行程）","npcRole":"司機 Driver","lines":[{"who":"npc","en":"Hello! Where are you headed today?","zh":"你好！今天要去哪裡？"},{"who":"you","en":"Hi, could you take us to this address? It's the art museum.","zh":"你好，可以載我們到這個地址嗎？是美術館。"},{"who":"npc","en":"Sure thing. Hop in. That's about twenty minutes away.","zh":"沒問題，上車吧。大概二十分鐘的路程。"},{"who":"you","en":"About how much will it cost?","zh":"大約要多少錢？"},{"who":"npc","en":"It runs on the meter, probably around fifteen dollars.","zh":"都是跳表計費，大概十五塊左右。","alt":[{"en":"No meter today — it's a flat thirty to the museum.","zh":"今天不跳表，到美術館均一價三十塊。"},{"en":"Thirty seems high. Please use the meter.","zh":"三十塊太貴了，請跳表。"}]},{"who":"you","en":"Okay. Could you take the highway? We're in a bit of a hurry.","zh":"好的。可以走高速公路嗎？我們有點趕。"},{"who":"npc","en":"No problem, the highway is faster this time of day.","zh":"沒問題，這個時段走高速比較快。"},{"who":"you","en":"Great, thanks. Is there an extra charge for the luggage?","zh":"太好了，謝謝。行李要另外加錢嗎？"},{"who":"npc","en":"No extra charge. We're almost there — which entrance?","zh":"不用另外加。快到了，你們要在哪個入口？"},{"who":"you","en":"You can just stop here, thanks. How much do I owe you?","zh":"在這裡停就好，謝謝。我要付你多少錢？"},{"who":"npc","en":"That'll be fourteen fifty.","zh":"總共十四塊五。"},{"who":"you","en":"Here's fifteen — keep the change. Could I get a receipt, please?","zh":"給你十五塊，不用找了。可以給我收據嗎？"}]}},{"id":"directions","icon":"🧭","title":"問路導航","titleEn":"Asking Directions","desc":"問路、看地圖、找廁所、找地標","country":"US","words":[{"en":"restroom","zh":"廁所","ico":"🚻"},{"en":"straight","zh":"直走","ico":"⬆️"},{"en":"turn","zh":"轉彎","ico":"↩️"},{"en":"traffic light","zh":"紅綠燈","ico":"🚦"},{"en":"landmark","zh":"地標","ico":"🗿"},{"en":"exit","zh":"出口","ico":"🚪"},{"en":"map","zh":"地圖","ico":"🗺️"},{"en":"shortcut","zh":"捷徑","ico":"✂️"}],"patterns":[{"en":"How do I get to the ___?","zh":"我要怎麼去…？","slots":["train station"]},{"en":"Where's the nearest ___?","zh":"最近的…在哪裡？","slots":["restroom"]},{"en":"Is the ___ far from here?","zh":"…離這裡遠嗎？","slots":["museum"]}],"phrases":[{"en":"Excuse me, how do I get to the train station?","zh":"不好意思，我要怎麼去火車站？","tip":"禮貌開頭 Excuse me；換地點就把 train station 換掉","tag":"問路","level":1,"survival":true,"homophone":"衣克斯Q斯 密，浩 度 愛 給特 兔 惹 春 史逮遜"},{"en":"I'm lost. Where am I on this map?","zh":"我迷路了，我現在在地圖上的哪裡？","tip":"I'm lost 是超實用的救命句，直接遞地圖最快","tag":"問路","level":1,"survival":true,"homophone":"愛姆 落斯特。威兒 恩 愛 昂 利斯 賣普"},{"en":"Is it far, or is it within walking distance?","zh":"很遠嗎？還是走路就到得了？","tip":"within walking distance 走路可到","tag":"問路","level":1,"survival":true,"homophone":"伊斯 一特 罰，歐 伊斯 一特 位吝 沃慶 迪斯疼斯"},{"en":"Excuse me, where's the nearest restroom?","zh":"不好意思，最近的廁所在哪裡？","tip":"restroom 美式／toilet 英式／washroom 加拿大","tag":"找廁所","level":1,"survival":true,"homophone":"威兒斯 惹 尼爾瑞斯特 瑞斯特入姆"},{"en":"How long does it take to walk there from here?","zh":"從這裡走過去要多久？","tip":"回答常是 about ten minutes","tag":"問路","level":2},{"en":"Should I go straight, or do I need to turn somewhere?","zh":"我要直走嗎？還是要在哪裡轉彎？","tip":"go straight 直走；turn left／right 左右轉","tag":"方向","level":2},{"en":"So I turn left at the second traffic light, is that right?","zh":"所以我在第二個紅綠燈左轉，對嗎？","tip":"traffic light 紅綠燈；複誦確認很重要","tag":"方向","level":2},{"en":"Is it on this side of the street or the other side?","zh":"它在這一側，還是馬路的對面？","tip":"across the street 對街；on your right 在右手邊","tag":"方向","level":2},{"en":"Do I need to buy something to use the restroom here?","zh":"在這裡用廁所需要先消費嗎？","tip":"有些店廁所要消費或要密碼","tag":"找廁所","level":2},{"en":"I'm looking for this landmark. Am I heading the right way?","zh":"我在找這個地標，我走的方向對嗎？","tip":"landmark 地標；heading the right way 方向對","tag":"找地標","level":2},{"en":"Could you show me on my phone map where it is?","zh":"你可以在我的手機地圖上指給我看它在哪嗎？","tip":"直接把手機遞過去最快","tag":"看地圖","level":2},{"en":"Which exit should I take to get to the museum?","zh":"我要走哪個出口才能到博物館？","tip":"捷運／地鐵出口編號很重要","tag":"找地標","level":2},{"en":"Is there a shortcut, or is this the fastest way?","zh":"有沒有捷徑？還是這就是最快的路？","tip":"shortcut 捷徑；the fastest way 最快的路","tag":"問路","level":3},{"en":"Sorry, could you say that again a bit more slowly?","zh":"抱歉，可以再說一次，慢一點嗎？","tip":"聽不懂就請對方放慢，很正常","tag":"問路","level":1,"survival":true,"homophone":"搜瑞，庫 U say 類 阿乾 阿 比特 摩 史落利"},{"en":"Thanks so much for your help. Have a great day!","zh":"非常謝謝你的幫忙，祝你有美好的一天！","tip":"問完路道謝，禮貌收尾","tag":"問路","level":1}],"dialogue":{"title":"在街上向路人問路找博物館和廁所","youRole":"迷路的旅客","npcRole":"熱心的當地路人","lines":[{"who":"you","en":"Excuse me, sorry to bother you. Could you help me find the city museum?","zh":"不好意思，打擾一下，可以幫我找市立博物館嗎？"},{"who":"npc","en":"Of course! It's not far. Are you walking or driving?","zh":"當然可以！其實不遠。您是走路還是開車？","alt":[{"en":"Sure! It's just a few minutes away. On foot?","zh":"當然！只要幾分鐘就到。您是走路嗎？"},{"en":"No problem. Do you mean the big museum on Main Street?","zh":"沒問題。您是說主街上那間大博物館嗎？"}]},{"who":"you","en":"Walking. Is it within walking distance from here?","zh":"走路。從這裡走過去會到嗎？"},{"who":"npc","en":"Yes, about ten minutes. Go straight down this street and turn left at the second light.","zh":"會，大概十分鐘。沿這條街直走，在第二個紅綠燈左轉。","alt":[{"en":"Easy walk, ten minutes tops. Straight ahead, then left at the second light.","zh":"很好走，最多十分鐘。直直走，第二個紅綠燈左轉。"}]},{"who":"you","en":"Turn left at the second traffic light. Then is it on this side of the street?","zh":"第二個紅綠燈左轉。那它在這一側嗎？"},{"who":"npc","en":"It'll be across the street, a big stone building. You can't miss it.","zh":"在對街，是一棟很大的石造建築，你一定看得到。","alt":[{"en":"Nope, it's on the far side, the big gray building with columns.","zh":"不是，在對面，就是那棟有柱子的灰色大建築。"}]},{"who":"you","en":"Perfect. Could you show me on my phone map, just to be sure?","zh":"太好了。可以在我手機地圖上指一下嗎？想確認一下。"},{"who":"npc","en":"Sure, here. You're right here, and the museum is this spot.","zh":"好啊，來。你在這裡，博物館在這個點。"},{"who":"you","en":"Thank you! One more thing, where's the nearest restroom?","zh":"謝謝你！還有一件事，最近的廁所在哪裡？"},{"who":"npc","en":"There's a public one in the park on your way, right before the museum.","zh":"你會經過的公園裡有一間公廁，就在博物館前面。"},{"who":"you","en":"That's so helpful. Do I need to pay to use it?","zh":"太有幫助了。用那個廁所要付錢嗎？"},{"who":"npc","en":"No, it's free. Enjoy the museum, and have a great day!","zh":"不用，是免費的。好好逛博物館，祝你有美好的一天！"}]}},{"id":"car-rental","icon":"🚗","title":"租車","titleEn":"Car Rental","desc":"取車、保險、還車、車禍救援","country":"US","words":[{"en":"reservation","zh":"預約訂單","ico":"📋"},{"en":"deposit","zh":"押金","ico":"💳"},{"en":"automatic","zh":"自排車","ico":"⚙️"},{"en":"deductible","zh":"自負額","ico":"📄"},{"en":"collision coverage","zh":"碰撞險","ico":"🛡️"},{"en":"mileage","zh":"里程數","ico":"🛣️"},{"en":"scratch","zh":"刮痕","ico":"🔧"},{"en":"roadside assistance","zh":"道路救援","ico":"🚨"}],"patterns":[{"en":"Does the ___ include ___?","zh":"這個…有含…嗎？","slots":["price","insurance"]},{"en":"Do I need to add on ___?","zh":"我需要加購…嗎？","slots":["collision coverage"]},{"en":"What's the ___ if I have an accident?","zh":"萬一出事，…是多少？","slots":["deductible"]}],"phrases":[{"en":"Hi, I have a reservation to pick up a car.","zh":"你好，我有預約要取車。","tip":"報姓氏最快找到訂單，也可說 booking","tag":"取車","level":1,"survival":true,"homophone":"嗨，愛 have 阿 瑞惹非遜 兔 匹克 阿普 阿 卡"},{"en":"Here's my driver's license, passport, and credit card.","zh":"這是我的駕照、護照和信用卡。","tip":"台灣人記得帶國際駕照 International Driving Permit","tag":"取車","level":1},{"en":"Could I have an automatic car? I'm not used to a manual.","zh":"可以給我自排車嗎？我不太習慣開手排。","tip":"自排 automatic／手排 manual (stick shift)","tag":"取車","level":2},{"en":"Does the price include full insurance, or do I need to take out the CDW?","zh":"這個價錢有含全險嗎？還是我要另外加購 CDW？","tip":"CDW = Collision Damage Waiver 碰撞損害免責；口語也說 take out / add on","tag":"保險","level":2},{"en":"Do I need to add on collision coverage?","zh":"我需要加購碰撞險嗎？","tip":"美式 collision coverage 就是 CDW 保的部分","tag":"保險","level":2},{"en":"What's the deductible if I have an accident?","zh":"萬一我出車禍，自負額是多少？","tip":"deductible 是美式「自負額」；英式叫 excess，同一個意思","tag":"保險","level":3},{"en":"I'd like the zero deductible option, please.","zh":"我想選零自負額的方案，謝謝。","tip":"zero deductible 出事完全不用自付；英式會寫 zero excess","tag":"保險","level":2},{"en":"How much is the deposit, and when will it be refunded?","zh":"押金要多少？大概什麼時候退還？","tip":"押金 deposit，通常還車後幾天退回","tag":"押金","level":2},{"en":"Can I add a child seat? My daughter is four.","zh":"可以加一張兒童座椅嗎？我女兒四歲。","tip":"兒童座椅 child seat／增高墊 booster seat","tag":"配備","level":2},{"en":"There are already scratches here and a dent on the bumper.","zh":"這裡本來就有刮痕，保險桿上還有一個凹痕。","tip":"取車先繞一圈檢查；dent 凹痕／scratch 刮痕","tag":"車況","level":2},{"en":"Let me take a few photos before I drive off.","zh":"我先拍幾張照片再開走。","tip":"拍照存證超重要，避免還車被賴","tag":"車況","level":2},{"en":"Do I need to return it with a full tank of gas?","zh":"還車時需要把油加滿嗎？","tip":"full tank 滿油；full-to-full 借滿還滿最划算","tag":"還車","level":2},{"en":"I've had an accident.","zh":"我出車禍了。","tip":"報平安、報位置後說這句；先確認有沒有人受傷","tag":"緊急","level":1,"survival":true,"homophone":"愛夫 黑德 恩 阿克夕登"},{"en":"The car broke down.","zh":"車子拋錨了。","tip":"break down 拋錨、故障；打電話給租車公司","tag":"緊急","level":1,"survival":true,"homophone":"惹 卡 布羅克 黨"},{"en":"I need roadside assistance.","zh":"我需要道路救援。","tip":"roadside assistance 道路救援，租車合約上通常有專線","tag":"緊急","level":2,"survival":true,"homophone":"愛 逆的 摟賽的 阿西斯疼斯"},{"en":"Can we exchange insurance details?","zh":"我們可以交換保險資料嗎？","tip":"出事雙方互換保險與聯絡資料；記得拍照","tag":"緊急","level":2},{"en":"What's the number for roadside assistance?","zh":"道路救援的電話是幾號？","tip":"先問清楚 24 小時救援專線，存進手機","tag":"緊急","level":2}],"dialogue":{"title":"在機場租車櫃台取車","youRole":"來取車的旅客","npcRole":"租車公司櫃台人員","lines":[{"who":"npc","en":"Good afternoon! Do you have a reservation with us?","zh":"午安！請問您有跟我們預約嗎？","alt":[{"en":"Hi there! Are you picking up or dropping off today?","zh":"您好！請問今天是取車還是還車？"},{"en":"Welcome! Can I get the name on the booking?","zh":"歡迎！可以給我訂單上的名字嗎？"}]},{"who":"you","en":"Yes, it's under the name Chen. Here's my passport and international driving permit.","zh":"有的，訂位人是 Chen。這是我的護照和國際駕照。"},{"who":"npc","en":"Great, I found your booking. You reserved a compact automatic, correct?","zh":"好的，找到您的訂單了。您預訂的是小型自排車，對嗎？","alt":[{"en":"Perfect, here it is. A compact automatic for three days, right?","zh":"沒問題，找到了。是租三天的小型自排車，對嗎？"},{"en":"Got it. You went with the automatic, yes?","zh":"找到了。您選的是自排車，對嗎？"}]},{"who":"you","en":"That's right. Does the rate already include full insurance?","zh":"沒錯。這個價錢有含全險了嗎？"},{"who":"npc","en":"It includes basic coverage. For an extra 15 dollars a day, you can add full coverage with zero deductible.","zh":"有含基本險。每天多加 15 美金，就能升級成零自負額的全險。","alt":[{"en":"Only basic. I'd recommend adding collision coverage so a scratch won't cost you.","zh":"只有基本險。我會建議加購碰撞險，這樣有刮傷也不用自付。"}]},{"who":"you","en":"Let's add the full coverage. Could I also get a child seat for a four-year-old?","zh":"那幫我加全險。另外可以加一張四歲小孩用的兒童座椅嗎？"},{"who":"npc","en":"No problem, I'll add one. We'll hold a 200-dollar deposit on your credit card.","zh":"沒問題，我幫您加一張。我們會在您信用卡上預刷 200 美金押金。"},{"who":"you","en":"Okay. I noticed some scratches on the door earlier. Can we mark those down?","zh":"好的。我剛剛看到車門上有一些刮痕，可以先登記起來嗎？"},{"who":"npc","en":"Of course. I'll note the existing damage, and feel free to take photos too.","zh":"當然，我會把原有的損傷記下來，您也可以自己拍照存證。"},{"who":"you","en":"Perfect. And do I return it with a full tank?","zh":"太好了。還車時要加滿油嗎？"},{"who":"npc","en":"Yes, please bring it back full and drop it off at the same lot by 6 p.m.","zh":"是的，請加滿油，並在晚上六點前還到同一個停車場。"},{"who":"you","en":"Got it. Thanks for your help!","zh":"了解，謝謝你的幫忙！"}]}},{"id":"driving-gas","icon":"⛽","title":"開車加油","titleEn":"Driving & Gas Station","desc":"加油、收費站、停車、違停","country":"US","words":[{"en":"regular","zh":"普通汽油","ico":"⛽"},{"en":"premium","zh":"高級汽油","ico":"🔝"},{"en":"gallon","zh":"加侖","ico":"🛢️"},{"en":"fuel cap","zh":"油箱蓋","ico":"🔩"},{"en":"pump","zh":"加油機","ico":"🔧"},{"en":"toll","zh":"過路費","ico":"🚧"},{"en":"transponder","zh":"收費感應器","ico":"📡"},{"en":"parking lot","zh":"停車場","ico":"🅿️"}],"patterns":[{"en":"How much is it per ___?","zh":"一…多少錢？","slots":["gallon"]},{"en":"Is there a ___ nearby?","zh":"附近有…嗎？","slots":["parking lot"]},{"en":"How do I pay the ___?","zh":"…要怎麼付？","slots":["toll"]}],"phrases":[{"en":"Where's the nearest gas station?","zh":"最近的加油站在哪裡？","tip":"gas station 美式加油站；英式叫 petrol station","tag":"加油","level":1,"survival":true,"homophone":"威兒斯 惹 尼爾瑞斯特 蓋斯 史逮遜"},{"en":"Which grade of gas does this car take, regular or premium?","zh":"這台車要加幾號油？普通還是高級的？","tip":"美式 regular／premium（都是汽油 gas）；英式說 unleaded／petrol","tag":"加油","level":2},{"en":"Fill it up, please. How much is it per gallon?","zh":"麻煩幫我加滿，一加侖多少錢？","tip":"美式論加侖 gallon 計價；台灣是公升 liter，別搞混","tag":"加油","level":1,"survival":true,"homophone":"菲爾 一特 阿普，普利斯"},{"en":"How do I open the fuel cap on this car?","zh":"這台車的油箱蓋要怎麼打開？","tip":"油箱蓋 fuel cap／fuel door，多半有拉桿或直接壓開","tag":"加油","level":1,"survival":true,"homophone":"浩 度 愛 歐盆 惹 fuel 卡普"},{"en":"Is this self-service? How do I pay at the pump?","zh":"這是自助加油嗎？要怎麼在加油機付款？","tip":"self-service 自助；full-service 有人服務","tag":"加油","level":2},{"en":"The pump won't take my card. Can I pay inside instead?","zh":"加油機刷不了我的卡，我可以進去店裡付嗎？","tip":"pay inside／pay at the counter 到店內結帳","tag":"加油","level":2},{"en":"Do I need to prepay, or do I pump first and then pay?","zh":"我要先預付嗎？還是先加油再付？","tip":"美國很多站要 prepay 先付","tag":"加油","level":2},{"en":"Does this rental car have a toll tag or transponder?","zh":"這台租來的車有收費感應器嗎？","tip":"美國高速公路常見 E-ZPass 感應器；ETC 是台灣、日本的講法","tag":"收費站","level":2},{"en":"How do I pay the toll, with cash, card, or the transponder?","zh":"過路費要怎麼付？現金、刷卡還是用感應器？","tip":"toll 過路費；toll booth 收費站","tag":"收費站","level":2},{"en":"I think I went through the toll without paying. How do I settle it?","zh":"我好像沒付錢就過收費站了，之後要怎麼補繳？","tip":"settle／pay online 事後上網補繳","tag":"收費站","level":3},{"en":"Is there a parking lot nearby? I can't find a spot.","zh":"附近有停車場嗎？我找不到車位。","tip":"parking lot 美式／car park 英式；spot 車位","tag":"停車","level":1,"survival":true,"homophone":"伊斯 淚兒 阿 趴慶 辣 尼爾拜"},{"en":"How much is parking per hour, and do I pay at the machine?","zh":"停車一小時多少錢？是在繳費機付嗎？","tip":"pay station／meter 繳費機","tag":"停車","level":2},{"en":"Am I allowed to park here, or is this a no-parking zone?","zh":"這裡可以停車嗎？還是這是禁止停車區？","tip":"no-parking zone 禁停區，別被拖吊","tag":"停車","level":2},{"en":"I think I got a parking ticket. Where do I pay the fine?","zh":"我好像被開了違停罰單，罰款要去哪裡繳？","tip":"parking ticket 違停單；fine 罰款","tag":"違停","level":3},{"en":"The car is making a strange noise. Is there a garage nearby?","zh":"車子發出怪聲音，附近有修車廠嗎？","tip":"garage／mechanic 修車廠","tag":"車況","level":2}],"dialogue":{"title":"在自助加油站加油並詢問付款","youRole":"開租來的車的旅客","npcRole":"加油站店員","lines":[{"who":"you","en":"Hi, is this a self-service station?","zh":"你好，這裡是自助加油嗎？"},{"who":"npc","en":"Yes, it is. Pick a pump, and you can pay by card right there or come pay inside.","zh":"是的。您選一個加油機，可以直接刷卡，或進來店裡付都行。","alt":[{"en":"It is. Prepay at the counter or tap your card at the pump.","zh":"是的。可以在櫃台先付，或直接在加油機感應刷卡。"},{"en":"Yep, all self-serve. Which pump number are you on?","zh":"對，全都是自助的。請問您在幾號加油機？"}]},{"who":"you","en":"Got it. This is a rental car, so I'm not sure which grade it takes.","zh":"了解。這是租來的車，我不太確定要加幾號油。"},{"who":"npc","en":"Most rentals take regular unleaded. Check the label inside the fuel door to be sure.","zh":"大部分租車加普通無鉛就好，您可以看油箱蓋內側的標籤確認。","alt":[{"en":"Regular is fine for almost every rental. Only sports cars need premium.","zh":"幾乎所有租車加普通油就好，只有跑車才要高級油。"}]},{"who":"you","en":"Thanks. Actually, how do I open the fuel cap? I can't find the button.","zh":"謝謝。對了，油箱蓋要怎麼開？我找不到按鈕。"},{"who":"npc","en":"There's usually a lever down by the driver's seat, or just push the fuel door in.","zh":"駕駛座旁邊通常有個拉桿，不然直接壓一下油箱蓋也會彈開。","alt":[{"en":"Try the little lever near the floor on the driver's side.","zh":"找一下駕駛座腳邊的小拉桿試試。"}]},{"who":"you","en":"Found it, thanks. My card got declined at the pump, though.","zh":"找到了，謝謝。不過我的卡在加油機刷不過。"},{"who":"npc","en":"No worries. Pump first, then come inside and pay at the counter.","zh":"沒關係，您先加油，加完再進來櫃台付就好。"},{"who":"you","en":"Okay. I'd like to fill it up. Do you have a restroom I can use?","zh":"好，我要加滿。你們有洗手間可以借用嗎？"},{"who":"npc","en":"Sure, it's around the side, and here's the key. Just bring it back when you're done.","zh":"有的，在側邊，這是鑰匙，用完拿回來給我就行。"},{"who":"you","en":"Great. By the way, is there parking near the old town? I couldn't find any earlier.","zh":"太好了。順便問一下，舊城區附近有停車場嗎？我剛剛都找不到。"},{"who":"npc","en":"There's a paid lot two blocks past the church. It's usually the easiest place to find a spot.","zh":"過教堂再兩個路口有個收費停車場，那邊通常最好找位子。"}]}},{"id":"hotel-checkin","icon":"🏨","title":"飯店入住","titleEn":"Hotel Check-in","desc":"入住、退房、寄放行李、早餐","country":"US","words":[{"en":"reservation","zh":"訂房","ico":"📖"},{"en":"passport","zh":"護照","ico":"🛂"},{"en":"deposit","zh":"押金","ico":"💰"},{"en":"check-in","zh":"入住","ico":"🔑"},{"en":"checkout","zh":"退房","ico":"🚪"},{"en":"luggage","zh":"行李","ico":"🧳"},{"en":"key card","zh":"房卡","ico":"💳"},{"en":"breakfast","zh":"早餐","ico":"🍳"},{"en":"floor","zh":"樓層","ico":"🏢"}],"patterns":[{"en":"Could I have ___, please?","zh":"可以給我…嗎？","slots":["two key cards","extra towels","a wake-up call"]},{"en":"Is it possible to ___?","zh":"可以…嗎？","slots":["check in early","get a late check-out","store our luggage"]}],"phrases":[{"en":"I have a reservation.","zh":"我有訂房。","tip":"最基本的報到句，接著報上姓氏","tag":"報到","level":1,"survival":true,"homophone":"愛 黑夫 阿 瑞惹V訊"},{"en":"Here's my passport.","zh":"這是我的護照。","tip":"遞護照時說；也可一起出示訂房確認單","tag":"報到","level":1,"survival":true,"homophone":"喝兒斯 買 趴斯波特"},{"en":"What time is checkout?","zh":"退房是幾點？","tip":"checkout time 通常是 11 點或中午","tag":"退房","level":1,"survival":true,"homophone":"華特 太安 逆斯 切克奧特"},{"en":"Is breakfast included?","zh":"早餐有含嗎？","tip":"included = 包含在房價裡","tag":"早餐","level":1,"survival":true,"homophone":"意思 布雷克佛斯 因庫魯低德"},{"en":"Hi, I have a reservation under the name Chen.","zh":"你好，我有訂房，登記在 Chen 的名下。","tip":"把 Chen 換成你的姓；也可說 booked under…","tag":"報到","level":2},{"en":"We booked a family room for three nights.","zh":"我們訂了一間家庭房，住三晚。","tip":"double room 雙人房／twin room 兩張單人床","tag":"報到","level":2},{"en":"Is it possible to check in early? Our flight landed this morning.","zh":"可以提早入住嗎？我們的班機今早就到了。","tip":"check in early = 提早入住","tag":"提早入住","level":2},{"en":"If the room isn't ready, could we leave our bags here for now?","zh":"如果房間還沒好，我們可以先把行李寄放在這裡嗎？","tip":"leave / store our luggage 都可以","tag":"行李寄放","level":2},{"en":"Could we have a room on a high floor, please?","zh":"可以幫我們安排高樓層的房間嗎？","tip":"美式用 elevator（英式 lift）；可換 a quiet room / away from the elevator","tag":"房間要求","level":2},{"en":"We'd prefer a quiet room, away from the street if possible.","zh":"如果可以的話，我們希望要安靜、不靠馬路的房間。","tip":"away from the street = 不靠馬路那側","tag":"房間要求","level":3},{"en":"Do you need a deposit or a card on file for any extras?","zh":"需要押金，或預留一張卡支付額外費用嗎？","tip":"card on file = 存檔卡號；比行話 incidentals 更口語","tag":"報到","level":2},{"en":"Could we get a late check-out? Our flight isn't until the evening.","zh":"可以晚一點退房嗎？我們的班機是晚上才飛。","tip":"late check-out 常需加價或看空房","tag":"退房","level":3},{"en":"We've already checked out. Can we store our luggage until 4 p.m.?","zh":"我們已經退房了，可以把行李寄放到下午四點嗎？","tip":"退房後寄放行李很常見，通常免費","tag":"行李寄放","level":3},{"en":"Could I have two key cards, please?","zh":"可以給我兩張房卡嗎？","tip":"key card = 房卡（門卡）","tag":"房間要求","level":1}],"dialogue":{"title":"抵達飯店辦理入住","youRole":"旅客（爸爸）","npcRole":"飯店櫃檯人員","lines":[{"who":"npc","en":"Good afternoon! Welcome. How can I help you?","zh":"午安，歡迎光臨！有什麼可以為您服務的嗎？","alt":[{"en":"Hello! Are you checking in?","zh":"您好！要辦入住嗎？"},{"en":"Welcome! Do you have a reservation with us?","zh":"歡迎！您有在我們這裡訂房嗎？"}]},{"who":"you","en":"Hi, we have a reservation under the name Chen, for a family room.","zh":"你好，我們有訂房，登記在 Chen 的名下，是一間家庭房。"},{"who":"npc","en":"Let me check. Yes, three nights with breakfast. May I see your passport?","zh":"我查一下。有的，三晚含早餐。可以看一下您的護照嗎？","alt":[{"en":"Found it—three nights, breakfast included. Passport, please.","zh":"找到了，三晚含早餐。請給我護照。"},{"en":"Yes, I see your booking. Could I have your passport?","zh":"有的，我看到您的訂房了。可以給我護照嗎？"}]},{"who":"you","en":"Sure, here you go. It's a bit early. Is our room ready yet?","zh":"當然，給你。現在有點早，我們的房間好了嗎？"},{"who":"npc","en":"I'm afraid it won't be ready until 3 p.m. Would you like to leave your bags with us?","zh":"恐怕要到下午三點才會好。您要先把行李寄放在我們這裡嗎？","alt":[{"en":"Sorry, check-in starts at 3 p.m. Shall I hold your bags?","zh":"抱歉，入住從下午三點開始。要幫您寄放行李嗎？"},{"en":"The room needs another hour or two. Want to leave your luggage?","zh":"房間還要一兩個小時。要先寄放行李嗎？"}]},{"who":"you","en":"Yes, please. Also, could we have a quiet room on a high floor?","zh":"好的，麻煩了。另外，可以給我們高樓層、比較安靜的房間嗎？"},{"who":"npc","en":"Of course. I've noted a high floor away from the elevator.","zh":"沒問題，我已經幫您註記高樓層、遠離電梯的房間。"},{"who":"you","en":"Great. What time is breakfast served?","zh":"太好了。早餐是幾點供應？"},{"who":"npc","en":"From 7 to 10 a.m. in the restaurant on the second floor.","zh":"早上七點到十點，在二樓餐廳。"},{"who":"you","en":"Perfect. And check-out is at eleven?","zh":"太好了。退房是十一點嗎？"},{"who":"npc","en":"That's right. Here are your two key cards. Enjoy your stay!","zh":"沒錯。這是您的兩張房卡，祝您住得愉快！"},{"who":"you","en":"Thank you so much!","zh":"非常謝謝你！"}]}},{"id":"room-service","icon":"🛎️","title":"客房與服務","titleEn":"Room & Service","desc":"客房要求、故障報修、加床、叫醒服務、客訴升級","country":"US","words":[{"en":"air conditioning","zh":"冷氣","ico":"❄️"},{"en":"hot water","zh":"熱水","ico":"🚿"},{"en":"towel","zh":"毛巾","ico":"🧻"},{"en":"pillow","zh":"枕頭","ico":"🛏️"},{"en":"blanket","zh":"毯子","ico":"🧣"},{"en":"wake-up call","zh":"叫醒服務","ico":"⏰"},{"en":"extra bed","zh":"加床","ico":"🛌"},{"en":"housekeeping","zh":"房務清潔","ico":"🧹"},{"en":"manager","zh":"經理","ico":"👔"},{"en":"Wi-Fi","zh":"無線網路","ico":"📶"}],"patterns":[{"en":"The ___ isn't working.","zh":"…壞了／不能用。","slots":["air conditioning","TV","heater"]},{"en":"Could we get ___, please?","zh":"可以給我們…嗎？","slots":["extra towels","two more pillows","a blanket"]},{"en":"I'd like to ___.","zh":"我想要…。","slots":["change rooms","speak to the manager","get a refund"]}],"phrases":[{"en":"This is room 812.","zh":"這裡是 812 房。","tip":"打電話報房號的開場白","tag":"客房服務","level":1,"survival":true,"homophone":"利斯 意思 入母 誒特-萬-兔"},{"en":"There's no hot water.","zh":"沒有熱水。","tip":"最短的報修句","tag":"故障報修","level":1,"survival":true,"homophone":"淶爾斯 弄 哈特 沃特"},{"en":"The air conditioning isn't working.","zh":"冷氣壞了。","tip":"換 the heater 暖氣／the TV 電視","tag":"故障報修","level":1,"survival":true,"homophone":"惹 誒兒 康低訊寧 意任 沃King"},{"en":"Could I speak to the manager?","zh":"我可以跟經理說話嗎？","tip":"客訴升級：要找主管出面時說","tag":"客訴","level":1,"survival":true,"homophone":"庫得 愛 斯批克 兔 惹 妹你這"},{"en":"Hi, this is room 812. The air conditioning isn't cooling at all.","zh":"你好，這裡是 812 房，冷氣完全不冷。","tip":"報房號＋故障，最實用的組合","tag":"故障報修","level":2},{"en":"The toilet won't flush. Could you send someone up?","zh":"馬桶沖不了水，可以請人上來嗎？","tip":"won't flush = 沖不下去","tag":"故障報修","level":2},{"en":"Could we get some extra towels, please?","zh":"可以再給我們一些毛巾嗎？","tip":"extra pillows 多的枕頭／a blanket 毯子","tag":"備品","level":1},{"en":"Could we have two more pillows and a blanket?","zh":"可以再給我們兩顆枕頭和一條毯子嗎？","tip":"one more = 再一個","tag":"備品","level":2},{"en":"What's the Wi-Fi password for the room?","zh":"房間的 Wi-Fi 密碼是多少？","tip":"network name 網路名稱（SSID）","tag":"設施","level":2},{"en":"The Wi-Fi keeps disconnecting. Is there anything you can do?","zh":"Wi-Fi 一直斷線，你們有辦法處理嗎？","tip":"keeps disconnecting = 一直斷","tag":"設施","level":3},{"en":"Could we add an extra bed for our child?","zh":"可以幫我們的小孩加一張床嗎？","tip":"extra bed 加床／crib 嬰兒床","tag":"加床","level":2},{"en":"Is there a charge for the extra bed?","zh":"加床要另外收費嗎？","tip":"Is it free? 免費嗎","tag":"加床","level":2},{"en":"Could we have a wake-up call at six thirty tomorrow morning?","zh":"明天早上六點半可以幫我們設個叫醒服務嗎？","tip":"wake-up call = 電話叫醒","tag":"叫醒服務","level":2},{"en":"The room next door is really noisy. Could you help?","zh":"隔壁房間很吵，可以幫忙處理一下嗎？","tip":"noisy = 吵；也可說 loud","tag":"客訴","level":2},{"en":"This isn't the room I booked.","zh":"這不是我訂的房型。","tip":"客訴升級：房型與訂單不符時說","tag":"客訴","level":2},{"en":"I'd like to change rooms.","zh":"我想要換房。","tip":"change rooms = 換房間","tag":"客訴","level":2},{"en":"Can I get a refund or a discount for this?","zh":"這部分可以退費或給我折扣嗎？","tip":"refund 退費／discount 折扣","tag":"客訴","level":3}],"dialogue":{"title":"打電話到櫃檯反映問題","youRole":"旅客（媽媽）","npcRole":"櫃檯／客房服務人員","lines":[{"who":"npc","en":"Front desk, good evening. How may I help you?","zh":"櫃檯您好，晚安，有什麼可以為您服務的嗎？","alt":[{"en":"Front desk. What can I do for you?","zh":"櫃檯，有什麼能為您服務？"},{"en":"Good evening, how can I help?","zh":"晚安，有什麼需要幫忙的嗎？"}]},{"who":"you","en":"Hi, this is room 812. The air conditioning isn't cooling at all.","zh":"你好，這裡是 812 房，冷氣完全不冷。"},{"who":"npc","en":"I'm so sorry about that. I'll send a technician right away.","zh":"非常抱歉，我馬上派技術人員過去。","alt":[{"en":"So sorry! I'll get maintenance up there now.","zh":"很抱歉！我馬上請維修人員上去。"},{"en":"My apologies. Someone will come to fix it shortly.","zh":"抱歉，很快會有人上去處理。"}]},{"who":"you","en":"Thank you. Also, there's no hot water in the shower.","zh":"謝謝。另外，浴室也沒有熱水。"},{"who":"npc","en":"I'll have him check that too. Is there anything else you need?","zh":"我會請他一併檢查。還有其他需要嗎？","alt":[{"en":"He'll look at both. Anything else?","zh":"他會一起檢查。還需要別的嗎？"},{"en":"I'll add that to the request. Do you need anything more?","zh":"我會一併登記。還有其他需要嗎？"}]},{"who":"you","en":"Yes, could we get two extra towels and one more pillow?","zh":"有的，可以再給我們兩條毛巾和一顆枕頭嗎？"},{"who":"npc","en":"Certainly. And what's your room number again?","zh":"當然可以。再請問一次您的房號？"},{"who":"you","en":"Room 812. Oh, and could we add an extra bed for our son?","zh":"812 房。對了，可以幫我兒子加一張床嗎？"},{"who":"npc","en":"Of course. The extra bed is free of charge for children.","zh":"沒問題，兒童加床是免費的。"},{"who":"you","en":"Great. One last thing—a wake-up call at six thirty tomorrow, please.","zh":"太好了。最後一件事，明天早上六點半麻煩幫我們叫醒。"},{"who":"npc","en":"Noted—6:30 a.m. Everything will be taken care of shortly.","zh":"記下了，早上六點半。所有事情很快都會處理好。"},{"who":"you","en":"Thank you so much for your help.","zh":"真的很謝謝你的幫忙。"}]}},{"id":"restaurant","icon":"🍽️","title":"餐廳點餐","titleEn":"Restaurant","desc":"訂位、點餐、過敏、結帳、給小費","country":"US","words":[{"en":"check","zh":"帳單","ico":"🧾"},{"en":"reservation","zh":"訂位","ico":"📅"},{"en":"menu","zh":"菜單","ico":"📖"},{"en":"allergic","zh":"過敏","ico":"⚠️"},{"en":"vegetarian","zh":"素食","ico":"🥗"},{"en":"tip","zh":"小費","ico":"💵"},{"en":"recommend","zh":"推薦","ico":"👍"},{"en":"to go","zh":"外帶","ico":"🥡"}],"patterns":[{"en":"Could I have ___, please?","zh":"可以給我…嗎？","slots":["the check","a menu","some water"]},{"en":"I'll have ___, please.","zh":"我要點…，謝謝。","slots":["the grilled chicken","the salmon","a salad"]},{"en":"I'm allergic to ___.","zh":"我對…過敏。","slots":["peanuts","shellfish","dairy"]}],"phrases":[{"en":"A table for two, please.","zh":"兩位，謝謝。","tip":"人數換數字即可，例如 for four。","tag":"訂位入座","level":1,"survival":true,"homophone":"阿 table for 兔，普利斯"},{"en":"I have a reservation under the name Lin.","zh":"我有訂位，用林這個名字訂的。","tip":"reservation 是「訂位」，under the name 指用誰的名字。","tag":"訂位入座","level":2},{"en":"Could we sit by the window, please?","zh":"可以坐窗邊嗎？","tip":"換位子可說 sit outside（坐外面）。","tag":"訂位入座","level":2},{"en":"How long is the wait?","zh":"大概要等多久？","tag":"訂位入座","level":1},{"en":"Could I see the menu, please?","zh":"可以給我看一下菜單嗎？","tag":"點餐","level":1},{"en":"This one, please.","zh":"這個，謝謝。","tip":"看不懂菜名時，直接指著菜單點最快。","tag":"點餐","level":1,"survival":true,"homophone":"利斯 萬，普利斯"},{"en":"What do you recommend?","zh":"你推薦什麼？","tip":"問招牌菜可說 What's your signature dish?","tag":"點餐","level":2},{"en":"I'll have the grilled chicken, please.","zh":"我要烤雞，謝謝。","tip":"I'll have… 是點餐最常用的說法。","tag":"點餐","level":2},{"en":"No spicy, please.","zh":"不要辣，謝謝。","tip":"更完整可說 Not spicy, please.","tag":"點餐","level":1,"survival":true,"homophone":"No 斯派西，普利斯"},{"en":"I'm allergic to peanuts. Does this contain any?","zh":"我對花生過敏，這道菜裡面有嗎？","tip":"allergic to 就是「對…過敏」，最重要的救命句。","tag":"過敏特殊需求","level":2},{"en":"I'm vegetarian. Do you have any meat-free options?","zh":"我吃素，有沒有不含肉的餐點？","tip":"meat-free＝不含肉；純素可說 vegan。","tag":"過敏特殊需求","level":2},{"en":"Could I get a glass of water, please?","zh":"可以給我一杯水嗎？","tip":"要冰水說 ice water；要溫水說 warm water。","tag":"過敏特殊需求","level":1},{"en":"Do you have a kids' menu?","zh":"你們有兒童菜單嗎？","tip":"帶小孩必問，常有小份餐與附餐。","tag":"親子需求","level":1},{"en":"Could we get a high chair?","zh":"可以給我們一張兒童高腳椅嗎？","tip":"high chair＝寶寶用的高腳餐椅。","tag":"親子需求","level":2},{"en":"Could you warm this up?","zh":"可以幫我把這個加熱嗎？","tip":"warm up＝加熱；替寶寶熱食或熱瓶都好用。","tag":"親子需求","level":2},{"en":"Excuse me, this isn't what I ordered.","zh":"不好意思，這不是我點的。","tag":"遇到問題","level":2},{"en":"Could we get some more napkins?","zh":"可以再給我們一些餐巾紙嗎？","tag":"遇到問題","level":1},{"en":"I think there's a mistake on the check.","zh":"我想帳單好像有錯。","tip":"check＝帳單（英式說 bill）；禮貌點出問題的開場。","tag":"帳單爭議","level":2},{"en":"I was overcharged.","zh":"我被多收錢了。","tip":"overcharge＝超收；發現金額不對時直接說。","tag":"帳單爭議","level":2},{"en":"What's this charge for?","zh":"這筆費用是什麼？","tip":"看到不明項目就問清楚。","tag":"帳單爭議","level":2},{"en":"Could you take this off the check?","zh":"可以把這筆從帳單上扣掉嗎？","tip":"take off the check＝從帳單移除某項。","tag":"帳單爭議","level":3},{"en":"Could we have the check, please?","zh":"可以買單嗎？","tip":"check＝帳單，英式說 bill。","tag":"結帳小費","level":1,"survival":true,"homophone":"庫揪 have the 切克，普利斯"},{"en":"Can we get separate checks?","zh":"我們可以分開結帳嗎？","tip":"separate checks＝各自一張帳單，最乾脆。","tag":"結帳小費","level":2},{"en":"Can we split it evenly, four ways?","zh":"可以平均分成四份付嗎？","tip":"split it four ways＝四個人均分；換人數換數字。","tag":"結帳小費","level":2},{"en":"Do you take credit cards?","zh":"你們可以刷卡嗎？","tip":"問能不能刷卡的標準說法。","tag":"結帳小費","level":1},{"en":"Is the tip included?","zh":"小費有含在裡面嗎？","tip":"tip＝小費；美國坐下用餐通常給 18–22%。","tag":"結帳小費","level":2},{"en":"Please add a 20% tip.","zh":"請加 20% 的小費。","tip":"刷卡時請店家直接把小費加進帳單；也可在桌上留現金。","tag":"結帳小費","level":2},{"en":"We're all set — thank you!","zh":"我們都好了，謝謝！","tip":"坐下用餐的收尾語；刷卡或已含小費時用，不要說 Keep the change。","tag":"結帳小費","level":1},{"en":"Could I get this to go, please?","zh":"這個可以幫我打包外帶嗎？","tip":"to go＝外帶／打包（英式說 takeaway）。","tag":"結帳小費","level":1}],"dialogue":{"title":"一家四口上餐廳","youRole":"你（帶家人用餐）","npcRole":"服務生 Server","lines":[{"who":"npc","en":"Hi there! Welcome. How many in your party?","zh":"嗨，歡迎光臨！請問幾位？"},{"who":"you","en":"A table for four, please. Could we sit by the window?","zh":"四位，謝謝。可以坐窗邊嗎？"},{"who":"npc","en":"Of course. Right this way. Here are your menus.","zh":"當然可以，這邊請。這是你們的菜單。"},{"who":"you","en":"Thanks. What do you recommend?","zh":"謝謝。你推薦什麼？"},{"who":"npc","en":"Our grilled salmon is very popular, and so is the beef pasta.","zh":"我們的烤鮭魚很受歡迎，牛肉義大利麵也是。","alt":[{"en":"Sorry, we're out of the salmon tonight, but the beef pasta is excellent.","zh":"抱歉，鮭魚今晚賣完了，不過牛肉義大利麵很棒。"},{"en":"In that case, we'll do four orders of the beef pasta instead.","zh":"那樣的話，我們改點四份牛肉義大利麵好了。"}]},{"who":"you","en":"Sounds good. But my son is allergic to peanuts. Does the pasta contain any?","zh":"聽起來不錯。不過我兒子對花生過敏，義大利麵裡有花生嗎？"},{"who":"npc","en":"No peanuts at all. I'll let the kitchen know to be careful.","zh":"完全沒有花生。我會提醒廚房特別注意。"},{"who":"you","en":"Great. We'll have two salmon and two orders of pasta, and a glass of water for everyone.","zh":"太好了。那我們要兩份鮭魚、兩份義大利麵，每個人再一杯水。"},{"who":"npc","en":"Perfect. I'll bring that right out.","zh":"沒問題，我馬上為你們送來。"},{"who":"you","en":"Excuse me, could we have the check? Do you take credit cards?","zh":"不好意思，可以買單嗎？可以刷卡嗎？"},{"who":"npc","en":"Absolutely. Was everything okay tonight?","zh":"當然可以。今晚一切都還滿意嗎？"},{"who":"you","en":"Everything was great, thank you. We're all set — please add a 20% tip.","zh":"都很棒，謝謝你。我們都好了，請幫我加 20% 的小費。"}]}},{"id":"cafe-fastfood","icon":"☕","title":"咖啡速食","titleEn":"Cafe & Fast Food","desc":"點飲料、外帶、客製化、速食店","country":"US","words":[{"en":"latte","zh":"拿鐵","ico":"☕"},{"en":"iced","zh":"冰的","ico":"🧊"},{"en":"sugar","zh":"糖","ico":"🍬"},{"en":"oat milk","zh":"燕麥奶","ico":"🥛"},{"en":"fries","zh":"薯條","ico":"🍟"},{"en":"ketchup","zh":"番茄醬","ico":"🥫"},{"en":"refill","zh":"續杯","ico":"🔄"},{"en":"receipt","zh":"收據","ico":"🧾"}],"patterns":[{"en":"Can I get ___, please?","zh":"我要…，謝謝。","slots":["a medium latte","an iced coffee","the number two meal"]},{"en":"No ___, please.","zh":"不要…，謝謝。","slots":["ice","onions","sugar"]}],"phrases":[{"en":"Can I get a medium latte, please?","zh":"我要一杯中杯拿鐵，謝謝。","tip":"杯型：small 小 / medium 中 / large 大。","tag":"點飲料","level":1},{"en":"Can I get that iced, please?","zh":"可以幫我做成冰的嗎？","tip":"去冰 no ice；少冰 light ice；正常冰 regular ice。","tag":"點飲料","level":1},{"en":"Could I have less sugar?","zh":"可以幫我少糖嗎？","tip":"半糖 half sugar；無糖 no sugar。","tag":"點飲料","level":2},{"en":"Can I add an extra shot of espresso?","zh":"可以多加一份濃縮咖啡嗎？","tip":"extra shot＝多一份濃縮，會更濃更提神。","tag":"點飲料","level":2},{"en":"Do you have oat milk?","zh":"你們有燕麥奶嗎？","tip":"常見替代奶：oat 燕麥、soy 豆、almond 杏仁。","tag":"點飲料","level":2},{"en":"Is this for here or to go?","zh":"（店員問）內用還是外帶？","tip":"for here＝內用，to go＝外帶，這是店員最常問你的一句。","tag":"內用外帶","level":1},{"en":"For here, please.","zh":"內用，謝謝。","tip":"回答內用就說 for here。","tag":"內用外帶","level":1,"survival":true,"homophone":"佛 here，普利斯"},{"en":"To go, please.","zh":"外帶，謝謝。","tip":"to go＝外帶，英式常說 takeaway。","tag":"內用外帶","level":1,"survival":true,"homophone":"兔 go，普利斯"},{"en":"Could I get a cup holder and a couple of napkins?","zh":"可以給我一個杯架和幾張餐巾紙嗎？","tag":"內用外帶","level":2},{"en":"I'll have the number two meal, please.","zh":"我要二號餐，謝謝。","tip":"速食店餐點常用號碼點，最快最省事。","tag":"速食店","level":1},{"en":"Can I make it a large?","zh":"可以幫我加大嗎？","tip":"make it a large＝套餐加大；supersize 已過時，少用。","tag":"速食店","level":1},{"en":"No onions on the burger, please.","zh":"漢堡不要加洋蔥，謝謝。","tip":"去掉某料：No + 食材；例如 no pickles 不要酸黃瓜。","tag":"客製化","level":1,"survival":true,"homophone":"No 安尼恩斯 on the 伯格，普利斯"},{"en":"Could I have extra ketchup on the side?","zh":"可以另外多給我一些番茄醬嗎？","tip":"on the side＝醬料另外附，不要淋上去。","tag":"客製化","level":2},{"en":"Can I swap the fries for a salad?","zh":"可以把薯條換成沙拉嗎？","tip":"swap A for B＝把 A 換成 B。","tag":"客製化","level":2},{"en":"Are free refills available?","zh":"飲料可以免費續杯嗎？","tip":"refill＝續杯，美國速食店汽水常可免費續。","tag":"速食店","level":2},{"en":"Could I get a receipt, please?","zh":"可以給我收據嗎？","tag":"速食店","level":1},{"en":"How long is the wait for the order?","zh":"餐點大概要等多久？","tag":"速食店","level":2},{"en":"Sorry, I think you gave me the wrong drink.","zh":"不好意思，我想你給錯飲料了。","tag":"遇到問題","level":2}],"dialogue":{"title":"咖啡店外帶點單","youRole":"你（趕著逛景點）","npcRole":"店員 Barista","lines":[{"who":"npc","en":"Hi! What can I get for you?","zh":"嗨！請問要點什麼？"},{"who":"you","en":"Can I get a medium latte, iced, with less sugar?","zh":"我要一杯中杯拿鐵，冰的，少糖。"},{"who":"npc","en":"Sure. Any milk preference? We have oat and soy.","zh":"好的。牛奶有偏好嗎？我們有燕麥奶和豆奶。","alt":[{"en":"Sorry, we're out of oat milk today — is soy or almond okay?","zh":"抱歉，燕麥奶今天賣完了，豆奶或杏仁奶可以嗎？"},{"en":"Soy is fine, thanks.","zh":"豆奶就好，謝謝。"}]},{"who":"you","en":"Oat milk, please. And can I add an extra shot?","zh":"燕麥奶，謝謝。可以再多加一份濃縮嗎？"},{"who":"npc","en":"You got it. Is this for here or to go?","zh":"沒問題。內用還是外帶？"},{"who":"you","en":"To go, please. Could I get a cup holder too?","zh":"外帶，謝謝。可以順便給我一個杯架嗎？"},{"who":"npc","en":"Of course. Anything else?","zh":"當然可以。還需要別的嗎？"},{"who":"you","en":"That's all. How long is the wait?","zh":"這樣就好。大概要等多久？"},{"who":"npc","en":"Just a couple of minutes. That'll be five fifty.","zh":"只要幾分鐘。總共五塊五。"},{"who":"you","en":"Here you go. Could I get a receipt, please?","zh":"錢在這，可以給我收據嗎？"},{"who":"npc","en":"Here's your receipt. I'll call your name when it's ready.","zh":"這是你的收據，好了我會叫你的名字。"},{"who":"you","en":"Thank you so much!","zh":"非常感謝！"}]}},{"id":"shopping","icon":"🛍️","title":"購物退稅","titleEn":"Shopping & Tax Refund","desc":"詢價、試穿、尺寸、結帳、退稅、退貨退款","country":"US","words":[{"en":"refund","zh":"退款/退稅","ico":"💵"},{"en":"size","zh":"尺寸","ico":"📏"},{"en":"fitting room","zh":"試衣間","ico":"🚪"},{"en":"receipt","zh":"收據","ico":"🧾"},{"en":"discount","zh":"折扣","ico":"🏷️"},{"en":"card","zh":"信用卡","ico":"💳"},{"en":"color","zh":"顏色","ico":"🎨"},{"en":"return","zh":"退貨","ico":"↩️"}],"patterns":[{"en":"Can I ___?","zh":"我可以…嗎？","slots":["try this on","get a refund","pay by card"]},{"en":"Do you have this in ___?","zh":"這個有…嗎？","slots":["a bigger size","another color","black"]}],"phrases":[{"en":"How much is this?","zh":"這個多少錢？","tip":"也可說 What's the price of this?","tag":"詢價","level":1,"survival":true,"homophone":"好・馬取・易斯・利斯"},{"en":"I'm just looking, thanks.","zh":"我只是看看，謝謝。","tip":"店員問要不要幫忙時的禮貌回應","tag":"詢價","level":1,"survival":true,"homophone":"愛姆・賈斯特・魯京・山克斯"},{"en":"It's too expensive.","zh":"太貴了。","tip":"百貨專櫃多為不二價、不殺價；殺價只在市集攤販","tag":"詢價","level":1,"survival":true,"homophone":"依茨・兔・伊克斯潘西夫"},{"en":"I'll take this one.","zh":"我要買這個。","tip":"決定購買時說","tag":"結帳","level":1},{"en":"Can I try this on?","zh":"我可以試穿這件嗎？","tip":"試穿必備句","tag":"試穿","level":1,"survival":true,"homophone":"肯・愛・踹・利斯・昂"},{"en":"Can I pay by card?","zh":"可以刷卡嗎？","tip":"付現說 I'll pay in cash.","tag":"結帳","level":1,"survival":true,"homophone":"肯・愛・配・拜・卡"},{"en":"Do you have this in a bigger size?","zh":"這個有大一號的嗎？","tip":"小一號用 smaller size","tag":"尺寸","level":2},{"en":"Do you have this in another color?","zh":"這個有其他顏色嗎？","tip":"指定顏色可說 Do you have it in black?（美式拼 color）","tag":"尺寸","level":2},{"en":"Where is the fitting room?","zh":"試衣間在哪裡？","tip":"fitting room = 試衣間，英式常說 changing room","tag":"試穿","level":2},{"en":"Is this on sale?","zh":"這個有打折嗎？","tip":"詢問折扣 Is there any discount?","tag":"結帳","level":2},{"en":"Can I get a refund?","zh":"我可以退款嗎？","tip":"refund = 退款/退稅通用","tag":"退貨","level":2},{"en":"I'd like to return this.","zh":"我想退這個。","tip":"return = 退貨，記得帶收據與吊牌","tag":"退貨","level":2},{"en":"It doesn't fit.","zh":"這件不合身。","tip":"太緊 too tight／太鬆 too loose","tag":"退貨","level":2},{"en":"It's faulty.","zh":"這件有瑕疵。","tip":"faulty = 瑕疵/故障，退貨最有力的理由","tag":"退貨","level":2},{"en":"Can I get a tax refund?","zh":"我可以退稅嗎？","tip":"tax refund = 退稅，需帶護照","tag":"退稅","level":2},{"en":"Could I get a receipt?","zh":"可以給我收據嗎？","tip":"退稅與退貨都需要收據，記得留好","tag":"退稅","level":2},{"en":"Could you fill out the tax refund form for me?","zh":"可以幫我辦退稅表嗎？","tip":"tax refund form = 退稅表","tag":"退稅","level":3},{"en":"How much do I need to spend to qualify for the refund?","zh":"要消費多少才能退稅？","tip":"詢問退稅門檻","tag":"退稅","level":3}],"dialogue":{"title":"在服飾店試穿並退稅","youRole":"你（觀光客）","npcRole":"店員","lines":[{"who":"npc","en":"Hi there! Can I help you find anything?","zh":"您好！需要幫您找什麼嗎？","alt":[{"en":"Hello! Are you looking for anything special?","zh":"您好！在找什麼特別的嗎？"},{"en":"Welcome in! Let me know if you need help.","zh":"歡迎光臨！需要幫忙再跟我說。"}]},{"who":"you","en":"I'm just looking, thanks. Oh, how much is this jacket?","zh":"我只是看看，謝謝。喔，這件外套多少錢？"},{"who":"npc","en":"That one is 89 dollars. It also comes in navy and gray.","zh":"那件是 89 美元，還有深藍色和灰色。","alt":[{"en":"It's 89 dollars, and we have it in navy and gray too.","zh":"89 美元，我們還有深藍和灰色。"},{"en":"That's 89 dollars. The gray one is really popular.","zh":"那件 89 美元，灰色那款很受歡迎。"}]},{"who":"you","en":"Nice. Can I try this on? And do you have it in a bigger size?","zh":"不錯。我可以試穿嗎？還有，有大一號的嗎？"},{"who":"npc","en":"Sure. The fitting room is right over there. Let me grab a large for you.","zh":"當然，試衣間就在那邊。我幫您拿件大號的。","alt":[{"en":"Of course. Fitting rooms are on your left. I'll bring a large.","zh":"當然，試衣間在您左邊，我拿件大號來。"}]},{"who":"you","en":"Thanks. This fits perfectly. I'll take it.","zh":"謝謝，這件剛剛好，我要買這件。"},{"who":"npc","en":"Great choice. Will you be paying by card or cash?","zh":"很好的選擇。您要刷卡還是付現？"},{"who":"you","en":"By card, please. Can I get a tax refund on this?","zh":"刷卡，謝謝。這個可以退稅嗎？"},{"who":"npc","en":"Yes, you can. Do you have your passport with you?","zh":"可以喔，您有帶護照嗎？"},{"who":"you","en":"I do. Could you fill out the tax refund form for me?","zh":"有，可以幫我辦退稅表嗎？"},{"who":"npc","en":"Of course. Here's your form and receipt. Show them at the airport.","zh":"沒問題。這是您的退稅表和收據，在機場出示即可。"},{"who":"you","en":"Perfect, thank you so much!","zh":"太好了，非常謝謝你！"}]}},{"id":"money","icon":"💱","title":"換匯銀行","titleEn":"Money & Bank","desc":"換匯、提款機、匯率、刷卡糾紛","country":"US","words":[{"en":"exchange","zh":"換匯","ico":"💱"},{"en":"exchange rate","zh":"匯率","ico":"📈"},{"en":"service fee","zh":"手續費","ico":"💸"},{"en":"bills","zh":"鈔票","ico":"💵"},{"en":"ATM","zh":"提款機","ico":"🏧"},{"en":"withdraw","zh":"提款","ico":"💰"},{"en":"currency","zh":"貨幣","ico":"💴"},{"en":"receipt","zh":"收據","ico":"🧾"}],"patterns":[{"en":"I'd like to ___.","zh":"我想要…。","slots":["exchange some money","change ten thousand Taiwan dollars","withdraw some cash"]},{"en":"Where is the nearest ___?","zh":"最近的…在哪裡？","slots":["ATM","bank","exchange counter"]}],"phrases":[{"en":"I'd like to exchange some money.","zh":"我想換一些錢。","tip":"換匯開場白","tag":"換匯","level":1,"survival":true,"homophone":"愛・賴克・兔・伊克斯淺吉・桑・媽尼"},{"en":"Where is the nearest ATM?","zh":"最近的提款機在哪裡？","tip":"ATM = 提款機","tag":"提款機","level":1,"survival":true,"homophone":"威爾・易斯・惹・尼爾瑞斯特・A-T-M"},{"en":"Can I pay in cash?","zh":"我可以付現金嗎？","tip":"cash = 現金，card = 信用卡","tag":"刷卡問題","level":1,"survival":true,"homophone":"肯・愛・配・引・卡許"},{"en":"What's the exchange rate today?","zh":"今天的匯率是多少？","tip":"exchange rate = 匯率","tag":"匯率","level":2,"survival":true,"homophone":"哇茨・惹・伊克斯淺吉・瑞特・特day"},{"en":"I'd like to change these Taiwan dollars into US dollars.","zh":"我想把台幣換成美金。","tip":"換成日圓 into Japanese yen","tag":"換匯","level":2},{"en":"Is there a commission or service fee?","zh":"有手續費嗎？","tip":"commission / service fee = 手續費","tag":"匯率","level":2},{"en":"Could I have some smaller bills?","zh":"可以換一些小鈔嗎？","tip":"美式 bills = 鈔票（英式說 notes）；coins = 硬幣","tag":"換匯","level":2},{"en":"Can I withdraw cash with this card here?","zh":"我可以用這張卡在這裡提款嗎？","tip":"withdraw = 提款","tag":"提款機","level":2},{"en":"My card was declined. Can you check why?","zh":"我的卡刷不過，可以幫我查一下嗎？","tip":"declined = 交易被拒","tag":"刷卡問題","level":2},{"en":"Do you accept foreign cards?","zh":"你們收外國的卡嗎？","tip":"確認是否能用海外卡","tag":"刷卡問題","level":2},{"en":"Please charge it in the local currency, not Taiwan dollars.","zh":"請用當地貨幣結帳，不要用台幣。","tip":"DCC（外幣直接換台幣）最坑，選當地貨幣結帳最省錢","tag":"刷卡問題","level":3},{"en":"I was charged twice.","zh":"我被扣了兩次款。","tip":"twice = 兩次","tag":"刷卡問題","level":2},{"en":"There's a double charge.","zh":"有一筆重複扣款。","tip":"double charge = 重複扣款","tag":"刷卡問題","level":2},{"en":"This amount is wrong.","zh":"這個金額不對。","tip":"amount = 金額","tag":"刷卡問題","level":2},{"en":"I was overcharged.","zh":"我被多收錢了。","tip":"overcharged = 被多收費","tag":"刷卡問題","level":3},{"en":"Could I get a receipt for the exchange?","zh":"換匯可以給我收據嗎？","tip":"留收據方便核對","tag":"換匯","level":2}],"dialogue":{"title":"在銀行換匯與處理重複扣款","youRole":"你（觀光客）","npcRole":"銀行行員","lines":[{"who":"npc","en":"Good morning. How can I help you today?","zh":"早安，今天需要什麼服務？","alt":[{"en":"Hi there. What can I do for you?","zh":"您好，需要什麼服務嗎？"},{"en":"Welcome. How may I assist you?","zh":"歡迎，請問需要什麼協助？"}]},{"who":"you","en":"Hi, I'd like to exchange some money. Taiwan dollars into US dollars.","zh":"您好，我想換錢，把台幣換成美金。"},{"who":"npc","en":"Sure. How much would you like to exchange?","zh":"好的，您想換多少呢？","alt":[{"en":"Of course. What amount are you changing today?","zh":"當然，今天要換多少呢？"}]},{"who":"you","en":"I'd like to change ten thousand Taiwan dollars. What's the exchange rate today?","zh":"我想換一萬元台幣。今天的匯率是多少？"},{"who":"npc","en":"Today it's 32 Taiwan dollars to one US dollar. After a two-dollar service fee, that's about 310 US dollars.","zh":"今天是 32 元台幣兌 1 美元。扣掉兩美元手續費後，大約是 310 美元。","alt":[{"en":"The rate is 32 to 1 today. So ten thousand comes to roughly 310 US dollars after the fee.","zh":"今天匯率 32 兌 1，一萬元扣手續費後約 310 美元。"}]},{"who":"you","en":"That's fine. Could I have some smaller bills, please?","zh":"沒問題。可以給我一些小鈔嗎？"},{"who":"npc","en":"No problem. Here you go — mostly twenties and tens.","zh":"沒問題，這是您的錢，大多是二十和十元的。"},{"who":"you","en":"Thanks. By the way, I think I was charged twice on my card here earlier.","zh":"謝謝。對了，我剛剛在這裡刷卡，好像被扣了兩次款。"},{"who":"npc","en":"I'm sorry about that. Do you have the receipt so I can check?","zh":"很抱歉，您有收據嗎？我幫您查一下。"},{"who":"you","en":"Yes, here it is. There's a double charge for the same amount.","zh":"有，在這裡。有一筆金額重複扣了兩次。"},{"who":"npc","en":"You're right — I see the double charge. I'll reverse the extra one right away.","zh":"您說得對，我看到重複扣款了，我馬上幫您取消多的那筆。"},{"who":"you","en":"Great, thank you for your help!","zh":"太好了，謝謝你的幫忙！"}]}},{"id":"attractions","icon":"🎡","title":"景點售票","titleEn":"Attractions & Tickets","desc":"買門票、開放時間、導覽、拍照","country":"US","words":[{"en":"ticket","zh":"門票","ico":"🎟️"},{"en":"admission","zh":"入場費","ico":"🎫"},{"en":"adult","zh":"成人","ico":"🧑"},{"en":"child","zh":"兒童","ico":"🧒"},{"en":"guided tour","zh":"導覽","ico":"🧭"},{"en":"audio guide","zh":"語音導覽","ico":"🎧"},{"en":"map","zh":"地圖","ico":"🗺️"},{"en":"restroom","zh":"廁所","ico":"🚻"}],"patterns":[{"en":"___, please.","zh":"請給我…。","slots":["Two adult tickets","One student ticket","Two adults and one child"]},{"en":"What time do you ___?","zh":"你們幾點…？","slots":["open","close","start the last tour"]},{"en":"Is there a ___?","zh":"有…嗎？","slots":["guided tour","family ticket","discount"]}],"phrases":[{"en":"Two adult tickets, please.","zh":"兩張成人票，謝謝。","tip":"一大兩小 = one adult and two children","tag":"買門票","level":1,"survival":true,"homophone":"凸・額斗特・踢kits・普利斯"},{"en":"How much is admission?","zh":"門票多少錢？","tip":"admission = 入場費","tag":"買門票","level":1,"survival":true,"homophone":"好・馬取・易斯・額d密遜"},{"en":"What time do you open and close?","zh":"你們幾點開門、幾點關門？","tip":"closing time = 關門時間","tag":"開放時間","level":1,"survival":true,"homophone":"哇特・太m・讀・you・歐盆・an・克落斯"},{"en":"Can I take photos here?","zh":"這裡可以拍照嗎？","tip":"No flash, please = 請勿使用閃光燈","tag":"拍照","level":1,"survival":true,"homophone":"肯・愛・têk・佛頭斯・here"},{"en":"Where are the restrooms?","zh":"廁所在哪裡？","tip":"restroom / toilet = 廁所","tag":"設施","level":1,"survival":true,"homophone":"威爾・阿・惹・瑞斯特潤斯"},{"en":"Do you have student tickets?","zh":"有學生票嗎？","tip":"student ticket = 學生票，記得帶學生證","tag":"買門票","level":2},{"en":"Is there a family ticket?","zh":"有家庭票嗎？","tip":"family ticket 通常更划算","tag":"買門票","level":2},{"en":"Are children under six free?","zh":"六歲以下小孩免費嗎？","tip":"確認兒童優惠","tag":"買門票","level":2},{"en":"What time is the last entry?","zh":"最後入場時間是幾點？","tip":"也可說 When's last admission?（last entry 是時間點，不用 start）","tag":"開放時間","level":2},{"en":"Is there a guided tour?","zh":"有導覽嗎？","tip":"guided tour = 導覽","tag":"導覽","level":2},{"en":"Do you have an audio guide in Chinese?","zh":"有中文的語音導覽嗎？","tip":"audio guide = 語音導覽","tag":"導覽","level":2},{"en":"Could you take a photo of us, please?","zh":"可以幫我們拍張照嗎？","tip":"請人幫拍照的禮貌說法","tag":"拍照","level":2},{"en":"Is there a map or a brochure?","zh":"有地圖或簡介嗎？","tip":"brochure = 簡介手冊","tag":"設施","level":2},{"en":"Do we need to book in advance?","zh":"我們需要事先預約嗎？","tip":"book in advance = 事先預約","tag":"買門票","level":3}],"dialogue":{"title":"在景點售票口買票","youRole":"你（觀光客）","npcRole":"售票員","lines":[{"who":"npc","en":"Hello! How many tickets would you like?","zh":"您好！請問要幾張票？","alt":[{"en":"Hi there! How many tickets can I get you?","zh":"您好！要幫您買幾張票？"},{"en":"Welcome! How many in your group today?","zh":"歡迎！今天你們幾位呢？"}]},{"who":"you","en":"Two adult tickets and one child, please. Do you have student tickets?","zh":"兩張成人票和一張兒童票，謝謝。有學生票嗎？"},{"who":"npc","en":"We do. Does anyone have a student ID?","zh":"有的，有人有學生證嗎？","alt":[{"en":"Yes, we offer them. Anyone with a student card?","zh":"有的，有人帶學生證嗎？"}]},{"who":"you","en":"My daughter does. And are children under six free?","zh":"我女兒有。還有，六歲以下小孩免費嗎？"},{"who":"npc","en":"Yes, under six is free. So that's two adults and one student.","zh":"是的，六歲以下免費。所以是兩張成人加一張學生票。"},{"who":"you","en":"Great. What time do you close today?","zh":"太好了。你們今天幾點關門？"},{"who":"npc","en":"We close at six, and the last entry is at five.","zh":"我們六點關門，最後入場時間是五點。","alt":[{"en":"Closing is at six, and last admission is five.","zh":"六點關門，最後入場是五點。"}]},{"who":"you","en":"Perfect. Is there an audio guide in Chinese?","zh":"很好。有中文的語音導覽嗎？"},{"who":"npc","en":"Yes, you can rent one at the desk on your left.","zh":"有的，可以在您左邊的櫃台租借。"},{"who":"you","en":"Thanks. Can I take photos inside?","zh":"謝謝。裡面可以拍照嗎？"},{"who":"npc","en":"Photos are fine, but no flash, please. The restrooms are just past the entrance.","zh":"可以拍照，但請勿使用閃光燈。廁所就在入口過去一點。"},{"who":"you","en":"Got it. Thank you so much for your help!","zh":"了解，非常謝謝你的幫忙！"}]}},{"id":"sim-internet","icon":"📶","title":"網路SIM卡","titleEn":"SIM & Internet","desc":"買SIM卡、eSIM、Wi-Fi、儲值","country":"US","words":[{"en":"SIM card","zh":"SIM卡","ico":"📇"},{"en":"eSIM","zh":"電子SIM","ico":"📲"},{"en":"data","zh":"數據流量","ico":"📊"},{"en":"unlimited","zh":"無限（吃到飽）","ico":"♾️"},{"en":"top up","zh":"儲值","ico":"💳"},{"en":"Wi-Fi","zh":"無線網路","ico":"📡"},{"en":"password","zh":"密碼","ico":"🔑"},{"en":"activate","zh":"開通","ico":"✅"},{"en":"coverage","zh":"收訊範圍","ico":"🗺️"}],"patterns":[{"en":"Do you have ___?","zh":"你們有…嗎？","slots":["a tourist SIM card","an eSIM","free Wi-Fi","an unlimited plan"]},{"en":"How do I ___?","zh":"我要怎麼…？","slots":["top up","activate the eSIM","set it up","connect to Wi-Fi"]}],"phrases":[{"en":"Hi, I'd like to buy a SIM card for internet.","zh":"你好，我想買一張上網用的SIM卡。","tip":"也可說 a data SIM card","tag":"買卡","level":1},{"en":"Do you have a SIM card for tourists?","zh":"你們有給觀光客用的SIM卡嗎？","tip":"tourist SIM / traveler SIM","tag":"買卡","level":1},{"en":"How many gigabytes do I get?","zh":"這張有多少GB？","tip":"GB 唸 gigabytes","tag":"方案","level":2},{"en":"How many days is it valid for?","zh":"可以用幾天？","tip":"valid = 有效","tag":"方案","level":2},{"en":"Is the data unlimited?","zh":"這是吃到飽（無限流量）嗎？","tip":"unlimited = 無限；避免說 Is it unlimited data?","tag":"方案","level":2},{"en":"Which plan is best for a family of four?","zh":"四口之家用哪個方案最好？","tip":"a family of four = 四口之家","tag":"方案","level":2},{"en":"Can you help me set it up?","zh":"可以幫我裝好嗎？","tip":"set it up = 設定安裝","tag":"安裝","level":1},{"en":"Can you put the SIM card in for me?","zh":"可以幫我把SIM卡裝進手機嗎？","tip":"","tag":"安裝","level":2},{"en":"I'd like an eSIM instead. Can I scan a QR code?","zh":"我想要eSIM，可以掃QR碼嗎？","tip":"eSIM 免實體卡","tag":"eSIM","level":2},{"en":"Where do I scan the QR code to activate it?","zh":"要掃哪裡的QR碼來開通？","tip":"activate = 開通","tag":"eSIM","level":2},{"en":"My data isn't working. Can you check it?","zh":"我的網路不通，可以幫我看一下嗎？","tip":"","tag":"問題","level":2},{"en":"How do I top up when I run out of data?","zh":"流量用完了要怎麼儲值？","tip":"top up / recharge = 儲值","tag":"儲值","level":2},{"en":"Can I top up online with a credit card?","zh":"可以用信用卡線上儲值嗎？","tip":"","tag":"儲值","level":2},{"en":"Excuse me, what's the Wi-Fi password here?","zh":"不好意思，這裡的Wi-Fi密碼是什麼？","tip":"","tag":"Wi-Fi","level":1},{"en":"Is there free Wi-Fi in this area?","zh":"這附近有免費Wi-Fi嗎？","tip":"","tag":"Wi-Fi","level":1},{"en":"The Wi-Fi keeps disconnecting.","zh":"Wi-Fi一直斷線。","tip":"disconnect = 斷線","tag":"問題","level":2}],"dialogue":{"title":"在機場電信櫃台買SIM卡","youRole":"你（旅客）","npcRole":"店員","lines":[{"who":"npc","en":"Hi! How can I help you today?","zh":"你好！有什麼需要幫忙的嗎？","alt":[{"en":"Welcome! Looking for a SIM card?","zh":"歡迎！在找SIM卡嗎？"},{"en":"Hello there! What can I get for you?","zh":"你好！需要什麼呢？"}]},{"who":"you","en":"Hi, I'd like to buy a SIM card for internet.","zh":"你好，我想買一張上網用的SIM卡。"},{"who":"npc","en":"Sure. How many days will you be staying?","zh":"好的，你們會待幾天？","alt":[{"en":"Of course. How long is your trip?","zh":"當然，你的旅程有多長？"},{"en":"No problem. How many days do you need it for?","zh":"沒問題，你需要用幾天？"}]},{"who":"you","en":"Ten days, and we're a family of four.","zh":"十天，我們是四口之家。"},{"who":"npc","en":"This plan gives you unlimited data for ten days. Would that work?","zh":"這個方案是十天吃到飽，可以嗎？","alt":[{"en":"I'd recommend this ten-day unlimited plan. Sound good?","zh":"我推薦這個十天吃到飽方案，好嗎？"}]},{"who":"you","en":"That sounds great. Can you help me set it up?","zh":"聽起來不錯，可以幫我裝好嗎？"},{"who":"npc","en":"Of course. May I see your phone, please?","zh":"當然，可以借你的手機看一下嗎？"},{"who":"you","en":"Here you go. Also, how do I top up if we run out?","zh":"給你。另外，如果用完了要怎麼儲值？"},{"who":"npc","en":"You can top up online with a credit card anytime.","zh":"你隨時可以用信用卡在線上儲值。"},{"who":"you","en":"Perfect. My data is working now. Thank you!","zh":"太好了，我的網路通了，謝謝！"}]}},{"id":"pharmacy","icon":"💊","title":"藥局","titleEn":"Pharmacy","desc":"買成藥、症狀描述、用法用量","country":"US","words":[{"en":"painkiller","zh":"止痛藥","ico":"💊"},{"en":"fever","zh":"發燒","ico":"🤒"},{"en":"cold medicine","zh":"感冒藥","ico":"🤧"},{"en":"antihistamine","zh":"抗過敏藥","ico":"🌸"},{"en":"motion sickness pills","zh":"暈車藥","ico":"🚗"},{"en":"insect repellent","zh":"防蚊蟲液","ico":"🦟"},{"en":"sunburn cream","zh":"曬傷藥膏","ico":"☀️"},{"en":"Band-Aids","zh":"OK繃","ico":"🩹"},{"en":"prescription","zh":"處方箋","ico":"📋"},{"en":"side effects","zh":"副作用","ico":"⚠️"}],"patterns":[{"en":"I have ___.","zh":"我有…（症狀）。","slots":["a headache","a fever","an upset stomach","a sore throat","a runny nose"]},{"en":"Do you have something for ___?","zh":"有沒有治…的藥？","slots":["a cold","motion sickness","allergies","diarrhea","insect bites"]}],"phrases":[{"en":"Hi, I'm not feeling well. Can you help me?","zh":"你好，我不太舒服，可以幫我嗎？","tip":"","tag":"開場","level":1},{"en":"I have a headache.","zh":"我頭痛。","tip":"換症狀：a fever 發燒／a stomachache 肚子痛","tag":"症狀","level":1},{"en":"I have a fever and a sore throat.","zh":"我發燒又喉嚨痛。","tip":"sore throat = 喉嚨痛","tag":"症狀","level":1},{"en":"I have an upset stomach.","zh":"我腸胃不舒服。","tip":"拉肚子的婉轉說法，比 diarrhea 好開口","tag":"症狀","level":1},{"en":"I have diarrhea.","zh":"我拉肚子。","tip":"diarrhea 唸 /ˌdaɪəˈriːə/；婉轉版說 I have an upset stomach.","tag":"症狀","level":2},{"en":"I think I caught a cold.","zh":"我好像感冒了。","tip":"catch a cold = 感冒","tag":"症狀","level":1},{"en":"Do you have any painkillers?","zh":"有沒有止痛藥？","tip":"painkiller / pain reliever","tag":"找藥","level":1},{"en":"Do you have medicine for an upset stomach?","zh":"有沒有治肚子不舒服的藥？","tip":"upset stomach = 腸胃不適","tag":"找藥","level":1},{"en":"Do you have anything for motion sickness?","zh":"有沒有暈車藥？","tip":"motion sickness pills = 暈車藥","tag":"找藥","level":2},{"en":"Do you have an antihistamine for allergies?","zh":"有沒有抗過敏藥？","tip":"antihistamine = 抗組織胺（抗過敏）","tag":"找藥","level":2},{"en":"Do you sell insect repellent?","zh":"有賣防蚊蟲液嗎？","tip":"insect repellent = 防蚊蟲液","tag":"找藥","level":2},{"en":"Do you have cream for a sunburn?","zh":"有沒有曬傷藥膏？","tip":"sunburn cream / aloe gel","tag":"找藥","level":2},{"en":"Can I get some Band-Aids?","zh":"可以給我一些OK繃嗎？","tip":"Band-Aids = OK繃（美式）","tag":"找藥","level":1},{"en":"Do you have anything for diarrhea?","zh":"有沒有止瀉藥？","tip":"anti-diarrheal = 止瀉藥","tag":"找藥","level":2},{"en":"Do you have a laxative?","zh":"有沒有便秘藥（軟便劑）？","tip":"laxative = 通便／軟便劑","tag":"找藥","level":2},{"en":"Where can I find feminine hygiene products?","zh":"生理用品在哪裡？","tip":"feminine hygiene products = 生理用品；pads 衛生棉","tag":"找藥","level":2},{"en":"Is there something for a runny nose?","zh":"有沒有治流鼻水的藥？","tip":"runny nose = 流鼻水","tag":"找藥","level":1},{"en":"How do I take this?","zh":"這個怎麼吃？","tip":"","tag":"用法","level":1},{"en":"How many times a day should I take it?","zh":"一天要吃幾次？","tip":"","tag":"用法","level":2},{"en":"Should I take it before or after meals?","zh":"飯前還是飯後吃？","tip":"before/after meals = 飯前／飯後","tag":"用法","level":2},{"en":"Are there any side effects?","zh":"有沒有副作用？","tip":"side effects = 副作用","tag":"用法","level":2},{"en":"Will this make me drowsy?","zh":"吃了會想睡嗎？","tip":"drowsy = 想睡的","tag":"用法","level":2},{"en":"Do I need a prescription for this?","zh":"這個需要處方嗎？","tip":"prescription = 處方箋","tag":"處方","level":2},{"en":"Is this safe for children?","zh":"小孩可以吃嗎？","tip":"","tag":"安全","level":2},{"en":"I'm allergic to aspirin. Is this okay?","zh":"我對阿斯匹靈過敏，這個可以吃嗎？","tip":"allergic to = 對…過敏","tag":"安全","level":2,"survival":true,"homophone":"愛姆 阿勒吉克 兔 阿斯匹林"}],"dialogue":{"title":"在藥局買感冒藥","youRole":"你（旅客）","npcRole":"藥師","lines":[{"who":"npc","en":"Hello, how can I help you?","zh":"你好，有什麼需要幫忙的嗎？","alt":[{"en":"Hi there, what can I do for you?","zh":"你好，需要什麼服務嗎？"},{"en":"Good afternoon. Are you looking for anything?","zh":"午安，在找什麼藥嗎？"}]},{"who":"you","en":"Hi, I'm not feeling well. I think I caught a cold.","zh":"你好，我不太舒服，我好像感冒了。"},{"who":"npc","en":"I'm sorry to hear that. What are your symptoms?","zh":"真遺憾，你有哪些症狀？","alt":[{"en":"Oh no. Can you tell me your symptoms?","zh":"糟糕，可以說說你的症狀嗎？"}]},{"who":"you","en":"I have a fever, a headache, and a runny nose.","zh":"我發燒、頭痛，還流鼻水。"},{"who":"npc","en":"This cold medicine should help. Take one tablet three times a day.","zh":"這個感冒藥應該有幫助，一天吃三次、一次一顆。","alt":[{"en":"Try this cold medicine, one pill three times daily.","zh":"試試這個感冒藥，一天三次、一次一顆。"}]},{"who":"you","en":"Should I take it before or after meals?","zh":"飯前還是飯後吃？"},{"who":"npc","en":"After meals, please. And drink plenty of water.","zh":"請飯後吃，並多喝水。"},{"who":"you","en":"Are there any side effects? Will it make me drowsy?","zh":"有副作用嗎？吃了會想睡嗎？"},{"who":"npc","en":"It might make you a little sleepy, so avoid driving.","zh":"可能會有點想睡，所以不要開車。"},{"who":"you","en":"Got it. One more thing — I'm allergic to aspirin. Is this okay?","zh":"了解。還有一件事，我對阿斯匹靈過敏，這個可以嗎？"},{"who":"npc","en":"No aspirin in this one, so you're fine. Feel better soon!","zh":"這款沒有阿斯匹靈，所以沒問題。祝你早日康復！"}]}},{"id":"doctor","icon":"🏥","title":"看病","titleEn":"Seeing a Doctor","desc":"掛號、描述病情、拿藥、保險","country":"US","words":[{"en":"appointment","zh":"預約","ico":"📅"},{"en":"symptom","zh":"症狀","ico":"🤕"},{"en":"emergency room","zh":"急診室","ico":"🚑"},{"en":"prescription","zh":"處方箋","ico":"📋"},{"en":"allergic","zh":"過敏","ico":"⚠️"},{"en":"insurance","zh":"保險","ico":"🛡️"},{"en":"receipt","zh":"收據","ico":"🧾"},{"en":"medical certificate","zh":"診斷證明","ico":"📄"}],"patterns":[{"en":"I've had ___ since ___.","zh":"我從…就一直…","slots":["a fever / yesterday","a cough / this morning","a headache / last night"]},{"en":"It hurts ___.","zh":"…會痛。","slots":["here","when I breathe","when I move","all over"]}],"phrases":[{"en":"I'd like to see a doctor, please.","zh":"我想看醫生。","tip":"","tag":"掛號","level":1},{"en":"Where's the emergency room?","zh":"急診室在哪裡？","tip":"美式用 emergency room（ER）；英式用 A&E","tag":"掛號","level":1,"survival":true,"homophone":"威爾斯 勒 伊墨真西 潤"},{"en":"I don't have an appointment. Is that okay?","zh":"我沒有預約，可以嗎？","tip":"appointment = 預約","tag":"掛號","level":2},{"en":"How long is the wait?","zh":"要等多久？","tip":"","tag":"掛號","level":2},{"en":"I've had a fever since yesterday.","zh":"我從昨天開始發燒。","tip":"since = 從…以來","tag":"病情","level":1},{"en":"It hurts here.","zh":"這裡會痛。","tip":"邊指邊說最清楚","tag":"病情","level":1},{"en":"I have a bad cough and a sore throat.","zh":"我咳得很厲害，還喉嚨痛。","tip":"cough = 咳嗽","tag":"病情","level":1},{"en":"I've been throwing up since this morning.","zh":"我從早上就一直吐。","tip":"throw up = 嘔吐","tag":"病情","level":2},{"en":"The pain is getting worse.","zh":"越來越痛。","tip":"getting worse = 惡化","tag":"病情","level":2},{"en":"I'm allergic to penicillin.","zh":"我對盤尼西林過敏。","tip":"換藥名：aspirin 阿斯匹靈","tag":"過敏","level":2,"survival":true,"homophone":"愛姆 阿勒吉克 兔 盤尼西林"},{"en":"Do I need any medicine?","zh":"我需要吃藥嗎？","tip":"","tag":"拿藥","level":1},{"en":"Where can I pick up the medicine?","zh":"藥要去哪裡拿？","tip":"pick up = 領取","tag":"拿藥","level":2},{"en":"I have travel insurance. Can I get a receipt?","zh":"我有旅遊保險，可以給我收據嗎？","tip":"receipt = 收據","tag":"保險","level":2},{"en":"Can you give me an itemized bill for insurance?","zh":"可以給我明細收據報保險嗎？","tip":"itemized bill = 明細帳單","tag":"保險","level":3},{"en":"Could you write me a medical certificate?","zh":"可以幫我開診斷證明嗎？","tip":"medical certificate = 診斷證明","tag":"證明","level":3},{"en":"How much will this cost?","zh":"這樣要多少錢？","tip":"","tag":"費用","level":1},{"en":"Do you accept credit cards?","zh":"可以刷卡嗎？","tip":"","tag":"費用","level":1}],"dialogue":{"title":"在診所看醫生","youRole":"你（病人）","npcRole":"醫生","lines":[{"who":"npc","en":"Hi, come in and have a seat. What brings you in today?","zh":"你好，請進坐下。今天哪裡不舒服？","alt":[{"en":"Please have a seat. What seems to be the problem?","zh":"請坐，哪裡不舒服呢？"},{"en":"Come on in. How are you feeling today?","zh":"請進，今天覺得怎麼樣？"}]},{"who":"you","en":"I've had a fever since yesterday, and it's getting worse.","zh":"我從昨天開始發燒，而且越來越嚴重。"},{"who":"npc","en":"Any other symptoms?","zh":"還有其他症狀嗎？","alt":[{"en":"Are you feeling anything else?","zh":"還有覺得哪裡不對勁嗎？"}]},{"who":"you","en":"Yes, a bad cough and a sore throat. It hurts here.","zh":"有，咳得很厲害還喉嚨痛，這裡會痛。"},{"who":"npc","en":"Let me take a look. Are you allergic to any medication?","zh":"我看一下。你對任何藥物過敏嗎？","alt":[{"en":"I'll examine you. Do you have any drug allergies?","zh":"我檢查一下，你對藥物有過敏嗎？"}]},{"who":"you","en":"Yes, I'm allergic to penicillin.","zh":"有，我對盤尼西林過敏。"},{"who":"npc","en":"Noted. It looks like a throat infection. I'll prescribe some medicine.","zh":"記下了。看起來是喉嚨發炎，我開些藥給你。"},{"who":"you","en":"Thank you. Where can I pick up the medicine?","zh":"謝謝，藥要去哪裡拿？"},{"who":"npc","en":"At the pharmacy next door. Get plenty of rest.","zh":"隔壁的藥局就有，記得多休息。"},{"who":"you","en":"I have travel insurance. Could you write me a medical certificate and an itemized bill?","zh":"我有旅遊保險，可以幫我開診斷證明和明細收據嗎？"},{"who":"npc","en":"Of course. The front desk will prepare everything for you.","zh":"當然，櫃台會幫你準備好所有文件。"}]}},{"id":"emergency","icon":"🆘","title":"緊急求助","titleEn":"Emergency","desc":"報警、急重症求救、東西遺失、找辦事處","country":"US","words":[{"en":"Help!","zh":"救命！","ico":"🆘"},{"en":"ambulance","zh":"救護車","ico":"🚑"},{"en":"police","zh":"警察","ico":"👮"},{"en":"emergency","zh":"緊急狀況","ico":"⚠️"},{"en":"pickpocket","zh":"扒手","ico":"🕵️"},{"en":"unconscious","zh":"失去意識","ico":"😵"},{"en":"allergic reaction","zh":"過敏反應","ico":"🤧"},{"en":"EpiPen","zh":"腎上腺素筆","ico":"💉"},{"en":"interpreter","zh":"口譯員","ico":"🗣️"},{"en":"embassy","zh":"大使館／辦事處","ico":"🏛️"}],"patterns":[{"en":"We're near ___.","zh":"我們在…附近。","slots":["the train station","the main entrance","Central Park","the red building"]},{"en":"He's having ___.","zh":"他正在…（急症）","slots":["a heart attack","a seizure","an allergic reaction","trouble breathing"]}],"phrases":[{"en":"Help!","zh":"救命！","tip":"大聲喊出來","tag":"求救","level":1,"survival":true,"homophone":"黑ㄜ普"},{"en":"I need help, please.","zh":"請幫幫我。","tip":"","tag":"求救","level":1,"survival":true,"homophone":"愛 尼德 黑ㄜ普 普利斯"},{"en":"It's an emergency.","zh":"這是緊急狀況。","tip":"emergency = 緊急","tag":"報警","level":1,"survival":true,"homophone":"依次 嗯 伊墨真西"},{"en":"Call the police!","zh":"快報警！","tip":"美國報案打 911","tag":"報警","level":1,"survival":true,"homophone":"摳 勒 波利斯"},{"en":"Call an ambulance!","zh":"叫救護車！","tip":"美國 911 一線通報警與救護","tag":"報警","level":1,"survival":true,"homophone":"摳 嗯 安布勒斯"},{"en":"I need a doctor.","zh":"我需要醫生。","tip":"","tag":"求救","level":1,"survival":true,"homophone":"愛 尼德 阿 搭克特"},{"en":"He's having a heart attack.","zh":"他心臟病發作了。","tip":"heart attack = 心臟病發","tag":"急重症","level":1,"survival":true,"homophone":"喜斯 哈聖 阿 哈特 阿泰克"},{"en":"She's not breathing.","zh":"她沒有呼吸了。","tip":"breathing = 呼吸","tag":"急重症","level":1,"survival":true,"homophone":"需斯 那 布利丁"},{"en":"He's unconscious.","zh":"他失去意識了。","tip":"unconscious = 昏迷","tag":"急重症","level":1,"survival":true,"homophone":"喜斯 安康雪斯"},{"en":"She's choking.","zh":"她噎到了（哽住）。","tip":"choking = 噎到／哽塞","tag":"急重症","level":1,"survival":true,"homophone":"需斯 秋慶"},{"en":"I'm having an allergic reaction — I need my EpiPen.","zh":"我過敏發作了，我需要我的腎上腺素筆。","tip":"EpiPen = 過敏急救腎上腺素筆","tag":"急重症","level":1,"survival":true,"homophone":"愛姆 哈聖 嗯 阿勒吉克 瑞阿克遜 — 愛 尼德 買 艾皮潘"},{"en":"He's having a seizure.","zh":"他癲癇發作了。","tip":"seizure = 抽搐／癲癇發作","tag":"急重症","level":1,"survival":true,"homophone":"喜斯 哈聖 阿 西擷兒"},{"en":"I'm diabetic.","zh":"我有糖尿病。","tip":"diabetic = 糖尿病患；急救時很重要","tag":"急重症","level":1,"survival":true,"homophone":"愛姆 呆阿貝提克"},{"en":"I'm pregnant.","zh":"我懷孕了。","tip":"pregnant = 懷孕；用藥／急救須知","tag":"急重症","level":1,"survival":true,"homophone":"愛姆 普瑞格能特"},{"en":"Someone snatched my bag!","zh":"有人搶走我的包包！","tip":"snatch = 一把搶走，比 took 有力","tag":"遭竊","level":1,"survival":true,"homophone":"桑萬 史那取 買 背格"},{"en":"I've been pickpocketed!","zh":"我被扒了！","tip":"pickpocket = 扒手／扒竊","tag":"遭竊","level":1,"survival":true,"homophone":"愛夫 賓 匹克帕基提"},{"en":"My wallet was stolen.","zh":"我的皮夾被偷了。","tip":"stolen = 被偷（原形 steal）","tag":"遭竊","level":2},{"en":"I lost my passport.","zh":"我的護照掉了。","tip":"換物品：wallet 皮夾／phone 手機","tag":"遺失","level":1},{"en":"I want to report a theft.","zh":"我要報案（失竊）。","tip":"theft = 竊盜","tag":"報警","level":2},{"en":"We're near the train station.","zh":"我們在火車站附近。","tip":"先報位置最重要；套用你所在地標","tag":"報位置","level":1,"survival":true,"homophone":"威爾 尼爾 勒 全 史迪遜"},{"en":"The address is here on my phone.","zh":"地址在我手機上。","tip":"慌亂時直接把手機地址給對方看","tag":"報位置","level":1,"survival":true,"homophone":"勒 阿追斯 伊斯 喜爾 昂 買 風"},{"en":"Does anyone here speak Chinese?","zh":"這裡有人會說中文嗎？","tip":"找到會中文的人能救急","tag":"語言","level":1,"survival":true,"homophone":"達斯 安尼萬 喜爾 斯必克 差伊尼斯"},{"en":"I need an interpreter.","zh":"我需要口譯員。","tip":"interpreter = 口譯員","tag":"語言","level":2,"survival":true,"homophone":"愛 尼德 嗯 因特普特"},{"en":"My child is missing!","zh":"我的小孩不見了！","tip":"missing = 失蹤","tag":"求救","level":1,"survival":true,"homophone":"買 差伊爾德 伊斯 密性"},{"en":"He's a five-year-old boy in a red shirt.","zh":"他是個穿紅衣服的五歲男孩。","tip":"描述走失孩童：年齡＋衣服顏色","tag":"求救","level":2},{"en":"I'm lost. Can you help me?","zh":"我迷路了，可以幫我嗎？","tip":"lost = 迷路","tag":"求救","level":1},{"en":"Where is the nearest police station?","zh":"最近的警察局在哪裡？","tip":"police station = 警察局","tag":"找地方","level":2},{"en":"Where is the nearest hospital?","zh":"最近的醫院在哪裡？","tip":"","tag":"找地方","level":1},{"en":"No, thank you.","zh":"不用，謝謝。","tip":"遇到糾纏／推銷，堅定拒絕","tag":"自保","level":1},{"en":"Please leave me alone.","zh":"請別煩我。","tip":"被騷擾時明確表態","tag":"自保","level":1,"survival":true,"homophone":"普利斯 立夫 密 阿龍"},{"en":"I'm not interested.","zh":"我沒興趣。","tip":"拒絕推銷／搭訕","tag":"自保","level":1},{"en":"I need to contact the Taiwan representative office.","zh":"我要聯絡台灣的辦事處。","tip":"台灣駐外多為 representative office","tag":"辦事處","level":2},{"en":"Do you have the number for the Taiwan office?","zh":"你有台灣辦事處的電話嗎？","tip":"海外急難救助專線 +886-800-085-095","tag":"辦事處","level":2},{"en":"Please write it down for me.","zh":"請幫我寫下來。","tip":"慌亂時最好請對方寫下","tag":"求救","level":1}],"dialogue":{"title":"皮夾被偷，向警察求助","youRole":"你（旅客）","npcRole":"警察","lines":[{"who":"you","en":"Help! My wallet was stolen!","zh":"救命！我的皮夾被偷了！"},{"who":"npc","en":"Okay, take a breath — I'll help you. Where did it happen?","zh":"好，深呼吸，我來幫你。是在哪裡發生的？","alt":[{"en":"It's okay, I've got you. When did this happen?","zh":"沒事，有我在。什麼時候發生的？"},{"en":"Alright, you're safe now. Tell me where it happened.","zh":"好，你現在安全了。告訴我在哪裡發生的。"}]},{"who":"you","en":"On the train, just now. Someone snatched it from my bag.","zh":"剛剛在火車上，有人從我包包裡搶走的。"},{"who":"npc","en":"What was inside?","zh":"裡面有什麼？","alt":[{"en":"Can you tell me what was in it?","zh":"可以告訴我裡面有什麼嗎？"}]},{"who":"you","en":"My cash, credit cards, and my passport.","zh":"現金、信用卡，還有我的護照。"},{"who":"npc","en":"Okay, I'll help you file a report. May I see your ID?","zh":"好，我幫你報案，可以看你的身分證件嗎？","alt":[{"en":"Let's file a report right away. Do you have any ID?","zh":"我們馬上報案，你有帶證件嗎？"}]},{"who":"you","en":"Here. I want to report a theft. It's an emergency.","zh":"在這裡。我要報案失竊，這是緊急狀況。"},{"who":"npc","en":"Understood. You'll need this police report for insurance.","zh":"了解，這份報案證明你辦保險會用到。"},{"who":"you","en":"Thank you. I also need to contact the Taiwan representative office. Do you have the number?","zh":"謝謝。我還需要聯絡台灣辦事處，你有電話嗎？"},{"who":"npc","en":"Yes, let me write it down for you.","zh":"有，我幫你寫下來。"},{"who":"you","en":"Thank you so much for your help.","zh":"非常感謝你的幫忙。"}]}},{"id":"safety","icon":"🛡️","title":"防扒與自保","titleEn":"Safety & Scams","desc":"防扒手、拒絕推銷搭訕、報平安、借用求助","country":"US","words":[{"en":"pickpocket","zh":"扒手","ico":"🖐️"},{"en":"scam","zh":"詐騙","ico":"⚠️"},{"en":"wallet","zh":"皮夾","ico":"👛"},{"en":"taxi","zh":"計程車","ico":"🚕"},{"en":"emergency","zh":"緊急狀況","ico":"🆘"},{"en":"suspicious","zh":"可疑的","ico":"👀"},{"en":"police","zh":"警察","ico":"👮"},{"en":"phone","zh":"手機","ico":"📱"}],"patterns":[{"en":"Please ___.","zh":"請…。","slots":["leave me alone","call me a taxi","watch my bags for a second"]},{"en":"No, ___.","zh":"不用了，…。","slots":["thank you","I'm not interested"]}],"phrases":[{"en":"No, thank you.","zh":"不用了，謝謝。","tip":"堅定但有禮貌","tag":"拒絕","level":1,"survival":true,"homophone":"弄，山Q"},{"en":"I'm not interested.","zh":"我沒興趣。","tip":"interested = 有興趣的","tag":"拒絕","level":1},{"en":"Please leave me alone.","zh":"請別再纏著我。","tip":"被糾纏時用，語氣要堅定","tag":"拒絕","level":1,"survival":true,"homophone":"普利斯 立夫 米 額弄"},{"en":"I've been pickpocketed!","zh":"我被扒了！","tip":"pickpocket = 扒手","tag":"遭竊","level":2,"survival":true,"homophone":"愛夫 賓 匹克帕基特"},{"en":"Someone stole my wallet!","zh":"有人偷了我的皮夾！","tip":"stole = steal 的過去式","tag":"遭竊","level":2},{"en":"Keep your hands off my bag!","zh":"把手拿開，別碰我的包！","tip":"察覺有人靠太近時大聲說","tag":"遭竊","level":2},{"en":"Can I use your phone? It's an emergency.","zh":"可以借用你的手機嗎？這是緊急狀況。","tip":"報平安或報警都用得到","tag":"求助","level":2,"survival":true,"homophone":"坎 愛 又斯 幼兒 風？依次 恩 伊墨真西"},{"en":"Where can I charge my phone?","zh":"哪裡可以幫手機充電？","tip":"charge = 充電","tag":"手機","level":1},{"en":"Can you call me a taxi?","zh":"可以幫我叫計程車嗎？","tip":"call a taxi = 叫車","tag":"交通","level":2},{"en":"Please watch my bags for a second.","zh":"請幫我顧一下行李。","tip":"for a second = 一下下","tag":"財物","level":2},{"en":"Is this area safe at night?","zh":"這一帶晚上安全嗎？","tip":"safe = 安全的","tag":"安全","level":2},{"en":"Sorry, I don't do surveys.","zh":"抱歉，我不填問卷。","tip":"假問卷常是分心扒竊手法","tag":"防詐","level":2},{"en":"Can I see your police ID, please?","zh":"可以出示你的警察證件嗎？","tip":"假警察會要你交錢包，先驗證件","tag":"防詐","level":3},{"en":"I'm not buying anything, thank you.","zh":"我什麼都不買，謝謝。","tip":"面對強迫推銷，重複同一句就好","tag":"拒絕","level":2},{"en":"I'm meeting my friends over there.","zh":"我朋友在那邊等我。","tip":"讓對方知道你不是落單，方便脫身","tag":"自保","level":2},{"en":"I need to report a theft.","zh":"我要報案（失竊）。","tip":"theft = 竊盜","tag":"報警","level":2}],"dialogue":{"title":"皮夾被扒，向店家求助報平安","youRole":"你（旅客）","npcRole":"店員","lines":[{"who":"you","en":"Excuse me, I need help. I've been pickpocketed!","zh":"不好意思，我需要幫忙，我被扒了！"},{"who":"npc","en":"Oh no, are you okay? What happened?","zh":"天啊，你還好嗎？發生什麼事？","alt":[{"en":"That's terrible. Are you hurt?","zh":"太糟了，你有受傷嗎？"},{"en":"Take a breath — tell me what happened.","zh":"冷靜一點，告訴我怎麼了。"}]},{"who":"you","en":"Someone stole my wallet on the street. Can I use your phone? It's an emergency.","zh":"有人在街上偷了我的皮夾。可以借用你的手機嗎？這是緊急狀況。"},{"who":"npc","en":"Of course. Here, use mine.","zh":"當然，來，用我的。","alt":[{"en":"Sure, take my phone.","zh":"沒問題，手機拿去用。"},{"en":"Here you go, dial away.","zh":"拿去，儘管打。"}]},{"who":"you","en":"Thank you. Can you also call me a taxi to the police station?","zh":"謝謝。也可以幫我叫台計程車去警察局嗎？"},{"who":"npc","en":"Sure, I'll call one now. Please keep your other bags close.","zh":"好，我馬上叫車。你其他的包包也顧緊一點。","alt":[{"en":"On it. Watch your belongings while we wait.","zh":"在處理了，等車時看好你的東西。"},{"en":"Right away. Hold your bag tight, just in case.","zh":"馬上，包包抓緊點以防萬一。"}]},{"who":"you","en":"A man kept pushing me to buy something right before it happened.","zh":"出事前有個男的一直纏著我要我買東西。"},{"who":"npc","en":"That's a common scam here. They distract you and take your wallet.","zh":"這裡常見這種手法，他們分散你注意再偷皮夾。"},{"who":"you","en":"Is this area safe at night?","zh":"這一帶晚上安全嗎？"},{"who":"npc","en":"It's better to avoid the crowds after dark. Stay alert.","zh":"天黑後最好別往人多的地方去，多留意四周。"},{"who":"you","en":"Thank you so much. Where can I charge my phone too?","zh":"太謝謝你了。另外哪裡可以幫手機充電？"},{"who":"npc","en":"There's an outlet by the counter. Take your time.","zh":"櫃台旁有插座，你慢慢來。"}]}}];
+</script>
+
+<script>
+const SCENARIOS = window.__SCENARIOS__;
+const REF = window.__REF__;
+const $ = s=>document.querySelector(s);
+const fmt=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const todayStr=()=>fmt(new Date());
+
+const BANDS={
+  all:{name:"一般",emoji:"🙂",desc:"全部關卡與難度",levels:[1,2,3],hide:[],big:false,homo:false},
+  senior:{name:"長輩",emoji:"👵",desc:"只留最基礎救命句、大字、諧音發音",levels:[1],hide:["car-rental","driving-gas","sim-internet","money","flight-trouble"],big:true,homo:true},
+  kid:{name:"兒童",emoji:"🧒",desc:"藏大人關卡，只練簡單句＋遊戲",levels:[1,2],hide:["car-rental","driving-gas","sim-internet","money","flight-trouble"],big:false,homo:false},
+  adult:{name:"成人",emoji:"💼",desc:"全部關卡與進階句，高效實用",levels:[1,2,3],hide:[],big:false,homo:false}
+};
+function band(){return BANDS[S.band]||BANDS.all}
+function scenList(){return SCENARIOS.filter(sc=>!band().hide.includes(sc.id))}
+function phraseOK(p){return band().levels.includes(p.level||2)||p.survival}
+function visPhrases(sc){return sc.phrases.map((p,i)=>({p,i})).filter(o=>phraseOK(o.p))}
+
+const G = JSON.parse(localStorage.getItem('trip_en_global')||'null') || {
+  profiles:[{id:'p1',name:'我',emoji:'🙂'}], current:'p1', dark:false
+};
+function saveG(){localStorage.setItem('trip_en_global',JSON.stringify(G))}
+
+let S;
+function pKey(id){return 'trip_en_'+id}
+function loadProfile(id){
+  S = JSON.parse(localStorage.getItem(pKey(id))||'null') || {};
+  S.cards=S.cards||{}; S.favs=S.favs||[]; S.streakDates=S.streakDates||[]; S.dailyCount=S.dailyCount||{};
+  S.goal=S.goal||20; S.rate=S.rate||1.0; S.showZh=S.showZh!==false; S.band=S.band||'all'; S.big=!!S.big; S.badges=S.badges||[];
+}
+function saveS(){localStorage.setItem(pKey(G.current),JSON.stringify(S))}
+
+function cardKey(sid,i){return sid+'#'+i}
+function getCard(sid,i){const k=cardKey(sid,i);return S.cards[k]||(S.cards[k]={lvl:0,due:0,seen:0})}
+const SRS_DAYS=[0,1,2,4,8,16,30];
+function grade(sid,i,ok){
+  const c=getCard(sid,i);c.seen++;
+  if(ok){c.lvl=Math.min(6,c.lvl+1);c.due=Date.now()+SRS_DAYS[c.lvl]*864e5;}
+  else{c.lvl=Math.max(0,c.lvl-1);c.due=Date.now()+6e5;}
+  countStudy();saveS();
+}
+function countStudy(){const t=todayStr();S.dailyCount[t]=(S.dailyCount[t]||0)+1;if(!S.streakDates.includes(t))S.streakDates.push(t);}
+function streak(){
+  const set=new Set(S.streakDates);let n=0;const d=new Date();let key=todayStr();
+  if(!set.has(key)){d.setDate(d.getDate()-1);key=fmt(d);if(!set.has(key))return 0;}
+  while(set.has(key)){n++;d.setDate(d.getDate()-1);key=fmt(d);}
+  return n;
+}
+function totalStars(){let s=0;for(const k in S.cards)s+=S.cards[k].lvl;return s}
+function dueCards(){
+  const now=Date.now();const out=[];
+  scenList().forEach(sc=>visPhrases(sc).forEach(o=>{const c=S.cards[cardKey(sc.id,o.i)];if(c&&c.seen>0&&c.due<=now)out.push({sc,p:o.p,i:o.i});}));
+  return out;
+}
+function scenarioPct(sc){
+  const vis=visPhrases(sc);if(!vis.length)return 0;
+  let done=0;vis.forEach(o=>{const c=S.cards[cardKey(sc.id,o.i)];if(c&&c.lvl>=3)done++;});
+  return Math.round(done/vis.length*100);
+}
+
+let voice=null;
+function pickVoice(){const vs=speechSynthesis.getVoices();
+  voice=vs.find(v=>/en[-_]US/i.test(v.lang)&&/female|samantha|zira|aria|jenny/i.test(v.name))||vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null;}
+if('speechSynthesis'in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function say(text,rate){
+  if(!('speechSynthesis'in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=rate||S.rate||1;if(voice)u.voice=voice;
+  speechSynthesis.speak(u);
+}
+
+let view='home';
+const VIEWS=['home','detail','sos','search','fav','profile'];
+function setNav(active){['home','review','sos','search','profile'].forEach(x=>{const b=$('#nav-'+x);if(b)b.classList.toggle('on',x===active)});}
+function go(v){
+  view=v;VIEWS.forEach(x=>$('#view-'+x).classList.toggle('hidden',x!==v));
+  setNav(v==='fav'?'':v);
+  if(v==='home')renderHome();
+  if(v==='sos')renderSOS();
+  if(v==='fav')renderFav();
+  if(v==='profile')renderProfile();
+  if(v==='search'){$('#searchInput').value='';$('#searchRes').innerHTML='';setTimeout(()=>$('#searchInput').focus(),100)}
+  window.scrollTo(0,0);
+}
+
+function renderTopStats(){
+  const p=G.profiles.find(x=>x.id===G.current);
+  $('#profChip').textContent=(p?p.emoji+' '+p.name:'👤')+' · '+band().name;
+  $('#stStreak').textContent=streak();$('#stStars').textContent=totalStars();
+  $('#stToday').textContent=S.dailyCount[todayStr()]||0;$('#stGoal').textContent=S.goal;
+  $('#stDue').textContent=dueCards().length;
+}
+function renderHome(){
+  renderTopStats();
+  const due=dueCards().length,done=S.dailyCount[todayStr()]||0;
+  let b='';
+  if(due>0)b+=`<div class="banner rev"><div class="big">🔁</div><div class="t"><b>今天有 ${due} 張卡該複習</b><small>趁記憶還在時複習最有效</small></div><button class="go" onclick="startReview()">開始</button></div>`;
+  if(done<S.goal)b+=`<div class="banner"><div class="big">🎯</div><div class="t"><b>今日進度 ${done}/${S.goal}</b><small>再練 ${S.goal-done} 張就達標，維持連續打卡 🔥</small></div><button class="go" onclick="startDaily()">今日練習</button></div>`;
+  else b+=`<div class="banner"><div class="big">🎉</div><div class="t"><b>今日目標達成！${streak()} 天連續</b><small>還想練可繼續挑戰任一關卡</small></div></div>`;
+  b+=`<div class="banner sos"><div class="big">🆘</div><div class="t"><b>救命短句・出國隨身</b><small>報案電話、過敏發作、被扒、迷路…一頁搞定</small></div><button class="go" onclick="go('sos')">打開</button></div>`;
+  $('#dailyBanner').innerHTML=b;
+  const list=scenList();
+  $('#gridTitle').textContent=`🗺️ 情境關卡（${band().emoji} ${band().name}模式 · ${list.length} 關）`;
+  $('#grid').innerHTML=list.map(sc=>{
+    const pct=scenarioPct(sc);
+    return `<button class="scard" onclick="openScenario('${sc.id}')">
+      <div class="ico">${sc.icon}</div>
+      ${pct>=100?'<div class="done-badge">🏅</div>':pct>0?`<div class="pct">${pct}%</div>`:''}
+      <div class="nm">${sc.title}</div><div class="en">${sc.titleEn}</div>
+      <div class="desc">${sc.desc||''}</div>
+      <div class="pbar"><i style="width:${pct}%"></i></div></button>`;
+  }).join('');
+}
+
+function renderSOS(){
+  renderTopStats();setNav('sos');
+  const surv=[];scenList().forEach(sc=>sc.phrases.forEach((p,i)=>{if(p.survival)surv.push({sc,p,i})}));
+  let h=`<div class="section-title">🆘 救命 & 生存短句</div>
+    <p style="color:var(--sub);font-size:.82rem;margin:0 4px 10px">出國最該會的句子，短到能背、能指著講。點 🔊 聽發音。</p>`;
+  h+=surv.map(o=>`<div class="pitem sos-item"><div class="body">
+      <div class="en">${o.p.en}</div><div class="zh">${o.p.zh}</div>
+      ${o.p.homophone?`<div class="homo">🗣️ ${o.p.homophone}</div>`:''}
+      <div class="metarow"><span style="font-size:.7rem;color:var(--sub)">${o.sc.icon} ${o.sc.title}</span></div>
+    </div><div class="acts"><button class="rbtn" onclick="say(${esc(o.p.en)})">🔊</button></div></div>`).join('');
+  h+=`<div class="section-title">📞 各國緊急電話</div>`;
+  h+=`<div class="refcard"><div class="refrow" style="border:none;padding-top:0"><span style="font-size:.8rem;color:var(--sub)">慌亂時撥錯號碼會出人命，先記你要去的國家 👇</span></div>`+
+     REF.emergency.map(e=>`<div class="refrow"><span class="flag">${e.flag}</span><span class="rc">${e.police}</span><span class="rt"><b>${e.c}</b> ・ 救護：${e.amb}</span></div>`).join('')+`</div>`;
+  h+=`<p style="color:var(--sub);font-size:.78rem;margin:2px 4px 6px">💡 打電話先講「所在位置」：<b>We're near ___. / The address is ___.</b></p>`;
+  h+=`<div class="section-title">💵 小費文化（各國差很大）</div>`;
+  h+=REF.tipping.map(t=>`<div class="refcard"><h3>${t.flag} ${t.c}</h3><div class="rt" style="color:var(--sub);font-size:.85rem;margin-top:6px;line-height:1.5">${t.t}</div></div>`).join('');
+  $('#view-sos').innerHTML=h;
+}
+
+let curScenario=null, curTag='全部';
+function openScenario(id){
+  curScenario=SCENARIOS.find(s=>s.id===id);curTag='全部';view='detail';
+  VIEWS.forEach(x=>$('#view-'+x).classList.toggle('hidden',x!=='detail'));setNav('');
+  renderDetail();window.scrollTo(0,0);
+}
+const NUMRE=/\b(\d[\d:.,]*|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|midnight|noon)\b/i;
+function hasNumbers(sc){return sc.phrases.some(p=>phraseOK(p)&&NUMRE.test(p.en))}
+function renderDetail(){
+  const sc=curScenario;
+  const vis=visPhrases(sc);
+  const tags=['全部',...new Set(vis.map(o=>o.p.tag).filter(Boolean))];
+  const surv=vis.filter(o=>o.p.survival);
+  const list=vis.filter(o=>curTag==='全部'||o.p.tag===curTag);
+  const has=k=>sc[k]&&sc[k].length;
+  let modes=`
+    ${has('words')?`<button class="mode" onclick="startWords()"><div class="mi">📇</div><div class="ml">單字暖身</div></button>`:''}
+    <button class="mode" onclick="startMode('learn')"><div class="mi">📖</div><div class="ml">學習卡</div></button>
+    <button class="mode" onclick="startMode('listen')"><div class="mi">🎧</div><div class="ml">聽力</div></button>
+    <button class="mode" onclick="startMode('scramble')"><div class="mi">🧩</div><div class="ml">拼句</div></button>
+    <button class="mode" onclick="startMode('translate')"><div class="mi">✍️</div><div class="ml">中翻英</div></button>
+    <button class="mode" onclick="startMode('shadow')"><div class="mi">🎤</div><div class="ml">跟讀</div></button>
+    ${hasNumbers(sc)?`<button class="mode" onclick="startMode('dictation')"><div class="mi">🔢</div><div class="ml">聽數字</div></button>`:''}
+    ${has('patterns')?`<button class="mode" onclick="startPatterns()"><div class="mi">🔑</div><div class="ml">句型</div></button>`:''}
+    ${has('dialogue')&&sc.dialogue.lines?`<button class="mode" onclick="startRoleplay()"><div class="mi">🎭</div><div class="ml">角色扮演</div></button>`:''}
+    ${has('dialogue')&&sc.dialogue.lines?`<button class="mode" onclick="startRespond()"><div class="mi">💬</div><div class="ml">開放應答</div></button>`:''}`;
+  $('#view-detail').innerHTML=`
+    <button class="back" onclick="go('home')">‹ 返回</button>
+    <div class="detail-head"><div class="ico">${sc.icon}</div><h2>${sc.title}</h2><div class="en">${sc.titleEn} · ${vis.length} 句</div></div>
+    <div class="modes">${modes}</div>
+    ${surv.length?`<div class="section-title" style="margin-top:6px">🆘 這關的救命短句</div>${surv.map(o=>phraseItem(sc,o.p,o.i)).join('')}`:''}
+    <div class="section-title">📋 全部句子</div>
+    <div class="tagbar">${tags.map(t=>`<button class="tg ${t===curTag?'on':''}" onclick="setTag('${t}')">${t}</button>`).join('')}</div>
+    <div>${list.map(o=>phraseItem(sc,o.p,o.i)).join('')}</div>`;
+}
+function setTag(t){curTag=t;renderDetail()}
+function stars(lvl){return '★'.repeat(lvl)+'☆'.repeat(Math.max(0,5-lvl))}
+function phraseItem(sc,p,i){
+  const c=S.cards[cardKey(sc.id,i)];const lvl=c?Math.min(5,c.lvl):0;
+  const fav=S.favs.includes(cardKey(sc.id,i));
+  const showHomo=(band().homo||p.survival)&&p.homophone;
+  return `<div class="pitem ${p.survival?'sos-item':''}">
+    <div class="body">
+      <div class="en">${p.en}</div><div class="zh">${p.zh}</div>
+      ${showHomo?`<div class="homo">🗣️ ${p.homophone}</div>`:''}
+      ${p.tip?`<div class="tip">💡 ${p.tip}</div>`:''}
+      <div class="metarow"><span class="lv lv${p.level||2}">${['','A1','A2','B1+'][p.level||2]}</span>${p.survival?'<span style="font-size:.62rem;color:var(--sos);font-weight:800">🆘 救命</span>':''}<span class="stars">${stars(lvl)}</span></div>
+    </div>
+    <div class="acts">
+      <button class="rbtn" onclick="say(${esc(p.en)})">🔊</button>
+      <button class="rbtn fav ${fav?'on':''}" onclick="toggleFav('${sc.id}',${i},this)">${fav?'★':'☆'}</button>
+    </div></div>`;
+}
+function toggleFav(sid,i,el){
+  const k=cardKey(sid,i);const idx=S.favs.indexOf(k);
+  if(idx>=0){S.favs.splice(idx,1);el.classList.remove('on');el.textContent='☆';}
+  else{S.favs.push(k);el.classList.add('on');el.textContent='★';heart(el);}
+  saveS();
+}
+
+function renderFav(){
+  renderTopStats();setNav('');
+  if(!S.favs.length){$('#favList').innerHTML=`<div class="emptybox"><div class="e">⭐</div>還沒有收藏<br>在句子右邊點 ☆ 就能收藏常用句</div>`;return}
+  $('#favList').innerHTML=S.favs.map(k=>{const[sid,i]=k.split('#');const sc=SCENARIOS.find(s=>s.id===sid);if(!sc||!sc.phrases[+i])return'';return phraseItem(sc,sc.phrases[+i],+i);}).join('');
+}
+
+function doSearch(q){
+  q=q.trim().toLowerCase();if(!q){$('#searchRes').innerHTML='';return}
+  const hits=[];
+  SCENARIOS.forEach(sc=>sc.phrases.forEach((p,i)=>{if(p.en.toLowerCase().includes(q)||p.zh.includes(q)||(p.tip||'').toLowerCase().includes(q))hits.push({sc,p,i});}));
+  if(!hits.length){$('#searchRes').innerHTML=`<div class="emptybox"><div class="e">🔍</div>找不到「${q}」</div>`;return}
+  $('#searchRes').innerHTML=`<div class="section-title" style="margin-top:4px">找到 ${hits.length} 句</div>`+
+    hits.slice(0,60).map(o=>`<div style="font-size:.7rem;color:var(--sub);margin:8px 2px 2px">${o.sc.icon} ${o.sc.title}</div>`+phraseItem(o.sc,o.p,o.i)).join('');
+}
+
+let Q=null;
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function scenItems(sc,filter){let it=visPhrases(sc).map(o=>({sc,p:o.p,i:o.i}));if(filter)it=it.filter(filter);return shuffle(it);}
+function buildQueue(mode,sc,filter){return{mode,items:scenItems(sc,filter),idx:0,correct:0,sid:sc.id};}
+
+function startMode(mode){
+  let filter=null;
+  if(mode==='dictation')filter=o=>NUMRE.test(o.p.en);
+  Q=buildQueue(mode,curScenario,filter);
+  if(!Q.items.length){toast('這個模式在此關沒有適合的句子');return}
+  renderCard();
+}
+function startDaily(){
+  const pool=[];const now=Date.now();
+  scenList().forEach(sc=>visPhrases(sc).forEach(o=>{const c=S.cards[cardKey(sc.id,o.i)];const pr=(!c)?1:(c.due<=now?0:2);pool.push({sc,p:o.p,i:o.i,pr,due:c?c.due:0});}));
+  pool.sort((a,b)=>a.pr-b.pr||a.due-b.due);
+  Q={mode:'learn',items:shuffle(pool.slice(0,Math.max(S.goal,10))),idx:0,correct:0,sid:null,daily:true};renderCard();
+}
+function startReview(){
+  const due=dueCards();if(!due.length){toast('太棒了！目前沒有待複習的卡 🎉');return}
+  Q={mode:'listen',items:shuffle(due),idx:0,correct:0,sid:null,review:true};renderCard();
+}
+function closeOverlay(){$('#overlayMount').innerHTML='';Q=null;awardBadges();
+  if(view==='detail')renderDetail();else if(view==='fav')renderFav();else if(view==='sos')renderSOS();else renderHome();renderTopStats();}
+
+function ovShell(inner,foot){
+  const pct=Q&&Q.items.length?Math.round(Q.idx/Q.items.length*100):0;
+  const cnt=Q?`${Math.min(Q.idx+1,Q.items.length)}/${Q.items.length}`:'';
+  return `<div class="overlay"><div class="ovhead"><button class="x" onclick="closeOverlay()">✕</button><div class="ovprog"><i style="width:${pct}%"></i></div><div class="cnt">${cnt}</div></div><div class="ovbody" id="ovbody">${inner}</div><div class="ovfoot" id="ovfoot">${foot||''}</div></div>`;
+}
+function renderCard(){
+  if(!Q)return;if(Q.idx>=Q.items.length)return finishSession();
+  ({learn:cardLearn,listen:cardListen,scramble:cardScramble,translate:cardTranslate,shadow:cardShadow,dictation:cardDictation}[Q.mode])();
+}
+
+function cardLearn(){
+  const{sc,p}=Q.items[Q.idx];
+  const showHomo=(band().homo||p.survival)&&p.homophone;
+  const inner=`<div class="flash"><div class="card3d">
+      <div class="big-en">${p.en}</div>
+      <div id="zhpart" class="${S.showZh?'':'hidden'}"><div class="big-zh">${p.zh}</div>${showHomo?`<div class="homo2">🗣️ ${p.homophone}</div>`:''}${p.tip?`<div class="tip2" style="margin-top:10px">💡 ${p.tip}</div>`:''}</div>
+    </div>
+    <button class="speak" onclick="say(${esc(p.en)})">🔊 播放發音</button>
+    <div class="tapkuce">${sc.icon} ${sc.title}${p.tag?' · '+p.tag:''} · <span class="lv lv${p.level||2}">${['','A1','A2','B1+'][p.level||2]}</span></div></div>`;
+  $('#overlayMount').innerHTML=ovShell(inner,`<button class="pbtn bad" onclick="learnNext(false)">🔁 再練</button><button class="pbtn good" onclick="learnNext(true)">✓ 我會了</button>`);
+  say(p.en);
+}
+function learnNext(ok){const it=Q.items[Q.idx];grade(it.sc.id,it.i,ok);if(ok)Q.correct++;Q.idx++;renderCard();}
+
+function cardListen(){
+  const{p}=Q.items[Q.idx];const opts=makeOptions(p,'zh');
+  const inner=`<div style="text-align:center;margin:20px 0"><button class="mic" style="width:78px;height:78px;font-size:32px;margin:0 auto" onclick="say(${esc(p.en)})">🔊</button><div class="qsub" style="margin-top:16px">聽英文，選出正確的中文意思</div></div><div id="opts">${opts.map(o=>`<button class="opt" onclick="pickOpt(this,${o.correct})">${o.text}</button>`).join('')}</div>`;
+  $('#overlayMount').innerHTML=ovShell(inner,'');say(p.en);
+}
+function cardTranslate(){
+  const{p}=Q.items[Q.idx];const opts=makeOptions(p,'en');
+  const inner=`<div class="qword">${p.zh}</div><div class="qsub">選出正確的英文說法</div><div id="opts">${opts.map(o=>`<button class="opt" onclick="pickOpt(this,${o.correct})">${o.text}</button>`).join('')}</div>`;
+  $('#overlayMount').innerHTML=ovShell(inner,'');
+}
+function makeOptions(p,field){
+  const all=[];SCENARIOS.forEach(sc=>sc.phrases.forEach(x=>all.push(x)));
+  const wrong=shuffle(all.filter(x=>x[field]!==p[field])).slice(0,3);
+  return shuffle([{text:p[field],correct:true},...wrong.map(w=>({text:w[field],correct:false}))]);
+}
+function pickOpt(el,correct){
+  if(el.parentElement.dataset.done)return;el.parentElement.dataset.done=1;
+  const cur=Q.items[Q.idx];const field=Q.mode==='listen'?'zh':'en';
+  [...el.parentElement.children].forEach(b=>b.style.pointerEvents='none');
+  if(correct){el.classList.add('ok');Q.correct++;grade(cur.sc.id,cur.i,true);say(cur.p.en);
+    setTimeout(()=>{Q.idx++;renderCard()},750);
+  }else{
+    el.classList.add('no');grade(cur.sc.id,cur.i,false);
+    const target=Q.mode==='dictation'?el.parentElement.querySelector('.opt'):null;
+    [...el.parentElement.children].forEach(b=>{if(b.textContent===cur.p[field])b.classList.add('ok')});
+    showTeach(cur,el.textContent);say(cur.p.en);
+  }
+}
+function showTeach(cur,youAnswer){
+  const p=cur.p;
+  $('#ovbody').insertAdjacentHTML('beforeend',`<div class="teach">
+    <div class="r wrong">✗ 你選：${youAnswer}</div>
+    <div class="r right">✓ 正解：${Q.mode==='listen'?p.zh:p.en}</div>
+    <div style="font-size:.85rem;color:var(--sub);margin-top:4px">${p.en} — ${p.zh}</div>
+    ${p.tip?`<div class="tipbox">💡 ${p.tip}</div>`:''}</div>`);
+  $('#ovfoot').innerHTML=`<button class="pbtn ghost" onclick="say(${esc(p.en)})">🔊 再聽</button><button class="pbtn" onclick="Q.idx++;renderCard()">下一題 ›</button>`;
+  $('#ovbody').scrollTop=$('#ovbody').scrollHeight;
+}
+
+function extractNum(en){const m=en.match(NUMRE);return m?m[0]:null;}
+function cardDictation(){
+  const{p}=Q.items[Q.idx];const num=extractNum(p.en)||'';
+  const masked=p.en.replace(num,'＿＿＿');
+  const distract=shuffle(['2','5','10','12','20','30','50','100','half past ten','four','noon','midnight'].filter(x=>x.toLowerCase()!==num.toLowerCase())).slice(0,3);
+  const opts=shuffle([{text:num,correct:true},...distract.map(d=>({text:d,correct:false}))]);
+  const inner=`<div style="text-align:center;margin:14px 0"><button class="mic" style="width:70px;height:70px;font-size:28px;margin:0 auto" onclick="say(${esc(p.en)})">🔊</button><div class="qsub" style="margin-top:14px">聽句子，選出你聽到的數字/時間</div></div>
+    <div class="qword" style="font-size:1.15rem;color:var(--sub)">${masked}</div>
+    <div id="opts" style="margin-top:10px">${opts.map(o=>`<button class="opt" style="text-align:center" onclick="pickOpt(this,${o.correct})">${o.text}</button>`).join('')}</div>`;
+  $('#overlayMount').innerHTML=ovShell(inner,'');say(p.en);
+}
+
+let scz={};
+function cardScramble(){
+  const{p}=Q.items[Q.idx];
+  const words=p.en.replace(/([.,!?;])/g,' $1').split(/\s+/).filter(Boolean);
+  scz={words,target:[],pool:shuffle(words.map((w,idx)=>({w,idx})))};drawScramble(p);
+}
+function drawScramble(p){
+  const inner=`<div class="qsub" style="margin-top:6px">把單字排成正確的英文句子</div>
+    <div class="qword" style="font-size:1.15rem;color:var(--sub);margin:4px 0 14px">${p.zh}</div>
+    <div class="scz-target" id="sczT">${scz.target.map((t,k)=>`<button class="tok" onclick="sczBack(${k})">${t.w}</button>`).join('')||'<span style="color:var(--sub);align-self:center">👇 從下方點選單字</span>'}</div>
+    <div class="scz-pool" id="sczP">${scz.pool.map((t,k)=>`<button class="tok inpool" onclick="sczPick(${k})">${t.w}</button>`).join('')}</div>`;
+  $('#overlayMount').innerHTML=ovShell(inner,`<button class="pbtn ghost" onclick="say(${esc(p.en)})">🔊 提示</button><button class="pbtn" onclick="sczCheck()" ${scz.pool.length?'disabled':''}>檢查</button>`);
+}
+function sczPick(k){scz.target.push(scz.pool.splice(k,1)[0]);drawScramble(Q.items[Q.idx].p);}
+function sczBack(k){scz.pool.push(scz.target.splice(k,1)[0]);drawScramble(Q.items[Q.idx].p);}
+function sczCheck(){
+  const cur=Q.items[Q.idx];const correct=scz.target.map(t=>t.w).join(' ')===scz.words.join(' ');const T=$('#sczT');
+  if(correct){T.classList.add('ok');Q.correct++;grade(cur.sc.id,cur.i,true);say(cur.p.en);setTimeout(()=>{Q.idx++;renderCard()},900);}
+  else{T.classList.add('err');grade(cur.sc.id,cur.i,false);setTimeout(()=>T.classList.remove('err'),400);
+    setTimeout(()=>{$('#ovbody').insertAdjacentHTML('beforeend',`<div class="teach"><div class="r right">✓ 正解：${cur.p.en}</div><div style="font-size:.85rem;color:var(--sub);margin-top:3px">${cur.p.zh}</div>${cur.p.tip?`<div class="tipbox">💡 ${cur.p.tip}</div>`:''}</div>`);$('#ovfoot').innerHTML=`<button class="pbtn ghost" onclick="say(${esc(cur.p.en)})">🔊 聽</button><button class="pbtn" onclick="Q.idx++;renderCard()">下一題 ›</button>`;$('#ovbody').scrollTop=9e9;},450);}
+}
+
+let recog=null,recSupported=('webkitSpeechRecognition'in window)||('SpeechRecognition'in window);
+function cardShadow(){
+  const{p}=Q.items[Q.idx];
+  const inner=`<div class="mic-wrap">
+    <div class="big-en" style="font-size:1.5rem;font-weight:800">${p.en}</div>
+    <div class="big-zh" style="color:var(--sub)">${p.zh}</div>
+    <button class="mic" id="micBtn" onclick="toggleRec()">${recSupported?'🎤':'🚫'}</button>
+    <div class="heard" id="heard">${recSupported?'點麥克風，唸出上面的句子':'此裝置不支援語音辨識，改用聽發音跟著唸'}</div>
+    <div id="scoreArea"></div></div>`;
+  const foot=recSupported?`<button class="pbtn ghost" onclick="say(${esc(p.en)})">🔊 聽範例</button><button class="pbtn" onclick="Q.idx++;renderCard()">跳過 ›</button>`
+    :`<button class="pbtn ghost" onclick="say(${esc(p.en)})">🔊 聽範例</button><button class="pbtn good" onclick="learnNext(true)">✓ 我唸了</button>`;
+  $('#overlayMount').innerHTML=ovShell(inner,foot);setTimeout(()=>say(p.en),200);
+}
+function toggleRec(){
+  if(!recSupported)return;const R=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(recog){recog.stop();return;}
+  recog=new R();recog.lang='en-US';recog.interimResults=false;recog.maxAlternatives=1;
+  $('#micBtn').classList.add('rec');$('#heard').textContent='🔴 聽你說…請開口';
+  recog.onresult=e=>scoreShadow(e.results[0][0].transcript);
+  recog.onerror=()=>{$('#heard').textContent='沒聽清楚，再試一次';};
+  recog.onend=()=>{const m=$('#micBtn');if(m)m.classList.remove('rec');recog=null;};
+  try{recog.start();}catch(e){}
+}
+function normalize(s){return s.toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim()}
+function scoreShadow(said){
+  const cur=Q.items[Q.idx];const tw=normalize(cur.p.en).split(' '),hw=new Set(normalize(said).split(' '));
+  let hit=0;tw.forEach(w=>{if(hw.has(w))hit++});const score=Math.round(hit/tw.length*100);
+  $('#heard').innerHTML=`你說：<b>${said}</b>`;
+  const cls=score>=80?'w-good':score>=50?'w-mid':'w-bad';const msg=score>=80?'太棒了！發音很清楚 🎉':score>=50?'不錯，再唸一次更好 💪':'再試一次，放慢一點 🙂';
+  $('#scoreArea').innerHTML=`<div class="scorebig ${cls}">${score}<span style="font-size:1.3rem">分</span></div><div class="qsub">${msg}</div>`;
+  const ok=score>=60;grade(cur.sc.id,cur.i,ok);if(ok)Q.correct++;if(score>=80)heart($('#micBtn'));
+  $('#ovfoot').innerHTML=`<button class="pbtn ghost" onclick="say(${esc(cur.p.en)})">🔊 範例</button><button class="pbtn" onclick="Q.idx++;renderCard()">下一題 ›</button>`;
+}
+
+let WQ=null;
+function startWords(){WQ={words:shuffle(curScenario.words.slice()),idx:0,sc:curScenario};drawWord();}
+function drawWord(){
+  if(WQ.idx>=WQ.words.length){WQ=null;$('#overlayMount').innerHTML='';renderDetail();toast('單字暖身完成！開始練句子吧 💪');return;}
+  const w=WQ.words[WQ.idx];const pct=Math.round(WQ.idx/WQ.words.length*100);
+  const inner=`<div class="flash"><div class="wico">${w.ico||'🔤'}</div><div class="card3d" style="min-height:150px"><div class="big-en">${w.en}</div><div class="big-zh">${w.zh}</div></div><button class="speak" onclick="say(${esc(w.en)})">🔊 播放</button></div>`;
+  $('#overlayMount').innerHTML=`<div class="overlay"><div class="ovhead"><button class="x" onclick="WQ=null;closeOverlay()">✕</button><div class="ovprog"><i style="width:${pct}%"></i></div><div class="cnt">📇 ${WQ.idx+1}/${WQ.words.length}</div></div><div class="ovbody">${inner}</div><div class="ovfoot"><button class="pbtn" onclick="WQ.idx++;drawWord()">下一個 ›</button></div></div>`;
+  say(w.en);
+}
+
+let PQ=null;
+function startPatterns(){PQ={pats:curScenario.patterns.slice(),idx:0,sc:curScenario,pick:0};drawPattern();}
+function drawPattern(){
+  if(PQ.idx>=PQ.pats.length){PQ=null;$('#overlayMount').innerHTML='';renderDetail();toast('句型練習完成！一個框架能講很多句 🔑');return;}
+  const pat=PQ.pats[PQ.idx];const slot=pat.slots[PQ.pick]||pat.slots[0];
+  const full=pat.en.replace('___',slot);
+  const inner=`<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px">
+    <div class="patcard"><div class="frame">${pat.en.replace('___',`<span class="slot">${slot}</span>`)}</div><div style="color:var(--sub)">${pat.zh}</div>
+      <button class="speak" style="margin-top:14px" onclick="say(${esc(full)})">🔊 ${full}</button></div>
+    <div style="text-align:center;color:var(--sub);font-size:.85rem">👇 換不同的字，同一句型變出很多句</div>
+    <div class="slotbtns">${pat.slots.map((s,k)=>`<button class="slotbtn ${k===PQ.pick?'on':''}" onclick="PQ.pick=${k};drawPattern()">${s}</button>`).join('')}</div></div>`;
+  $('#overlayMount').innerHTML=`<div class="overlay"><div class="ovhead"><button class="x" onclick="PQ=null;closeOverlay()">✕</button><div class="ovprog"><i style="width:${Math.round(PQ.idx/PQ.pats.length*100)}%"></i></div><div class="cnt">🔑 ${PQ.idx+1}/${PQ.pats.length}</div></div><div class="ovbody">${inner}</div><div class="ovfoot"><button class="pbtn" onclick="PQ.idx++;PQ.pick=0;drawPattern()">下一個句型 ›</button></div></div>`;
+  say(full);
+}
+
+let RP=null;
+function pickLine(l){if(l.who==='npc'&&l.alt&&l.alt.length&&Math.random()<0.5){const a=l.alt[Math.floor(Math.random()*l.alt.length)];return{who:'npc',en:a.en,zh:a.zh};}return l;}
+function startRoleplay(){
+  const d=curScenario.dialogue;if(!d||!d.lines||!d.lines.length){toast('這關暫無對話');return}
+  RP={d,step:0,resolved:d.lines.map(pickLine)};drawRoleplay();
+}
+function drawRoleplay(){
+  const{d,resolved}=RP;const shown=resolved.slice(0,RP.step);
+  const chat=shown.map(l=>`<div class="bubble ${l.who}">${l.en}<div class="z">${l.zh}</div></div>`).join('');
+  let foot='',bottom='';
+  if(RP.step>=resolved.length){foot=`<button class="pbtn ghost" onclick="closeOverlay()">完成</button><button class="pbtn" onclick="RP.step=0;RP.resolved=RP.d.lines.map(pickLine);drawRoleplay()">再玩一次</button>`;}
+  else{const nxt=resolved[RP.step];
+    if(nxt.who==='you'){bottom=`<div class="roleask">👉 換你了（你扮演：${d.youRole}）— 試著說出來，再看解答</div>`;foot=`<button class="pbtn ghost" onclick="say(${esc(nxt.en)})">🔊 提示</button><button class="pbtn" onclick="rpAdvance()">看解答 ›</button>`;}
+    else{bottom=`<div class="roleask">🗣️ ${d.npcRole} 說話中…</div>`;foot=`<button class="pbtn" onclick="rpAdvance()">繼續 ›</button>`;}}
+  const inner=`<div style="text-align:center;margin-bottom:6px"><b>${d.title}</b><div class="qsub">你：${d.youRole} ｜ 對方：${d.npcRole}</div></div><div class="chat">${chat||'<div class="qsub">點「繼續」展開對話</div>'}</div>${bottom}`;
+  $('#overlayMount').innerHTML=`<div class="overlay"><div class="ovhead"><button class="x" onclick="closeOverlay()">✕</button><div class="ovprog"><i style="width:${Math.round(RP.step/resolved.length*100)}%"></i></div><div class="cnt">🎭</div></div><div class="ovbody">${inner}</div><div class="ovfoot">${foot}</div></div>`;
+  const last=shown[shown.length-1];if(last&&last.who==='npc')say(last.en);
+  const body=$('.chat');if(body)body.scrollTop=body.scrollHeight;
+}
+function rpAdvance(){const l=RP.resolved[RP.step];RP.step++;if(l.who==='you'){countStudy();saveS();}drawRoleplay();}
+
+let RS=null;
+function startRespond(){
+  const d=curScenario.dialogue;if(!d||!d.lines)return;
+  const pairs=[];for(let i=0;i<d.lines.length-1;i++){if(d.lines[i].who==='npc'&&d.lines[i+1].who==='you')pairs.push({npc:d.lines[i],you:d.lines[i+1]});}
+  if(!pairs.length){toast('這關暫無適合的應答練習');return}
+  RS={pairs:shuffle(pairs),idx:0};drawRespond(false);
+}
+function drawRespond(revealed){
+  if(RS.idx>=RS.pairs.length){RS=null;$('#overlayMount').innerHTML='';renderDetail();toast('應答練習完成！臨場反應更快了 💬');return;}
+  const pr=RS.pairs[RS.idx];const pct=Math.round(RS.idx/RS.pairs.length*100);
+  let body=`<div style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center">
+    <div class="qsub">🗣️ 對方對你說（點播放來聽）：</div>
+    <div class="bubble npc" style="max-width:100%">${pr.npc.en}<div class="z">${pr.npc.zh}</div></div>
+    <div style="text-align:center"><button class="speak" onclick="say(${esc(pr.npc.en)})">🔊 再聽一次</button></div>`;
+  if(!revealed){body+=`<div class="roleask">👉 換你回答！${recSupported?'點麥克風說說看':'想好你會怎麼回，再看參考'}</div>
+    ${recSupported?`<div style="text-align:center"><button class="mic" style="width:74px;height:74px;font-size:30px;margin:0 auto" id="rsMic" onclick="rsRec()">🎤</button><div class="heard" id="rsHeard"></div></div>`:''}`;}
+  else{body+=`<div class="roleask">✅ 參考回答：</div><div class="bubble you" style="max-width:100%;align-self:flex-end">${pr.you.en}<div class="z">${pr.you.zh}</div></div>`;}
+  body+='</div>';
+  const foot=revealed?`<button class="pbtn ghost" onclick="say(${esc(pr.you.en)})">🔊 聽參考</button><button class="pbtn" onclick="RS.idx++;countStudy();saveS();drawRespond(false)">下一題 ›</button>`
+    :`<button class="pbtn" onclick="drawRespond(true)">看參考回答 ›</button>`;
+  $('#overlayMount').innerHTML=`<div class="overlay"><div class="ovhead"><button class="x" onclick="RS=null;closeOverlay()">✕</button><div class="ovprog"><i style="width:${pct}%"></i></div><div class="cnt">💬 ${RS.idx+1}/${RS.pairs.length}</div></div><div class="ovbody">${body}</div><div class="ovfoot">${foot}</div></div>`;
+  say(pr.npc.en);
+}
+function rsRec(){
+  if(!recSupported)return;const R=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const rr=new R();rr.lang='en-US';rr.interimResults=false;
+  $('#rsMic').classList.add('rec');$('#rsHeard').textContent='🔴 聽你說…';
+  rr.onresult=e=>{$('#rsHeard').innerHTML=`你說：<b>${e.results[0][0].transcript}</b> 👍`;};
+  rr.onerror=()=>{$('#rsHeard').textContent='沒聽清楚，再試一次';};
+  rr.onend=()=>{const m=$('#rsMic');if(m)m.classList.remove('rec');};
+  try{rr.start();}catch(e){}
+}
+
+function finishSession(){
+  const total=Q.items.length,correct=Q.correct,pct=total?Math.round(correct/total*100):0;
+  const star=pct>=90?'🏆':pct>=70?'🌟':'👍';confetti();
+  const inner=`<div class="flash"><div style="font-size:64px">${star}</div><div class="big-en">完成！</div>
+    <div class="card3d" style="min-height:auto;gap:8px"><div style="font-size:.95rem;color:var(--sub)">答對 <b style="color:var(--good);font-size:1.4rem">${correct}</b> / ${total} 題</div>
+    <div style="font-size:.95rem;color:var(--sub)">今日累積 <b style="color:var(--sky)">${S.dailyCount[todayStr()]||0}</b> 張 · 連續 <b style="color:var(--gold)">${streak()}</b> 天 🔥</div></div></div>`;
+  $('#overlayMount').innerHTML=ovShell(inner,`<button class="pbtn ghost" onclick="closeOverlay()">完成</button>${Q.sid?`<button class="pbtn" onclick="restartSame()">再練一次</button>`:''}`);
+  saveS();awardBadges();
+}
+function restartSame(){const sc=SCENARIOS.find(s=>s.id===Q.sid);const m=Q.mode;Q=buildQueue(m,sc);renderCard();}
+
+const MILESTONES=[{id:'streak3',emoji:'🔥',name:'連續3天',test:()=>streak()>=3},{id:'streak7',emoji:'⚡',name:'連續7天',test:()=>streak()>=7},{id:'streak30',emoji:'👑',name:'連續30天',test:()=>streak()>=30},{id:'star50',emoji:'⭐',name:'50顆星',test:()=>totalStars()>=50},{id:'star200',emoji:'🌟',name:'200顆星',test:()=>totalStars()>=200},{id:'sos',emoji:'🆘',name:'救命達人',test:()=>{let n=0;SCENARIOS.forEach(sc=>sc.phrases.forEach((p,i)=>{if(p.survival){const c=S.cards[cardKey(sc.id,i)];if(c&&c.lvl>=3)n++}}));return n>=15}}];
+function earnedBadges(){
+  const got=new Set(S.badges);
+  SCENARIOS.forEach(sc=>{if(scenarioPct(sc)>=100)got.add('sc_'+sc.id);});
+  MILESTONES.forEach(m=>{if(m.test())got.add(m.id);});
+  return got;
+}
+function awardBadges(){
+  const got=earnedBadges();const fresh=[...got].filter(b=>!S.badges.includes(b));
+  if(fresh.length){S.badges=[...got];saveS();
+    const b=fresh[0];const sc=SCENARIOS.find(s=>'sc_'+s.id===b);const m=MILESTONES.find(x=>x.id===b);
+    toast('🏅 獲得徽章：'+(sc?sc.icon+' '+sc.title+'達人':(m?m.emoji+' '+m.name:'新成就')));confetti();
+  }
+}
+function renderBadges(){
+  const got=earnedBadges();
+  const scB=SCENARIOS.map(sc=>({emoji:sc.icon,name:sc.title,got:got.has('sc_'+sc.id)}));
+  const msB=MILESTONES.map(m=>({emoji:m.emoji,name:m.name,got:got.has(m.id)}));
+  const all=[...msB,...scB];
+  $('#badges').innerHTML=all.map(b=>`<div class="badge ${b.got?'got':''}"><div class="bi">${b.emoji}</div><div class="bn">${b.name}</div></div>`).join('');
+}
+
+function esc(s){return "'"+String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'")+"'"}
+function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
+function heart(el){if(!el)return;const r=el.getBoundingClientRect();const h=document.createElement('div');h.className='pop-heart';h.textContent='❤️';h.style.left=r.left+r.width/2-15+'px';h.style.top=r.top+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),1000)}
+function confetti(){for(let i=0;i<24;i++){const c=document.createElement('div');c.className='pop-heart';c.textContent=['🎉','⭐','✨','🎊','💙'][i%5];c.style.left=Math.random()*100+'vw';c.style.top=Math.random()*40+10+'vh';c.style.animationDelay=Math.random()*.3+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),1200)}}
+
+function renderProfile(){
+  renderTopStats();setNav('profile');
+  $('#profList').innerHTML=G.profiles.map(p=>`<button class="pill ${p.id===G.current?'on':''}" onclick="switchProfile('${p.id}')" ondblclick="renameProfile('${p.id}')">${p.emoji} ${p.name}${G.profiles.length>1?` <span onclick="event.stopPropagation();delProfile('${p.id}')" style="color:var(--bad);margin-left:4px">✕</span>`:''}</button>`).join('');
+  $('#bandSel').innerHTML=Object.keys(BANDS).map(k=>`<button class="bandopt ${S.band===k?'on':''}" onclick="setBand('${k}')"><b>${BANDS[k].emoji} ${BANDS[k].name}</b><small>${BANDS[k].desc}</small></button>`).join('');
+  renderBadges();
+  $('#goalView').textContent=S.goal;$('#rateView').textContent=S.rate.toFixed(1)+'×';
+  $('#swBig').classList.toggle('on',S.big);$('#swDark').classList.toggle('on',G.dark);$('#swZh').classList.toggle('on',S.showZh);
+  let seen=0,mastered=0,tot=0;
+  scenList().forEach(sc=>visPhrases(sc).forEach(o=>{tot++;const c=S.cards[cardKey(sc.id,o.i)];if(c&&c.seen)seen++;if(c&&c.lvl>=5)mastered++;}));
+  $('#progSummary').innerHTML=`
+    <div class="setrow"><div class="lab"><b>已學過</b><small>目前模式可見的句子</small></div><b style="color:var(--sky)">${seen} / ${tot}</b></div>
+    <div class="setrow"><div class="lab"><b>已精熟 ★★★★★</b></div><b style="color:var(--gold)">${mastered}</b></div>
+    <div class="setrow"><div class="lab"><b>收藏句數</b></div><b>${S.favs.length}</b></div>
+    <div class="setrow"><div class="lab"><b>連續打卡</b></div><b style="color:var(--bad)">${streak()} 天 🔥</b></div>`;
+}
+function setBand(k){S.band=k;S.big=BANDS[k].big;saveS();applyBig();renderProfile();toast(BANDS[k].emoji+' 已切換到「'+BANDS[k].name+'」模式');}
+function switchProfile(id){G.current=id;saveG();loadProfile(id);applyBig();renderProfile();}
+function addProfile(){const name=prompt('成員名字？（例：爸爸、小明、阿嬤）');if(!name)return;const emojis=['🙂','😎','🧑','👦','👧','👨','👩','👵','👴','🐣'];const id='p'+Date.now();G.profiles.push({id,name:name.trim().slice(0,6),emoji:emojis[G.profiles.length%emojis.length]});G.current=id;saveG();loadProfile(id);applyBig();renderProfile();renderTopStats();}
+function renameProfile(id){const p=G.profiles.find(x=>x.id===id);const n=prompt('改名字：',p.name);if(n){p.name=n.trim().slice(0,6);saveG();renderProfile()}}
+function delProfile(id){if(G.profiles.length<=1)return;if(!confirm('刪除這位成員與其進度？'))return;G.profiles=G.profiles.filter(p=>p.id!==id);localStorage.removeItem(pKey(id));if(G.current===id)G.current=G.profiles[0].id;saveG();loadProfile(G.current);applyBig();renderProfile();renderTopStats();}
+function setGoal(d){S.goal=Math.max(5,Math.min(100,S.goal+d));saveS();renderProfile();}
+function setRate(d){S.rate=Math.max(.5,Math.min(1.5,+(S.rate+d).toFixed(1)));saveS();$('#rateView').textContent=S.rate.toFixed(1)+'×';say('Hello, this is the speed.');}
+function toggleBig(){S.big=!S.big;saveS();applyBig();$('#swBig').classList.toggle('on',S.big);}
+function applyBig(){document.body.classList.toggle('big',S.big);}
+function toggleDark(){G.dark=!G.dark;saveG();applyDark();$('#swDark').classList.toggle('on',G.dark);}
+function applyDark(){document.documentElement.setAttribute('data-theme',G.dark?'dark':'light');document.querySelector('meta[name=theme-color]').content=G.dark?'#0b1220':'#0ea5e9';}
+function toggleZh(){S.showZh=!S.showZh;saveS();$('#swZh').classList.toggle('on',S.showZh);}
+function resetProgress(){if(!confirm('清空此成員所有學習進度？此動作無法復原'))return;const keep={goal:S.goal,rate:S.rate,showZh:S.showZh,band:S.band,big:S.big};S={cards:{},favs:[],streakDates:[],dailyCount:{},badges:[],...keep};saveS();renderProfile();renderTopStats();}
+
+loadProfile(G.current);applyDark();applyBig();renderHome();
+
+/* ===== 離線快取 + 安裝到桌面 (PWA) ===== */
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
+(function(){
+  var dp=null;
+  function iss(){return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;}
+  function iios(){return /iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);}
+  function ren(){var el=document.getElementById('installBar');if(!el)return;
+    if(iss()){el.innerHTML='';return;}
+    if(dp){el.innerHTML='<button class="ib" onclick="__inst()">📲 安裝到桌面（免開瀏覽器） ➕</button>';}
+    else if(iios()){el.innerHTML='<button class="ib sec" onclick="__instIOS()">📲 安裝到主畫面（iPad / iPhone） ›</button>';}
+    else{el.innerHTML='';}}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;ren();});
+  window.addEventListener('appinstalled',function(){dp=null;ren();});
+  window.__inst=function(){if(!dp)return;dp.prompt();dp.userChoice.finally(function(){dp=null;ren();});};
+  window.__instIOS=function(){var el=document.getElementById('installBar');if(!el)return;el.innerHTML='<div class="tip">📲 <b>加到 iPad / iPhone 桌面：</b><br>1. 用 <b>Safari</b> 開啟本頁<br>2. 點「分享 ⬆️」<br>3. 往下找「<b>加入主畫面 ➕</b>」<br>4. 右上按「新增」完成<br><span class="x" onclick="__instClose()">知道了 ✓</span></div>';};
+  window.__instClose=function(){ren();};
+  ren();
+})();
+</script>
