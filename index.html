@@ -99,6 +99,12 @@ html[data-theme=dark] .banner.sos{background:linear-gradient(135deg,#3a1220,#2a0
 .pitem .acts{display:flex;flex-direction:column;gap:8px}
 .rbtn{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:17px;background:var(--bg);border:1px solid var(--line)}
 .rbtn.fav.on{color:var(--gold);background:rgba(245,158,11,.12);border-color:transparent}
+.shadowline{font-size:1.35rem;font-weight:800;line-height:1.55;margin:10px 0;text-align:center}
+.wok{color:var(--good)}
+.wmiss{color:var(--bad);text-decoration:underline;text-decoration-style:wavy;text-underline-offset:3px}
+.misschip{background:rgba(239,68,68,.1);color:var(--bad);border:1px solid var(--bad);border-radius:9px;padding:3px 9px;margin:3px 3px 0;font-size:.8rem;font-weight:700;display:inline-block}
+.fbnote{font-size:.72rem;opacity:.68;margin-top:7px;line-height:1.4}
+.keyok{color:var(--good);font-weight:700}
 
 .tagbar{display:flex;gap:7px;overflow-x:auto;padding:4px 2px 10px;-webkit-overflow-scrolling:touch}
 .tagbar::-webkit-scrollbar{display:none}
@@ -339,7 +345,7 @@ const todayStr=()=>fmt(new Date());
 const BANDS={
   all:{name:"一般",emoji:"🙂",desc:"全部關卡與難度",levels:[1,2,3],hide:[],big:false,homo:false},
   senior:{name:"長輩",emoji:"👵",desc:"只留最基礎救命句、大字、諧音發音",levels:[1],hide:["car-rental","driving-gas","sim-internet","money","flight-trouble"],big:true,homo:true},
-  kid:{name:"兒童",emoji:"🧒",desc:"藏大人關卡，只練簡單句＋遊戲",levels:[1,2],hide:["car-rental","driving-gas","sim-internet","money","flight-trouble"],big:false,homo:false},
+  kid:{name:"兒童",emoji:"🧒",desc:"藏大人關卡、大字＋諧音，只練簡單句",levels:[1,2],hide:["car-rental","driving-gas","sim-internet","money","flight-trouble"],big:true,homo:true},
   adult:{name:"成人",emoji:"💼",desc:"全部關卡與進階句，高效實用",levels:[1,2,3],hide:[],big:false,homo:false}
 };
 function band(){return BANDS[S.band]||BANDS.all}
@@ -686,9 +692,17 @@ function normalize(s){return s.toLowerCase().replace(/[^a-z0-9 ]/g,'').replace(/
 function scoreShadow(said){
   const cur=Q.items[Q.idx];const tw=normalize(cur.p.en).split(' '),hw=new Set(normalize(said).split(' '));
   let hit=0;tw.forEach(w=>{if(hw.has(w))hit++});const score=Math.round(hit/tw.length*100);
-  $('#heard').innerHTML=`你說：<b>${said}</b>`;
-  const cls=score>=80?'w-good':score>=50?'w-mid':'w-bad';const msg=score>=80?'太棒了！發音很清楚 🎉':score>=50?'不錯，再唸一次更好 💪':'再試一次，放慢一點 🙂';
-  $('#scoreArea').innerHTML=`<div class="scorebig ${cls}">${score}<span style="font-size:1.3rem">分</span></div><div class="qsub">${msg}</div>`;
+  // 逐字標記：綠＝機器聽到了、紅波浪＝沒聽到（可點聽慢速）
+  const marked=cur.p.en.split(/(\s+)/).map(tok=>{const w=normalize(tok);if(!w)return tok;return hw.has(w)?`<span class="wok">${tok}</span>`:`<span class="wmiss">${tok}</span>`;}).join('');
+  const missed=tw.filter(w=>!hw.has(w));
+  $('#heard').innerHTML=`辨識到：<b>${said}</b>`;
+  const cls=score>=80?'w-good':score>=50?'w-mid':'w-bad';
+  const msg=score>=80?'這句大部分字都聽清楚了 🎉':'紅字是機器沒聽到的，點一下聽慢速、再唸一次：';
+  const chips=(score<80&&missed.length)?missed.map(w=>`<button class="misschip" onclick="say('${w}')">🔊 ${w}</button>`).join(''):'';
+  $('#scoreArea').innerHTML=`<div class="shadowline">${marked}</div>`+
+    `<div class="scorebig ${cls}">${score}<span style="font-size:1.05rem"> % 字被聽到</span></div>`+
+    `<div class="qsub">${msg}${chips}</div>`+
+    `<div class="fbnote">※ 這是「單字有沒有被聽到」的比例，不是發音準不準的評分。想聽真人示範可點下方「範例」。</div>`;
   const ok=score>=60;grade(cur.sc.id,cur.i,ok);if(ok)Q.correct++;if(score>=80)heart($('#micBtn'));
   $('#ovfoot').innerHTML=`<button class="pbtn ghost" onclick="say(${esc(cur.p.en)})">🔊 範例</button><button class="pbtn" onclick="Q.idx++;renderCard()">下一題 ›</button>`;
 }
@@ -762,11 +776,25 @@ function drawRespond(revealed){
   $('#overlayMount').innerHTML=`<div class="overlay"><div class="ovhead"><button class="x" onclick="RS=null;closeOverlay()">✕</button><div class="ovprog"><i style="width:${pct}%"></i></div><div class="cnt">💬 ${RS.idx+1}/${RS.pairs.length}</div></div><div class="ovbody">${body}</div><div class="ovfoot">${foot}</div></div>`;
   say(pr.npc.en);
 }
+const RS_STOP=new Set('a an the to of for and or i you we it is are am was were be been do does did can could would will shall may my your our me us at in on this that these those with please yes no ok oh so'.split(' '));
 function rsRec(){
   if(!recSupported)return;const R=window.SpeechRecognition||window.webkitSpeechRecognition;
   const rr=new R();rr.lang='en-US';rr.interimResults=false;
   $('#rsMic').classList.add('rec');$('#rsHeard').textContent='🔴 聽你說…';
-  rr.onresult=e=>{$('#rsHeard').innerHTML=`你說：<b>${e.results[0][0].transcript}</b> 👍`;};
+  rr.onresult=e=>{
+    const said=e.results[0][0].transcript;const pr=RS.pairs[RS.idx];
+    const heard=new Set(normalize(said).split(' '));
+    const key=[...new Set(normalize(pr.you.en).split(' '))].filter(w=>w&&!RS_STOP.has(w));
+    const covered=key.filter(w=>heard.has(w)),missed=key.filter(w=>!heard.has(w));
+    const pct=key.length?Math.round(covered.length/key.length*100):100;
+    let fb=`辨識到：<b>${said}</b>`;
+    if(key.length){
+      if(pct>=60)fb+=`<br><span class="keyok">👍 重點都講到了（關鍵字 ${covered.length}/${key.length}）</span>`;
+      else fb+=`<br>還差關鍵字：${missed.map(w=>`<span class="wmiss">${w}</span>`).join(' ')}<br><span class="qsub">參考說法：${pr.you.en}</span>`;
+    }
+    fb+=`<div class="fbnote">※ 只檢查你有沒有講到重點字，不評發音；旅遊講得通最重要，說法不用跟參考一模一樣。</div>`;
+    $('#rsHeard').innerHTML=fb;
+  };
   rr.onerror=()=>{$('#rsHeard').textContent='沒聽清楚，再試一次';};
   rr.onend=()=>{const m=$('#rsMic');if(m)m.classList.remove('rec');};
   try{rr.start();}catch(e){}
