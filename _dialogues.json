@@ -1,0 +1,1356 @@
+{
+ "airport-checkin": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we'd like to check in for the flight to Tokyo. There are four of us traveling together.",
+   "zh": "你好，我們想辦理飛東京班機的報到，我們一共四個人，一起出發。",
+   "tip": "一開口就講清楚人數「There are four of us」，可以省去對方重複詢問。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. May I see your passports and booking reference, please? Are you all on the same reservation?",
+   "zh": "好的，可以給我看你們的護照和訂位代號嗎？你們都是同一筆訂位嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Yes, all on the same booking. Could we get two window seats? My kids would love to look outside.",
+   "zh": "對，都是同一筆訂位。我們可以要兩個靠窗的位子嗎？我的孩子很想看看窗外。",
+   "tip": "指定座位直接說關鍵字：window（靠窗）、aisle（走道）、together（坐一起）。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me check... I can seat all four of you in the same row, but there's only one window seat left. Would that work?",
+   "zh": "我查一下……我可以把你們四位安排在同一排，但只剩一個靠窗的位子，這樣可以嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "That's fine, as long as we're seated together. How many bags can we check in?",
+   "zh": "沒關係，只要能坐在一起就好。我們可以託運幾件行李？"
+  },
+  {
+   "sp": "對方",
+   "en": "Each of you can check one bag up to 23 kilos. Please place your suitcases on the belt one at a time.",
+   "zh": "每位可以託運一件，最多23公斤。請把行李箱一件一件放上輸送帶。",
+   "tip": "超重會另外收費，不確定時先問「Is my bag overweight?」比較保險。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Hmm, this one feels a bit heavy. Is it over the limit?",
+   "zh": "嗯，這件感覺有點重，會超重嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "It's 24 kilos, just slightly over. If you move a few things into another bag, you'll be all set.",
+   "zh": "這件24公斤，只超過一點點。只要把一些東西移到別的行李裡，就沒問題了。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it, we moved some clothes over. By the way, which gate do we go to, and where's security?",
+   "zh": "了解，我們把一些衣服移出來了。對了，我們要去哪個登機門？安檢又在哪裡呢？",
+   "tip": "登機門有時會臨時更改，記得多留意機場螢幕上的「Gate」和「Boarding」資訊。"
+  },
+  {
+   "sp": "對方",
+   "en": "Gate 42. Head up to security on the second floor, then just follow the signs. It's a bit of a walk, so give yourselves some time.",
+   "zh": "42號登機門。請先到二樓過安檢，然後跟著指標走就好。路有點遠，記得多留一點時間。"
+  },
+  {
+   "sp": "旅客",
+   "en": "We have a connecting flight in Tokyo. Do we need to pick up our bags there?",
+   "zh": "我們在東京有一班轉機。行李需要在那裡先領出來嗎？",
+   "tip": "轉機關鍵字是「connecting flight」和「transfer」，先確認行李是否直掛到目的地。"
+  },
+  {
+   "sp": "對方",
+   "en": "No need. Your bags are checked all the way through to your final destination. Just follow the 'Transfer' signs in Tokyo. Have a great trip!",
+   "zh": "不用。你們的行李已經直掛到最終目的地了，在東京跟著「轉機（Transfer）」的指標走就行。祝你們旅途愉快！"
+  }
+ ],
+ "immigration": [
+  {
+   "sp": "對方",
+   "en": "Next, please. Good evening. May I see your passports?",
+   "zh": "下一位，請。晚安，可以給我看你們的護照嗎？",
+   "tip": "移民官通常先說「Next, please」叫下一組，一家人可以一起上前遞護照。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Of course, here you go. We have four — two adults and two children.",
+   "zh": "當然，在這裡。我們一共四本，兩位大人、兩位小孩。"
+  },
+  {
+   "sp": "對方",
+   "en": "Thank you. What's the purpose of your visit?",
+   "zh": "謝謝。你們此行的目的是什麼？",
+   "tip": "最常被問的第一題，答 holiday／sightseeing（觀光）或 visiting family（探親）就可以。"
+  },
+  {
+   "sp": "旅客",
+   "en": "We're here on holiday. It's our first family trip abroad.",
+   "zh": "我們是來度假的，這是我們第一次全家出國。"
+  },
+  {
+   "sp": "對方",
+   "en": "Lovely. How long will you be staying, and where?",
+   "zh": "很好。你們打算待多久？住在哪裡呢？"
+  },
+  {
+   "sp": "旅客",
+   "en": "About ten days. We've booked a hotel downtown, and we fly home on the twentieth.",
+   "zh": "大約十天。我們訂了市中心的飯店，二十號飛回去。",
+   "tip": "能講出離境日期，或出示回程機票，官員會更放心。"
+  },
+  {
+   "sp": "對方",
+   "en": "Thanks. Did you fill out the arrival card?",
+   "zh": "謝謝。入境卡填好了嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Here it is — oh, sorry, I think I left the address blank.",
+   "zh": "在這裡……喔，抱歉，我地址那欄好像沒填。",
+   "tip": "入境卡漏填很常見，官員多半會請你當場補上，別緊張。"
+  },
+  {
+   "sp": "對方",
+   "en": "No problem. Just add the hotel name and street here and you're all set.",
+   "zh": "沒關係，把飯店名稱和街道寫在這裡就可以了。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Done. By the way, do we need to declare anything? We brought some snacks and dried fruit for the kids — that's all.",
+   "zh": "填好了。對了，我們需要申報什麼嗎？我們帶了一些零食和果乾給小孩吃，就這些而已。"
+  },
+  {
+   "sp": "對方",
+   "en": "Snacks are fine, but no fresh fruit or meat. If that's everything, you can take the green channel. Welcome, and enjoy your trip!",
+   "zh": "零食沒問題，但不能帶新鮮水果或肉類。如果就這些，你們走綠色通道就好。歡迎光臨，祝旅途愉快！",
+   "tip": "綠色通道（green channel）＝無須申報；紅色通道（red channel）＝需要申報，別走錯。"
+  }
+ ],
+ "baggage": [
+  {
+   "sp": "旅客",
+   "en": "Excuse me, which carousel is the flight from Tokyo on? We can't find our bags.",
+   "zh": "不好意思，東京來的班機是在哪一條行李轉盤？我們找不到行李。",
+   "tip": "行李轉盤的英文是 carousel 或 baggage belt，對照螢幕上的班機號碼(flight number)最快找到。"
+  },
+  {
+   "sp": "對方",
+   "en": "That one comes out on Belt 5, over there on your right. The bags are still coming out.",
+   "zh": "那班飛機在5號轉盤，就在你右手邊那裡，行李還在陸續出來。"
+  },
+  {
+   "sp": "旅客",
+   "en": "We've been waiting about twenty minutes, but two of our suitcases never came out.",
+   "zh": "我們已經等了大概二十分鐘，但有兩個行李箱一直沒出來。"
+  },
+  {
+   "sp": "對方",
+   "en": "I'm sorry to hear that. Please head to the Baggage Service counter near the exit, and they'll take care of it for you.",
+   "zh": "很抱歉發生這種事。請到出口旁邊的行李服務櫃檯，他們會幫您處理。",
+   "tip": "行李沒出來別急著離開，先到 Baggage Service 或 Lost & Found 櫃檯報失。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay. Here are our baggage tags. One's a big red suitcase, and the other's a small black one with wheels.",
+   "zh": "好。這是我們的行李條。一個是大的紅色行李箱，另一個是小的黑色、有輪子的。",
+   "tip": "報失時把 baggage tag(掛在行李上的行李條)拿出來，上面的號碼是他們追蹤行李的關鍵。"
+  },
+  {
+   "sp": "對方",
+   "en": "Thank you. Let me check the system. It looks like they were left behind in Tokyo and will arrive on the next flight tonight.",
+   "zh": "謝謝。我查一下系統。看起來它們被留在東京了，會搭今晚下一班飛機過來。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Oh no. We're staying at a hotel downtown. Could you deliver them there instead?",
+   "zh": "糟糕。我們住在市區的飯店。可以改送到那裡嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. We deliver to your hotel free of charge. Just fill out this form with your address and phone number.",
+   "zh": "當然可以。我們會免費送到您的飯店。只要在這張表格填上您的地址和電話就好。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great, thanks. One more thing — where can I get a luggage cart? We still have four heavy bags to carry.",
+   "zh": "太好了，謝謝。還有一件事，哪裡可以拿行李推車？我們還有四件很重的行李要搬。",
+   "tip": "行李推車叫 luggage cart 或 trolley(英式)；有些機場要投幣或刷卡，記得留點零錢。"
+  },
+  {
+   "sp": "對方",
+   "en": "The carts are right by the entrance, and they're free here. Just grab one and go.",
+   "zh": "推車就在入口旁邊，這裡的推車是免費的，直接拿一台走就行了。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Perfect. So we'll get a text once the missing bags reach the hotel, right?",
+   "zh": "太好了。所以行李送到飯店時，我們會收到簡訊通知，對嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Exactly. You'll get a message before delivery. Sorry again for the trouble, and enjoy your trip!",
+   "zh": "沒錯。送達前您會先收到訊息通知。再次為造成的不便說聲抱歉，祝您旅途愉快！"
+  }
+ ],
+ "flight-trouble": [
+  {
+   "sp": "旅客",
+   "en": "Excuse me, our flight to Tokyo still says \"Delayed\" on the board. Do you know what's going on?",
+   "zh": "不好意思，看板上我們飛東京的班機還是寫「延誤」。您知道是怎麼回事嗎？",
+   "tip": "看板常見字：Delayed(延誤)、Cancelled(取消)、Boarding(登機中)、Gate Closed(關艙)。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me check for you. I'm sorry, but the flight's delayed by about three hours due to bad weather in Tokyo.",
+   "zh": "我幫您查一下。很抱歉，因為東京天候不佳，這班飛機延誤大約三個小時。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Three hours? That's a problem. We have a connecting flight to Sapporo. Will we still make it?",
+   "zh": "三個小時？這下麻煩了。我們還要轉機去札幌，這樣還來得及嗎？",
+   "tip": "轉機是 connecting flight；「趕上」用 make it 或 catch，都很口語。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me see... I'm afraid the connection's too tight now. You probably won't make the Sapporo flight.",
+   "zh": "我看看……恐怕現在轉機時間太趕了，札幌那班您大概趕不上。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Oh no. So what can we do? We're travelling with two kids and we really need to get there tonight.",
+   "zh": "糟糕。那我們該怎麼辦？我們帶著兩個小孩，今晚一定得到那裡。"
+  },
+  {
+   "sp": "對方",
+   "en": "Don't worry. I can rebook you on a later connection for free. There's one at 8 p.m. with four seats together.",
+   "zh": "別擔心，我可以免費幫您改簽到晚一點的轉機班機。晚上八點有一班，剛好有四個相連的座位。",
+   "tip": "改簽／改訂位是 rebook；想坐在一起可說 seats together 或 seats next to each other。"
+  },
+  {
+   "sp": "旅客",
+   "en": "That sounds great. But wait—what if this first flight gets cancelled? Then everything falls apart.",
+   "zh": "聽起來不錯。不過等等，萬一第一班又被取消呢？那不就全亂了。"
+  },
+  {
+   "sp": "對方",
+   "en": "Good question. If it's cancelled, we'll put you on another airline or a morning flight and cover a hotel for tonight.",
+   "zh": "問得好。如果取消了，我們會幫您轉到別家航空或改搭明早的班機，今晚的飯店也由我們負責。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay, thank you. One more thing—do we need to go through security again for the new gate?",
+   "zh": "好，謝謝。還有一件事，換新的登機門要再過一次安檢嗎？",
+   "tip": "安檢是 security 或 security check；轉機時若沒出境，通常不必重過安檢，但最好先問清楚。"
+  },
+  {
+   "sp": "對方",
+   "en": "No. You're already in the departure area, so there's no need. Just keep an eye on the board and head to Gate 22 when it's ready. Have a safe trip!",
+   "zh": "不用，您已經在出境管制區裡了，不必再過。請留意看板，準備好就到22號登機門。祝您旅途平安！"
+  }
+ ],
+ "transport": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we're a family of four heading to the National Museum. What's the best way to get there?",
+   "zh": "你好，我們一家四口要去國家博物館，怎麼去最方便？",
+   "tip": "先講清楚人數和目的地，站務員通常會直接幫你規劃最省的路線。"
+  },
+  {
+   "sp": "對方",
+   "en": "You can take the blue line from here and then transfer to the number 12 bus. The whole trip is about 25 minutes.",
+   "zh": "你可以在這裡搭藍線，然後轉12號公車，全程大約25分鐘。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Do we need to buy separate tickets, or is there something cheaper for the whole day?",
+   "zh": "我們需要分開買票嗎？還是有比較划算的一日票？",
+   "tip": "「day pass」(一日票) 對一家人整天到處跑通常最省，別忘了問。"
+  },
+  {
+   "sp": "對方",
+   "en": "There's a family day pass. It covers the metro and buses for two adults and up to three kids.",
+   "zh": "有家庭一日票，地鐵和公車都能用，可供兩位大人和最多三位小孩使用。"
+  },
+  {
+   "sp": "旅客",
+   "en": "That sounds great, we'll take one. When we transfer to the bus, do we need to tap again?",
+   "zh": "聽起來很棒，我們要一張。轉搭公車時，需要再刷一次嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, just tap the same pass on the reader when you board. It won't charge you extra.",
+   "zh": "要，上車時用同一張票在感應器上刷一下就好，不會多收錢。",
+   "tip": "轉乘再刷通常只是紀錄，不會重複扣款，安心刷即可。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Perfect. How often does the number 12 run? We've got a stroller with us.",
+   "zh": "太好了。12號公車多久一班？我們有帶一台嬰兒車。"
+  },
+  {
+   "sp": "對方",
+   "en": "Every ten minutes or so. The low-floor buses are easier with a stroller—look for the wheelchair symbol.",
+   "zh": "大約每十分鐘一班。低底盤公車比較好推嬰兒車，找有輪椅標誌的那種。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Good to know. And which exit should we use to catch the bus once we're off the metro?",
+   "zh": "了解。搭完地鐵後，要從哪個出口去搭公車呢？"
+  },
+  {
+   "sp": "對方",
+   "en": "Take Exit B—the stop is right outside. And just so you know, the last bus back is around 11 p.m.",
+   "zh": "走B出口，站牌就在外面。另外提醒你，末班回程車大約晚上11點。",
+   "tip": "問「末班車幾點」(last bus/train) 很重要，玩太晚才不會回不了飯店。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thanks so much, you've been really helpful!",
+   "zh": "非常感謝，你幫了大忙！"
+  },
+  {
+   "sp": "對方",
+   "en": "My pleasure. Enjoy the museum and have a great trip!",
+   "zh": "不客氣，祝你們參觀愉快，旅途順利！"
+  }
+ ],
+ "taxi": [
+  {
+   "sp": "旅客",
+   "en": "Hi, are you free right now? We just booked a ride through the app.",
+   "zh": "你好，你現在有空嗎？我們剛剛用App叫了車。",
+   "tip": "上車前先核對車牌和司機姓名，跟App上顯示的一致再上車比較安全。"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, that's me. Are you the family of four heading downtown?",
+   "zh": "對，是我。你們是要去市中心的四人家庭嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "That's us. Could you take us to the Grand Harbor Hotel, please?",
+   "zh": "就是我們。可以麻煩你載我們到君悅港灣飯店嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. Do you want me to type the address in, or is it already in the app?",
+   "zh": "沒問題。要我輸入地址，還是App裡已經有了？",
+   "tip": "只說飯店名字有時不夠，最好把地址或Google地圖釘選點給司機看。"
+  },
+  {
+   "sp": "旅客",
+   "en": "It's already in the app. By the way, is this a fixed price, or is it on the meter?",
+   "zh": "App裡已經有了。順便問一下，這是固定價，還是跳表計費？"
+  },
+  {
+   "sp": "對方",
+   "en": "App rides are a fixed price. It's only on the meter if you flag me down on the street.",
+   "zh": "用App叫車是固定價，只有在路邊招車我才會跳表計費。",
+   "tip": "跳表是 on the meter；「開始跳表」可說 turn on the meter，看到 meter 這個字再確認一下。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it. Our little girl gets carsick, so could you take it a bit slow?",
+   "zh": "了解。我們小女兒會暈車，可以請你開慢一點嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "No problem. I'll take the main road—it's smoother. We should be there in about twenty minutes.",
+   "zh": "沒問題。我走大馬路，比較平穩。大概二十分鐘就到。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Actually, could you pull over at that convenience store first? We'd like to grab some water.",
+   "zh": "其實，可以先在那家便利商店停一下嗎？我們想買點水。",
+   "tip": "臨時要靠邊停可說 Could you pull over here for a minute?（可以在這邊停一下嗎？）"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure thing. I'll wait right here—take your time, and watch out for traffic when you get out.",
+   "zh": "當然可以。我就在這裡等，慢慢來，下車時注意一下來車。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thanks! Okay, we're all set. This is the hotel—can we get out here?",
+   "zh": "謝謝！好了，我們都準備好了。就是這家飯店，我們可以在這裡下車嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, this is it. The fare's already paid through the app, so you're all set. Enjoy your trip!",
+   "zh": "對，就是這裡。車資已經用App付好了，你們可以直接下車。祝旅途愉快！",
+   "tip": "下車前記得檢查後座和後車廂，別把行李或手機留在車上。"
+  }
+ ],
+ "directions": [
+  {
+   "sp": "旅客",
+   "en": "Excuse me, sorry to bother you. We're trying to find the old clock tower. Is it near here?",
+   "zh": "不好意思，打擾一下。我們想找那座舊鐘樓，請問在這附近嗎？",
+   "tip": "開口先說 Excuse me 或 Sorry to bother you，比劈頭就問路更禮貌，對方也更願意幫忙。"
+  },
+  {
+   "sp": "對方",
+   "en": "Oh, the clock tower? It's not far, but it's a bit tricky to find. Do you have a map?",
+   "zh": "喔，鐘樓啊？不遠，不過有點難找。你們有帶地圖嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Yes, I've got it here on my phone. Could you show me where we are right now?",
+   "zh": "有，就在我手機上。可以幫我指一下我們現在的位置嗎？",
+   "tip": "把手機地圖遞過去說 Could you show me where we are？ 讓對方直接指，比聽一長串描述清楚得多。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. We're right here, at this corner. Go straight, then turn left at the second set of lights.",
+   "zh": "當然。我們就在這裡，這個路口。你們直走，然後在第二個紅綠燈左轉。"
+  },
+  {
+   "sp": "旅客",
+   "en": "So, straight ahead, then left at the second lights. Got it. Is it a long walk?",
+   "zh": "所以是直走，第二個紅綠燈左轉。懂了。要走很久嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "About ten minutes. You can't miss it—it's the tall stone building right behind the square.",
+   "zh": "大概十分鐘。你們絕對不會錯過，就是廣場正後方那棟高高的石造建築。",
+   "tip": "You can't miss it 是「很好認、一定找得到」的口語，聽到就代表目標很顯眼。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great, thanks. One more thing—my kids really need a restroom. Is there one on the way?",
+   "zh": "太好了，謝謝。還有一件事，我的小孩很急著要上廁所。路上有廁所嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Hmm, the public ones are usually locked. But there's a café by the square—just ask them nicely and they'll let you use it.",
+   "zh": "嗯，公廁通常都鎖著。不過廣場旁有間咖啡廳，你客氣地問一下，他們通常會讓你們用。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay, we'll give that a try. And can we see the clock tower from the square?",
+   "zh": "好，我們去問問看。那從廣場看得到鐘樓嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Definitely—you'll spot it right away. Just follow the crowd and the church bells; you'll hear it before you see it!",
+   "zh": "當然看得到，一眼就會看到。跟著人潮和教堂鐘聲走就對了，你們會先聽到鐘聲，再看到它！",
+   "tip": "迷路時「跟著人群走」(follow the crowd) 常常最快，熱門地標附近的人潮多半都往同一個方向。"
+  }
+ ],
+ "car-rental": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we booked a car online under the name Chen. We're here to pick it up.",
+   "zh": "你好，我們在網路上用「陳」這個姓氏訂了一台車，來取車。",
+   "tip": "取車先報訂位姓名（under the name…）最快，櫃檯就能直接調出你的訂單。"
+  },
+  {
+   "sp": "對方",
+   "en": "Welcome! May I see your driver's license, passport, and the credit card you used to book?",
+   "zh": "歡迎！可以給我看你的駕照、護照，還有訂車時用的那張信用卡嗎？",
+   "tip": "國外租車常要出示「國際駕照＋台灣正本駕照」兩張，記得都帶著。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Sure, here you go. We're travelling with two kids—could we add a child seat?",
+   "zh": "好的，都在這裡。我們帶了兩個小孩，可以加租一個兒童安全座椅嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. We have one booster seat available for ten dollars a day. And would you like to add full insurance?",
+   "zh": "當然可以。我們有一個兒童增高墊，一天加收十元。另外，你要不要加保全險呢？",
+   "tip": "child seat 和 booster seat 尺寸不同，先講小孩年齡讓對方幫你挑最合適的。"
+  },
+  {
+   "sp": "旅客",
+   "en": "What exactly does the full insurance cover? I don't want to pay extra if I'm already covered.",
+   "zh": "全險到底保哪些東西？如果我原本就有理賠，我不想多付錢。",
+   "tip": "追問理賠範圍很正常，關鍵字：What does it cover? / What's the excess?（自負額多少）。"
+  },
+  {
+   "sp": "對方",
+   "en": "It covers damage and theft, and it brings your excess down to zero. Without it, you'd be liable for up to a thousand.",
+   "zh": "它涵蓋車損和失竊，還把自負額降到零。沒保的話，萬一出事你最多要自付一千。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay, let's go with the full insurance. Better safe than sorry with the kids in the car.",
+   "zh": "好，那我們就保全險吧。車上有小孩，還是保險一點比較安心。"
+  },
+  {
+   "sp": "對方",
+   "en": "Great choice. The tank is full, so please bring it back full, and return it to this same lot before 10 a.m. on the 8th.",
+   "zh": "很好的選擇。油箱是滿的，所以請加滿再還，並在8號早上十點前把車還到同一個停車場。",
+   "tip": "「滿油還車 full-to-full」最划算；還車時間、地點務必問清楚，免得被多收費。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it. One more thing—if we break down or have an accident, who do we call?",
+   "zh": "了解。還有一件事，如果我們拋錨或發生事故，要打給誰？"
+  },
+  {
+   "sp": "對方",
+   "en": "There's a 24-hour hotline on the key ring and in the glove box. Call us first and we'll send roadside assistance or a tow truck.",
+   "zh": "鑰匙圈上和手套箱裡都有24小時服務專線。先打給我們，我們會派道路救援或拖吊車過去。",
+   "tip": "記下 roadside assistance（道路救援）電話；出事先拍照存證再通報，別私下和解。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Perfect. And if it's a serious crash, should we call the police too?",
+   "zh": "太好了。那如果是嚴重的車禍，我們也要報警嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes—if anyone's injured or there's major damage, call the police, take photos, and get a report number. Then let us know. Have a safe trip!",
+   "zh": "要，只要有人受傷或嚴重毀損就報警、拍照，並拿到報案編號，然後再通知我們。祝旅途平安！",
+   "tip": "report number（報案編號）是理賠關鍵，一定要向警方索取。"
+  }
+ ],
+ "driving-gas": [
+  {
+   "sp": "旅客",
+   "en": "Hi, could you fill it up, please? Regular.",
+   "zh": "你好，可以幫我加滿嗎？加普通汽油就好。",
+   "tip": "「Fill it up」就是「加滿」，最常用；想加定額可說「Twenty dollars, please」。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. Regular's on pump three. Want me to fill it, or would you rather do it yourself?",
+   "zh": "好的，普通汽油在三號油槍。要我幫你加，還是你想自己來？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Could you do it for us? We're not sure how the pumps work here.",
+   "zh": "可以請你幫我們加嗎？我們不太懂這裡的油槍怎麼操作。"
+  },
+  {
+   "sp": "對方",
+   "en": "No problem. It'll come to about fifty. You can pay by card inside or right here at the pump.",
+   "zh": "沒問題，大概是五十元。你可以進店裡刷卡，也可以直接在油槍這裡付。",
+   "tip": "國外不少加油站是「先付款、後加油」，自助式尤其常見，記得先問清楚。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great, thanks. By the way, is there a toll on the way to the old town?",
+   "zh": "太好了，謝謝。順便問一下，往老城的路上有收費站嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yeah, there's a toll booth about ten minutes ahead. Keep some cash handy, just in case the card lane's closed.",
+   "zh": "有，大約十分鐘車程有個收費站。身上留點現金，以防刷卡道剛好關閉。",
+   "tip": "「toll booth」是收費亭；電子收費叫「electronic toll」，看到「ETC」標誌就是。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Good to know. And once we get there, where can we park?",
+   "zh": "知道了，謝謝。那我們到了之後可以停哪裡？"
+  },
+  {
+   "sp": "對方",
+   "en": "There's a paid lot right by the church. Just don't park along the red curb—they'll tow you.",
+   "zh": "教堂旁邊就有個收費停車場。千萬別停在紅線邊，那裡會拖吊。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Oh, we actually just left the car by a red curb. Should we go move it?",
+   "zh": "喔，我們其實剛剛就把車停在紅線旁了，要去移走嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, go move it now, or you'll get a ticket—or worse, towed. The lot's only two blocks away.",
+   "zh": "對，現在就去移，不然會被開罰單，嚴重的話還會被拖吊。停車場離這裡只有兩個街區。",
+   "tip": "「get a ticket」是被開罰單，「get towed」是被拖吊，兩個都要小心。"
+  }
+ ],
+ "hotel-checkin": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we have a reservation under the name Chen — two nights, one family room.",
+   "zh": "你好，我們有訂房，名字是陳，兩晚，一間家庭房。",
+   "tip": "報訂房用 \"under the name ___\"（在某某名下）最清楚，把姓氏拼給對方會更保險。"
+  },
+  {
+   "sp": "對方",
+   "en": "Welcome! Let me check... Yes, I've got it right here. May I see your passports, please?",
+   "zh": "歡迎！我查一下……有了，就在這裡。可以看一下你們的護照嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Sure, here you go. By the way, would it be possible to check in a bit early? It's only 1 p.m.",
+   "zh": "當然，給你。順便問一下，可以早一點入住嗎？現在才下午一點。",
+   "tip": "入住通常是下午三點，想提早就問 \"early check-in\"，能不能提早多半要看房間整理好了沒。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me take a look. I'm afraid your room isn't ready just yet — it should be all set by three.",
+   "zh": "我看看。不好意思，你們的房間還沒整理好，大概三點前就會準備妥當。"
+  },
+  {
+   "sp": "旅客",
+   "en": "No problem. Could we leave our bags here and come back later, then?",
+   "zh": "沒關係。那我們可以先把行李寄放在這裡，晚點再回來嗎？",
+   "tip": "寄放行李就說 \"leave / store our bags\"，幾乎每間飯店櫃檯都能幫忙，通常不收費。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. I'll give you a tag for each bag — just show it to us when you pick them up.",
+   "zh": "當然。我會給每件行李一個號碼牌，領行李時出示給我們就好。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great, thanks. One more thing — what time is breakfast, and where is it served?",
+   "zh": "太好了，謝謝。還有一件事，早餐是幾點？在哪裡用餐？"
+  },
+  {
+   "sp": "對方",
+   "en": "Breakfast runs from 7 to 10 in the restaurant on the second floor, and it's already included in your room rate.",
+   "zh": "早餐是七點到十點，在二樓的餐廳，而且已經含在你們的房費裡了。",
+   "tip": "聽到 \"included in the room rate\" 代表含在房價內、不另收費；沒說的話可再問 \"Is breakfast included?\" 確認。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Perfect. And what time do we need to check out on our last day?",
+   "zh": "太好了。那最後一天我們幾點要退房呢？"
+  },
+  {
+   "sp": "對方",
+   "en": "Check-out is by 11 a.m. If you'd like a little more time, just let us know the day before.",
+   "zh": "退房是上午十一點前。如果想多一點時間，前一天先跟我們說一聲就行。",
+   "tip": "退房後若班機還早，一樣可請櫃檯 \"store our bags until the afternoon\"，把行李寄到下午再回來拿。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it. We'll be back around three to check in. Thanks so much for your help!",
+   "zh": "了解。我們大概三點回來辦入住。真的很謝謝你的幫忙！"
+  },
+  {
+   "sp": "對方",
+   "en": "You're very welcome. Enjoy your afternoon, and we'll see you later!",
+   "zh": "不客氣。祝你們午後愉快，待會見！"
+  }
+ ],
+ "room-service": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we just checked into room 812, but is there any chance we could switch to a room with two large beds instead? We've got two kids.",
+   "zh": "你好，我們剛入住812號房，請問有沒有可能換成有兩張大床的房間？我們帶了兩個小孩。",
+   "tip": "換房用「Is there any chance we could switch...?」比直接說「I want to change」更委婉客氣。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me check for you. I'm sorry, but we're fully booked tonight, so I'm not able to move you to another room right now.",
+   "zh": "我幫您查一下。很抱歉，我們今晚客滿，所以現在沒辦法幫您換到別的房間。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Oh, that's a shame. Then could we add an extra bed for one of the kids? Is there a charge for that?",
+   "zh": "喔，真可惜。那可以幫其中一個小孩加一張床嗎？這樣要另外收費嗎？",
+   "tip": "「add an extra bed」就是加床；問是否收費用「Is there a charge for that?」很實用。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. An extra bed is fifteen dollars per night. I'll have housekeeping bring one up in about twenty minutes.",
+   "zh": "沒問題，加床是每晚十五美元。我會請房務人員大約二十分鐘後送上去。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great, thanks. One more thing—the air conditioning doesn't seem to be working. It's really warm in here.",
+   "zh": "太好了，謝謝。還有一件事，房間的冷氣好像壞了，裡面真的很悶熱。",
+   "tip": "報修先說「...doesn't seem to be working」再加上具體感受，客服比較好判斷狀況。"
+  },
+  {
+   "sp": "對方",
+   "en": "I'm really sorry about that. I'll have a technician check it when they bring up the bed. Have you tried the switch by the door?",
+   "zh": "真的很抱歉。送床的時候我會一併請技術人員去檢查。您有試過門邊的開關嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Yes, we've tried it a few times, but nothing happens. Also, could we get a wake-up call at six tomorrow morning?",
+   "zh": "有，我們試了好幾次，但都沒反應。另外，明天早上六點可以幫我們叫醒嗎？",
+   "tip": "叫醒服務直接說「a wake-up call at + 時間」，飯店都聽得懂。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. I've set a wake-up call for room 812 at six a.m. Is there anything else I can help you with?",
+   "zh": "當然可以。我已經幫812號房設定早上六點的叫醒服務了。還有其他需要幫忙的地方嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Honestly, we've been waiting almost an hour now and no one has come. My kids are getting cranky in this heat.",
+   "zh": "老實說，我們已經等了快一個小時，都還沒有人來。我的小孩在這麼熱的房間裡開始鬧脾氣了。",
+   "tip": "客訴時講出具體事實（等多久、造成什麼影響）比發脾氣更有效，飯店通常會設法補償。"
+  },
+  {
+   "sp": "對方",
+   "en": "I completely understand, and I'm so sorry for the wait. I'll send someone right away, and I'll take the extra bed charge off your bill for the trouble.",
+   "zh": "我完全理解，很抱歉讓您久等。我馬上派人過去，並且為了補償這次的不便，我會把加床的費用從您的帳單中扣掉。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thank you, I really appreciate that. It would make a big difference for us.",
+   "zh": "謝謝你，我真的很感激。這對我們來說幫助很大。"
+  },
+  {
+   "sp": "對方",
+   "en": "It's the least we can do. Someone will be at your door in five minutes. Thank you for your patience.",
+   "zh": "這是我們應該做的。五分鐘內會有人到您門口。謝謝您的耐心等候。"
+  }
+ ],
+ "restaurant": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we have a reservation for four under the name Chen, for seven o'clock.",
+   "zh": "你好，我們用陳的名字訂了四位，時間是七點。",
+   "tip": "報訂位講「under the name + 姓氏」很自然，服務生一聽就懂。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me check... yes, here it is. Right this way. Would you prefer a booth or a table by the window?",
+   "zh": "我查一下……有了，在這裡。這邊請。您想坐卡座還是靠窗的桌子呢？",
+   "tip": "booth 是靠牆的半包廂沙發座，帶小孩很常被問要不要。"
+  },
+  {
+   "sp": "旅客",
+   "en": "By the window would be great, thanks. Could we also get a high chair for our little one?",
+   "zh": "靠窗就好，謝謝。可以再給我們一張兒童高腳椅嗎？我們有個小小孩。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. Here are your menus. Can I start you off with something to drink?",
+   "zh": "當然。這是您的菜單。要先幫您點些飲料嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Two waters and an apple juice, please. And could we have a few minutes to look at the menu?",
+   "zh": "兩杯水、一杯蘋果汁，謝謝。餐點的部分可以再給我們幾分鐘看一下嗎？",
+   "tip": "還沒想好時說「a few minutes to look at the menu」很自然，不用急著硬點。"
+  },
+  {
+   "sp": "對方",
+   "en": "Take your time. Just wave me over when you're ready.",
+   "zh": "慢慢來，準備好了招手叫我就行。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay, we'll have the grilled chicken and the beef pasta. One quick thing—my daughter is allergic to peanuts. Would either of those be a problem?",
+   "zh": "好了，我們要一份烤雞和一份牛肉義大利麵。還有一件事，我女兒對花生過敏，這兩道會有問題嗎？",
+   "tip": "過敏一定要主動講，「allergic to + 食物」是關鍵句，別怕麻煩。"
+  },
+  {
+   "sp": "對方",
+   "en": "Thanks for letting me know. The pasta should be fine, but I'll double-check with the kitchen just to be safe.",
+   "zh": "謝謝您告訴我。義大利麵應該沒問題，但為了保險起見，我會再跟廚房確認一下。"
+  },
+  {
+   "sp": "旅客",
+   "en": "That's really kind of you, thank you. Everything was delicious, by the way—could we get the check whenever you have a moment?",
+   "zh": "你人真好，謝謝。對了，餐點都很好吃。方便的時候可以幫我們結帳嗎？",
+   "tip": "用餐後要結帳，美式餐廳說「could we get the check」最道地。"
+  },
+  {
+   "sp": "對方",
+   "en": "Here you go. You can pay by card or cash right here at the table.",
+   "zh": "帳單在這。您可以直接在桌邊用信用卡或現金結帳。"
+  },
+  {
+   "sp": "旅客",
+   "en": "We'll pay by card. Is the tip included, or should I add it myself?",
+   "zh": "我們刷卡。小費有含在裡面了嗎，還是要我自己加？",
+   "tip": "歐美很多地方小費要自己加，先問「is the tip included」最保險，一般抓 15% 到 20%。"
+  },
+  {
+   "sp": "對方",
+   "en": "It's not included, so it's completely up to you. Thank you so much—enjoy the rest of your trip!",
+   "zh": "沒有含，所以完全看您的心意。非常感謝，祝你們接下來的旅程愉快！"
+  }
+ ],
+ "cafe-fastfood": [
+  {
+   "sp": "對方",
+   "en": "Hi there! Welcome. What can I get for you today?",
+   "zh": "嗨！歡迎光臨。今天想點什麼呢？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Hi. Can I get two iced lattes and one hot chocolate, please?",
+   "zh": "你好，我要兩杯冰拿鐵和一杯熱可可，謝謝。",
+   "tip": "點飲料只要說「Can I get + 品項 + please」就很自然，不用整句背。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. What size for the lattes? We have small, medium, and large.",
+   "zh": "好的。拿鐵要什麼杯型？我們有小、中、大杯。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Two mediums, please. And could you make one with less ice? My daughter doesn't like it too cold.",
+   "zh": "兩杯中杯，謝謝。其中一杯可以少冰嗎？我女兒不喜歡太冰。",
+   "tip": "客製化常用語：less ice（少冰）、no ice（去冰）、less sugar（少糖）、oat milk（燕麥奶）。"
+  },
+  {
+   "sp": "對方",
+   "en": "No problem. Would you like to switch the milk? We have oat and soy for fifty cents extra.",
+   "zh": "沒問題。要換牛奶嗎？燕麥奶和豆奶各多加五十分。"
+  },
+  {
+   "sp": "旅客",
+   "en": "No, regular milk is fine. Oh, and is the hot chocolate very sweet? It's for a kid.",
+   "zh": "不用，一般牛奶就好。喔，對了，熱可可會很甜嗎？是給小孩喝的。"
+  },
+  {
+   "sp": "對方",
+   "en": "It's a little sweet, but I can make it half sweet if you'd like.",
+   "zh": "是有一點甜，不過如果你要的話，我可以做成半糖。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Yes, half sweet would be great. And we'll take it all to go, please.",
+   "zh": "好，半糖就太好了。還有，這些全部外帶，謝謝。",
+   "tip": "店員常問「For here or to go?」（美式）或「Eat in or takeaway?」（英式），都是問內用還是外帶。"
+  },
+  {
+   "sp": "對方",
+   "en": "Got it, all to go. Would you like anything to eat? Our combo comes with fries and a nugget box.",
+   "zh": "好的，全部外帶。要不要吃點東西？我們的套餐附薯條和一盒雞塊。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Sure, one nugget combo. But can we swap the fries for a salad?",
+   "zh": "好，來一份雞塊套餐。不過薯條可以換成沙拉嗎？",
+   "tip": "速食店換配餐用「swap A for B」或「Can I have B instead of A?」都通。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. So that's two lattes, one hot chocolate, and a nugget combo. That'll be sixteen fifty.",
+   "zh": "當然可以。所以是兩杯拿鐵、一杯熱可可，加一份雞塊套餐，總共十六塊五。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Here you go. Thanks so much for your help!",
+   "zh": "錢在這裡。非常謝謝你的幫忙！"
+  }
+ ],
+ "shopping": [
+  {
+   "sp": "旅客",
+   "en": "Hi, excuse me. How much is this blue jacket? I don't see a price tag on it.",
+   "zh": "嗨，不好意思。這件藍色外套多少錢？我沒看到價錢標籤。",
+   "tip": "標籤不見時直接問「How much is this?」最簡單，指著商品講也可以。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me check for you. It's 89 euros. It's actually on sale this week, so it's a bit cheaper than usual.",
+   "zh": "我幫您查一下，這件是89歐元。這週剛好特價，所以比平常便宜一點。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Oh, nice. Can my daughter try it on? Where's the fitting room?",
+   "zh": "喔，太好了。可以讓我女兒試穿嗎？試衣間在哪裡？",
+   "tip": "「try it on」是試穿的固定說法；試衣間叫 fitting room 或 changing room。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. The fitting rooms are right behind you, on the right. What size does she need?",
+   "zh": "當然可以。試衣間就在您後面，右手邊。她需要什麼尺寸？"
+  },
+  {
+   "sp": "旅客",
+   "en": "She usually wears a small, but this one feels a little tight on the shoulders. Do you have a medium?",
+   "zh": "她平常穿S號，但這件肩膀有點緊。你們有M號嗎？",
+   "tip": "太緊說 tight，太鬆說 loose；「a size up」大一號，「a size down」小一號。"
+  },
+  {
+   "sp": "對方",
+   "en": "Let me have a look... Yes, here's a medium. If it still doesn't fit, we can order it in a different color online for you.",
+   "zh": "我找找看…有的，這是M號。如果還是不合身，我們可以幫您在網路上訂別的顏色。"
+  },
+  {
+   "sp": "旅客",
+   "en": "This one fits great. We'll take it. By the way, we're tourists—can we get a tax refund?",
+   "zh": "這件很合身，我們要了。對了，我們是遊客，可以退稅嗎？",
+   "tip": "退稅關鍵字是 tax refund；歐洲也常聽到 tax-free 或 VAT refund（VAT 是加值稅）。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. As long as you spend over 50 euros on a single receipt, you qualify. I'll just need your passport to fill out the form.",
+   "zh": "可以。只要同一張收據消費超過50歐元就符合資格。我需要您的護照來填退稅單。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Here you go. So do I get the money back here, or at the airport?",
+   "zh": "護照給您。那我是在這裡拿到退款，還是在機場拿？",
+   "tip": "多數國家是「店家開單、機場蓋章、櫃檯領錢」，記得別把要退稅的商品先托運。"
+  },
+  {
+   "sp": "對方",
+   "en": "At the airport. Get this form stamped at customs, then take it to the refund counter. Keep the tag on until then.",
+   "zh": "在機場。把這張單子拿去海關蓋章，再拿到退稅櫃檯。在那之前先別把吊牌剪掉。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it. One more thing—if it doesn't work out, can we return it for a refund?",
+   "zh": "了解。還有一件事，如果不適合，我們可以退貨退款嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, within 30 days with the receipt. But once the tax form is stamped, we can only exchange it, not give you a cash refund.",
+   "zh": "可以，30天內憑收據都行。不過退稅單一旦蓋了章，我們就只能換貨，不能退現金了。",
+   "tip": "退貨 return、換貨 exchange、退款 refund，三個字別搞混；退稅後通常只能換不能退。"
+  }
+ ],
+ "money": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we'd like to exchange some money. Do you take Taiwan dollars here?",
+   "zh": "你好，我們想換一點錢。你們這裡收台幣嗎？",
+   "tip": "開場先問「Do you take Taiwan dollars?」比直接把錢遞出去保險，有些櫃檯不收台幣。"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, we do. How much would you like to exchange today?",
+   "zh": "收的。您今天想換多少？"
+  },
+  {
+   "sp": "旅客",
+   "en": "About three hundred US dollars' worth. What's your exchange rate right now?",
+   "zh": "大概三百美元左右。你們現在的匯率是多少？",
+   "tip": "「What's your rate?」是換匯必問句；記得問清楚這是「買入」還是「賣出」價。"
+  },
+  {
+   "sp": "對方",
+   "en": "It's 32.1 today. There's also a small handling fee of NT$100 per transaction.",
+   "zh": "今天是32.1。另外每筆會收台幣一百元的手續費。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay. Actually, would it be cheaper to just withdraw cash from an ATM instead?",
+   "zh": "好。其實，如果我直接用提款機領現金，會不會比較划算？",
+   "tip": "提款機是ATM；海外提款通常會另收跨國手續費，不一定更便宜，最好先比一比。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sometimes, but your own bank may charge you an overseas withdrawal fee. Our rate here is fixed, so you'll know exactly how much you're getting.",
+   "zh": "有時候會，但您自己的銀行可能也會收海外提款費。我們這邊的匯率是固定的，您能清楚知道換到多少。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it. By the way, I'm having a problem with my credit card. I got charged twice for the same hotel booking.",
+   "zh": "了解。對了，我的信用卡有點問題。同一筆飯店訂房被扣了兩次款。"
+  },
+  {
+   "sp": "對方",
+   "en": "I'm sorry to hear that. We can't handle card disputes at this counter, but you should call the number on the back of your card.",
+   "zh": "很抱歉聽到這件事。刷卡爭議沒辦法在這個櫃檯處理，但您可以打卡片背面的電話。",
+   "tip": "刷卡爭議要找「發卡銀行」，不是換匯櫃檯；卡背電話最直接，記得留好交易明細當證據。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Alright, I'll call them later. So let's go ahead with three hundred US dollars in cash, please.",
+   "zh": "好，我等一下打給他們。那就先麻煩換三百美元現金，謝謝。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. Here's your cash and your receipt. Please count it before you leave the counter.",
+   "zh": "好的。這是您的現金和收據，請在離開櫃檯前先當場點清楚。",
+   "tip": "「Please count it before you leave」是換匯慣例，當場點清，日後有爭議才有依據。"
+  }
+ ],
+ "attractions": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we'd like to buy tickets — two adults and two kids.",
+   "zh": "你好，我們想買門票，兩位大人、兩位小孩。",
+   "tip": "買票開場直接講清楚人數「two adults and two kids」，售票員最快抓到重點。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. How old are the kids? Children under six get in free.",
+   "zh": "好的，小朋友幾歲呢？六歲以下免費入場。"
+  },
+  {
+   "sp": "旅客",
+   "en": "One's five and the other's eight. So that's one free and one child ticket?",
+   "zh": "一個五歲、一個八歲。所以是一張免費、一張兒童票，對嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Exactly. So it's two adults and one child — that comes to 45 dollars altogether.",
+   "zh": "沒錯。這樣是兩張全票加一張兒童票，總共45元。",
+   "tip": "聽到金額不放心時，可反問「So that's forty-five altogether?」再確認一次才付款。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Sounds good. By the way, what time do you close today?",
+   "zh": "好，沒問題。順便問一下，你們今天幾點關門？"
+  },
+  {
+   "sp": "對方",
+   "en": "We close at six, but last entry is at five thirty.",
+   "zh": "我們六點關門，不過最後入場時間是五點半。",
+   "tip": "景點的「last entry（最後入場）」常比關門早，別拖到快關門才到門口，會進不去。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Good to know, thanks. Do you have a guided tour? My kids would love to learn more.",
+   "zh": "知道了，謝謝。有導覽嗎？我的孩子應該會很想多了解一些。"
+  },
+  {
+   "sp": "對方",
+   "en": "There's an English tour at two. It's free, but you'll need to sign up over at that desk.",
+   "zh": "兩點有一場英文導覽，是免費的，不過要先去那個櫃台報名。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Perfect timing. Oh, one more thing — can we take photos inside?",
+   "zh": "時間剛剛好。喔對了，還有一件事，裡面可以拍照嗎？",
+   "tip": "「Can we take photos inside?」是通用問法；想錄影就把 photos 換成 videos。"
+  },
+  {
+   "sp": "對方",
+   "en": "Photos are fine, just no flash please. And no tripods in the main hall.",
+   "zh": "拍照沒問題，只是請不要開閃光燈。另外主展廳不能用腳架。"
+  },
+  {
+   "sp": "旅客",
+   "en": "No problem at all. Thanks so much for your help!",
+   "zh": "完全沒問題。真的很謝謝你的幫忙！"
+  },
+  {
+   "sp": "對方",
+   "en": "You're welcome. Enjoy your visit, and have fun on the tour!",
+   "zh": "不客氣，祝你們玩得愉快，導覽也玩得開心！"
+  }
+ ],
+ "sim-internet": [
+  {
+   "sp": "旅客",
+   "en": "Hi, we just landed and need internet for our phones. Do you sell tourist SIM cards here?",
+   "zh": "嗨，我們剛下飛機，手機需要網路。你們這裡有賣觀光客用的SIM卡嗎？",
+   "tip": "一進機場就說「we just landed」，店員馬上知道你是遊客，會推薦短期方案。"
+  },
+  {
+   "sp": "對方",
+   "en": "Sure. How many days are you staying, and how many phones need data?",
+   "zh": "當然有。你們要待幾天？有幾支手機要用網路？"
+  },
+  {
+   "sp": "旅客",
+   "en": "About ten days. We're a family of four, but honestly only two phones really need data.",
+   "zh": "大概十天。我們一家四口，不過老實說只有兩支手機真的需要網路。"
+  },
+  {
+   "sp": "對方",
+   "en": "Got it. For two phones, I'd suggest one unlimited-data SIM. You can share it as a hotspot with the others.",
+   "zh": "了解。兩支手機的話，我建議買一張吃到飽SIM卡，再開熱點分享給其他人就好。",
+   "tip": "「share it as a hotspot」就是開分享熱點，全家共用一張卡最省錢。"
+  },
+  {
+   "sp": "旅客",
+   "en": "That sounds good. But my phone is an iPhone 15. Can I use an eSIM instead? I don't want to lose my Taiwan number.",
+   "zh": "聽起來不錯。不過我的手機是iPhone 15，可以改用eSIM嗎？我不想拿掉台灣的號碼。"
+  },
+  {
+   "sp": "對方",
+   "en": "No problem, an eSIM is perfect for that. Your Taiwan SIM stays in, and we just scan a QR code to add ours.",
+   "zh": "沒問題，eSIM正好適合。你的台灣SIM卡留著就好，我們只要掃一個QR code就能加進去。",
+   "tip": "用eSIM能保留原門號收簡訊（像銀行OTP）；出國前先確認手機支援eSIM。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great. And if we run out of data before we head home, can we add more? Like top up?",
+   "zh": "太好了。那如果回國前流量用完，可以加購嗎？像儲值那樣？"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, you can top up anytime in our app or at any branch. It only takes a minute.",
+   "zh": "可以，隨時能在我們的App或任何門市儲值，一分鐘就搞定。"
+  },
+  {
+   "sp": "旅客",
+   "en": "One more thing. Our hotel has free Wi-Fi, right? Maybe we won't need that much data.",
+   "zh": "還有一件事。我們的飯店有免費Wi-Fi吧？也許我們不用買那麼多流量。"
+  },
+  {
+   "sp": "對方",
+   "en": "Most do, but it can get slow at night. With unlimited data, you won't have to worry when you're out sightseeing.",
+   "zh": "大部分飯店都有，但晚上可能會變慢。買吃到飽的話，你們出門觀光時就完全不用擔心了。",
+   "tip": "飯店Wi-Fi常只夠一支手機、訊號也弱；出門導航、叫車還是靠自己的行動網路最穩。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Okay, let's go with the eSIM plus one physical SIM for my wife. How much is that all together?",
+   "zh": "好，那我們就選eSIM，再幫我太太買一張實體SIM卡。全部加起來多少錢？"
+  },
+  {
+   "sp": "對方",
+   "en": "That'll be forty dollars total. Let me set them up now, and I'll test both before you leave.",
+   "zh": "總共四十元。我現在幫你們設定，離開前我會先把兩張都測試好。",
+   "tip": "務必當場請店員測到能上網再走，設定有問題在門市當場處理最快。"
+  }
+ ],
+ "pharmacy": [
+  {
+   "sp": "旅客",
+   "en": "Hi, could you help us? My daughter's had a runny nose and a cough since last night.",
+   "zh": "你好，可以幫我們一下嗎？我女兒從昨晚開始就一直流鼻水又咳嗽。",
+   "tip": "進藥局先說「Could you help us?」比直接問藥名更禮貌，藥師會主動引導你。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. Does she have a fever, or is it just the cough and runny nose?",
+   "zh": "當然。她有發燒嗎，還是只有咳嗽跟流鼻水？"
+  },
+  {
+   "sp": "旅客",
+   "en": "No fever, but her throat's a little sore too. She's nine years old.",
+   "zh": "沒發燒，不過她喉嚨也有點痛。她九歲。",
+   "tip": "買藥時一定要主動報年齡；很多成藥的劑量是按年齡或體重來分的。"
+  },
+  {
+   "sp": "對方",
+   "en": "Okay. Is she allergic to any medicines that you know of?",
+   "zh": "好的。就你所知，她對任何藥物過敏嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Not that we know of. Do you have anything non-drowsy? We're travelling and she gets carsick easily.",
+   "zh": "就我們所知沒有。你有不會想睡的藥嗎？我們在旅行，她又很容易暈車。",
+   "tip": "關鍵字「non-drowsy」（不嗜睡）；怕小孩吃了昏昏沉沉時很好用。"
+  },
+  {
+   "sp": "對方",
+   "en": "In that case, I'd suggest this non-drowsy kids' syrup. It covers both the cough and the runny nose.",
+   "zh": "這樣的話，我建議這款不嗜睡的兒童糖漿，咳嗽跟流鼻水都能顧到。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great. How much should she take, and how often?",
+   "zh": "太好了。她要吃多少，多久一次？",
+   "tip": "用法用量就問「How much and how often?」一句就能問到劑量和間隔。"
+  },
+  {
+   "sp": "對方",
+   "en": "One spoonful—that's 5 ml—three times a day, after meals. There's a measuring cup inside.",
+   "zh": "一匙，也就是5毫升，一天三次，飯後吃。裡面附了量杯。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Can she take it together with her carsick pills, or should we space them out?",
+   "zh": "她可以跟暈車藥一起吃嗎，還是要隔開？",
+   "tip": "多種藥併用時，記得問「space them out?」（要不要間隔開），避免藥效重疊。"
+  },
+  {
+   "sp": "對方",
+   "en": "Leave about two hours between them, just to be safe. And if the cough hasn't improved in three days, see a doctor.",
+   "zh": "保險起見，兩種藥中間隔大約兩小時。另外，如果咳嗽三天內沒好轉，就去看醫生。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it. We'll take one bottle. Thank you so much for your help!",
+   "zh": "了解。我們買一瓶，非常謝謝你的幫忙！"
+  }
+ ],
+ "doctor": [
+  {
+   "sp": "旅客",
+   "en": "Hi, my daughter isn't feeling well. Can she see a doctor here? We don't have an appointment.",
+   "zh": "你好，我女兒不太舒服，她可以在這裡看醫生嗎？我們沒有預約。",
+   "tip": "沒預約直接看診叫 walk-in，可直接問 Do you take walk-ins?"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. We can fit her in. Could you fill out this form and show me her passport?",
+   "zh": "當然可以，我們幫她安排。可以請你填這張表，並讓我看一下她的護照嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "Here you go. She's had a fever since last night and keeps saying her throat hurts.",
+   "zh": "給你。她從昨晚開始發燒，一直說喉嚨痛。",
+   "tip": "「自從昨晚」用 since last night；「持續兩天」用 for two days。"
+  },
+  {
+   "sp": "對方",
+   "en": "Okay. Has she thrown up or had any trouble breathing?",
+   "zh": "好的。她有嘔吐或呼吸困難的情況嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "No, she hasn't, but she barely ate today and feels really tired.",
+   "zh": "沒有，不過她今天幾乎沒吃東西，覺得很累。"
+  },
+  {
+   "sp": "對方",
+   "en": "The doctor will call her in in a few minutes. Please have a seat in the waiting area.",
+   "zh": "醫生幾分鐘後就會叫她進去。請先到候診區坐一下。",
+   "tip": "call someone in = 叫某人進診間；候診區是 waiting area。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thank you. After she sees the doctor, where do we pick up the medicine?",
+   "zh": "謝謝。她看完醫生後，我們要去哪裡領藥？",
+   "tip": "藥局 pharmacy；處方箋 prescription；領藥可說 pick up the medicine。"
+  },
+  {
+   "sp": "對方",
+   "en": "The doctor says it's just a throat infection. Here's a prescription and something to bring the fever down.",
+   "zh": "醫生說只是喉嚨發炎。這是處方箋，還有幫她退燒的藥。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Great. How often should she take it, and should she take it with food?",
+   "zh": "太好了。這個藥要多久吃一次？需要配著食物吃嗎？",
+   "tip": "問用法常用：How often?（多久一次）、before/after meals（飯前／飯後）。"
+  },
+  {
+   "sp": "對方",
+   "en": "Twice a day, after meals. There's no need to finish it all—just stop once she's feeling better.",
+   "zh": "一天兩次，飯後吃。不必全部吃完，等她好轉了就可以停。"
+  },
+  {
+   "sp": "旅客",
+   "en": "One more thing—we have travel insurance. Could I get a receipt and a diagnosis note so we can file a claim later?",
+   "zh": "還有一件事，我們有旅遊保險。可以給我收據和診斷證明，方便之後申請理賠嗎？",
+   "tip": "理賠關鍵字：receipt（收據）、diagnosis note / medical certificate（診斷證明），保險常兩者都要。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. I'll print an itemized receipt along with an English medical report. You pay here first and claim it back once you're home.",
+   "zh": "沒問題。我會印一張明細收據，附上英文診斷報告。你先在這裡付款，回國後再申請理賠。",
+   "tip": "itemized receipt = 逐項明細收據，理賠時通常會需要。"
+  }
+ ],
+ "emergency": [
+  {
+   "sp": "旅客",
+   "en": "Excuse me, please help us! My father just collapsed and he's having trouble breathing.",
+   "zh": "不好意思，請幫幫我們！我爸爸剛剛突然倒下，現在呼吸很困難。",
+   "tip": "緊急時先大聲說「Please help us!」再講狀況；許多國家叫救護車／報警是打 112 或 911。"
+  },
+  {
+   "sp": "對方",
+   "en": "Okay, try to stay calm. Is he awake? Can he still talk to you?",
+   "zh": "好，請盡量冷靜。他還清醒嗎？還能跟你說話嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "He's awake, but he keeps clutching his chest. He has a heart condition.",
+   "zh": "他還清醒，可是一直按著胸口。他有心臟方面的毛病。"
+  },
+  {
+   "sp": "對方",
+   "en": "An ambulance is on the way. Is he on any medication? Do you have it with you?",
+   "zh": "救護車正在趕來。他有在吃什麼藥嗎？藥有帶在身上嗎？",
+   "tip": "隨身把長輩的藥名或藥盒拍照存手機，關鍵字「heart pills（心臟藥）」「blood pressure（血壓）」很好用。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Yes, these are his heart pills. He took one this morning.",
+   "zh": "有，這是他的心臟藥。他今天早上吃了一顆。"
+  },
+  {
+   "sp": "對方",
+   "en": "Good, that helps a lot. The paramedics will be here in about three minutes. Stay with him.",
+   "zh": "很好，這幫了大忙。急救人員大約三分鐘後就到，請陪在他身邊。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thank you. And there's one more thing — while we were running for help, my wife's bag was stolen. Her passport was inside.",
+   "zh": "謝謝你。還有一件事——我們剛剛跑去求救的時候，我太太的包包被偷了，護照就在裡面。",
+   "tip": "被偷用「stolen」，自己弄丟用「lost」；講清楚差別，警察才知道要不要立案調查。"
+  },
+  {
+   "sp": "對方",
+   "en": "I'm sorry to hear that. You'll need to file a report. Did you see who took it?",
+   "zh": "我很遺憾。這你需要報案做筆錄。你有看到是誰拿走的嗎？"
+  },
+  {
+   "sp": "旅客",
+   "en": "No, it happened so fast. We didn't see anything.",
+   "zh": "沒有，發生得太快了，我們什麼都沒看到。"
+  },
+  {
+   "sp": "對方",
+   "en": "That's okay. I'll write up the report now and give you a copy. Keep it somewhere safe.",
+   "zh": "沒關係。我現在就幫你做報案紀錄，會給你一份副本，請收好。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thank you so much. Where can we get a new passport? Is there a Taiwan office near here?",
+   "zh": "非常感謝。我們要去哪裡辦新護照？這附近有台灣的辦事處嗎？",
+   "tip": "台灣駐外單位英文常說「Taiwan representative office」或「Taipei Economic and Cultural Office (TECO)」，記這關鍵字問路最快。"
+  },
+  {
+   "sp": "對方",
+   "en": "Yes, there's a Taiwan representative office downtown. Show them this police report, and they'll help you.",
+   "zh": "有的，市中心就有一間台灣辦事處。把這份報案紀錄拿給他們看，他們會協助你們。"
+  }
+ ],
+ "safety": [
+  {
+   "sp": "對方",
+   "en": "Excuse me! Hey, my friend! Where you from? Taiwan? Ah, I love Taiwan! Come, come, I show you a shop — very cheap, special price just for you.",
+   "zh": "不好意思！嘿，朋友！你們從哪來的？台灣？啊，我超愛台灣！來來來，我帶你們去一家店，超便宜，只給你們的特價喔。"
+  },
+  {
+   "sp": "旅客",
+   "en": "No, thank you. We're just looking around. Please don't follow us.",
+   "zh": "不用了，謝謝。我們只是隨便逛逛，請不要跟著我們。",
+   "tip": "拒絕搭訕最有效的就是簡短一句 No, thank you，然後繼續往前走、別停下來聽對方講。"
+  },
+  {
+   "sp": "對方",
+   "en": "Just one minute! Look, look at this map. Where you want to go? Let me help you — come closer.",
+   "zh": "就一分鐘！你看、你看這張地圖。你們想去哪？我幫你們——靠過來一點嘛。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Please give us some space, we're fine. Kids, hold my hand and move your backpacks around to the front.",
+   "zh": "請退後一點，我們沒事。孩子們，牽好我的手，把背包轉到胸前來背。",
+   "tip": "人多或有人硬湊近時，把背包改背在胸前、手按著拉鍊，是最實用的防扒動作。"
+  },
+  {
+   "sp": "對方",
+   "en": "Hey, sorry to jump in — I saw that guy hassling you. Just so you know, he's not really selling anything; he works with the pickpockets around here. Keep your wallet zipped, and don't take your phone out right here.",
+   "zh": "嘿，不好意思插句話——我看到那個人一直纏著你們。跟你們說一聲，他其實不是真的在賣東西，是跟這附近的扒手一夥的。錢包拉鍊拉好，也先別在這裡把手機拿出來。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Oh, really? Thank you so much for the heads-up. Is this whole area like that?",
+   "zh": "喔，真的嗎？太謝謝你提醒我們了。這一整區都是這樣嗎？"
+  },
+  {
+   "sp": "對方",
+   "en": "Most of it's fine, but watch out on the metro. When it gets crowded, that's when they bump into you and lift your stuff.",
+   "zh": "大部分地方還好，不過搭地鐵要小心。人一擠的時候，他們就會故意撞你，順手把東西摸走。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Got it, we'll be careful. I should text my mom to let her know we're safe — oh no, my phone just died.",
+   "zh": "了解，我們會小心。我得傳個訊息跟我媽報平安——糟糕，我手機剛好沒電了。",
+   "tip": "出門前先跟家人約好「每天報平安」，這樣手機關機或沒電時，家人才會提早警覺，也不會白擔心。"
+  },
+  {
+   "sp": "對方",
+   "en": "There's a café right over there. The staff are friendly — they'll probably let you charge it for a bit.",
+   "zh": "那邊就有一家咖啡廳。店員人很好，應該會讓你們充一下電。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Excuse me, sorry to bother you. Could I use an outlet to charge my phone for a few minutes? I just need to text my mom that we're okay.",
+   "zh": "不好意思，打擾一下。我可以借個插座充一下手機幾分鐘嗎？我只是想傳訊息跟我媽報平安。",
+   "tip": "開口借東西先說 Sorry to bother you，再講清楚「借什麼、多久、為什麼」，對方通常更願意幫忙。"
+  },
+  {
+   "sp": "對方",
+   "en": "Of course. There's an outlet by the window seat. Take your time, no rush.",
+   "zh": "當然可以。窗邊的位子那邊有插座。慢慢來，不用急。"
+  },
+  {
+   "sp": "旅客",
+   "en": "Thank you, you've really saved us. Let me order a couple of coffees while we wait — it's the least we can do.",
+   "zh": "謝謝你，真是幫了我們大忙。趁充電的時候我點兩杯咖啡吧，這是我們的一點心意。"
+  }
+ ]
+}
