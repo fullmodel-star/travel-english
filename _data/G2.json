@@ -1,0 +1,122 @@
+[
+  {
+    "id": "flight-trouble",
+    "icon": "🛫",
+    "title": "航班異常",
+    "titleEn": "Flight Problems",
+    "desc": "誤點、取消、改簽、轉機、安檢",
+    "country": "US",
+    "words": [
+      { "en": "rebook", "zh": "改訂/改簽", "ico": "🔁" },
+      { "en": "standby", "zh": "候補", "ico": "🕓" },
+      { "en": "delay", "zh": "誤點", "ico": "⏱️" },
+      { "en": "cancelled", "zh": "取消", "ico": "❌" },
+      { "en": "connection", "zh": "轉機/銜接", "ico": "🔗" },
+      { "en": "gate", "zh": "登機門", "ico": "🚪" },
+      { "en": "transfer desk", "zh": "轉機櫃台", "ico": "🛄" },
+      { "en": "voucher", "zh": "兌換券", "ico": "🎟️" },
+      { "en": "compensation", "zh": "賠償", "ico": "💰" },
+      { "en": "boarding pass", "zh": "登機證", "ico": "🎫" }
+    ],
+    "patterns": [
+      { "en": "Can you ___?", "zh": "你可以…嗎？", "slots": ["rebook me", "put me on standby", "call the transfer desk"] },
+      { "en": "My flight was ___.", "zh": "我的班機…。", "slots": ["cancelled", "delayed", "overbooked"] }
+    ],
+    "phrases": [
+      { "en": "My flight was cancelled.", "zh": "我的班機取消了。", "tip": "cancelled = 取消", "tag": "狀況", "level": 1, "survival": true, "homophone": "買 福賴 瓦斯 坎叟" },
+      { "en": "How long is the delay?", "zh": "誤點多久？", "tip": "delay = 誤點", "tag": "誤點", "level": 1, "survival": true, "homophone": "好 龍 意思 惹 低累" },
+      { "en": "Which gate?", "zh": "哪個登機門？", "tip": "指示牌看不懂就直接問", "tag": "登機門", "level": 1, "survival": true, "homophone": "委去 給特" },
+      { "en": "Where's the transfer desk?", "zh": "轉機櫃台在哪裡？", "tip": "transfer desk = 轉機/改簽櫃台", "tag": "轉機", "level": 2, "survival": true, "homophone": "威爾斯 傳斯佛 戴斯克" },
+      { "en": "My flight was cancelled — can you rebook me on the next flight?", "zh": "我的班機取消了，可以幫我改訂下一班嗎？", "tip": "rebook = 改訂／改簽", "tag": "改簽", "level": 2 },
+      { "en": "Can you rebook me at no extra charge?", "zh": "可以免加價幫我改簽嗎？", "tip": "no extra charge = 不另外收費", "tag": "改簽", "level": 2 },
+      { "en": "How much is the change fee?", "zh": "改票要多少手續費？", "tip": "change fee = 改票費", "tag": "費用", "level": 2 },
+      { "en": "Can I get on an earlier flight?", "zh": "我可以搭更早的班機嗎？", "tip": "earlier flight = 更早的班機", "tag": "改簽", "level": 2 },
+      { "en": "Can you put me on standby?", "zh": "可以幫我排候補嗎？", "tip": "standby = 候補", "tag": "候補", "level": 2 },
+      { "en": "I missed my connection.", "zh": "我沒趕上轉機。", "tip": "connection = 轉機班機", "tag": "轉機", "level": 2 },
+      { "en": "Which gate for connecting flights?", "zh": "轉機要去哪個登機門？", "tip": "connecting flight = 轉接班機", "tag": "轉機", "level": 2 },
+      { "en": "Do I need to take out my laptop and liquids?", "zh": "我需要把筆電和液體拿出來嗎？", "tip": "安檢常見要求", "tag": "安檢", "level": 2 },
+      { "en": "Will the airline cover a hotel for tonight?", "zh": "航空公司會提供今晚的住宿嗎？", "tip": "cover = 負擔費用", "tag": "賠償", "level": 2 },
+      { "en": "Do I get a meal voucher for the delay?", "zh": "誤點有提供餐券嗎？", "tip": "meal voucher = 餐券", "tag": "賠償", "level": 2 },
+      { "en": "Am I entitled to compensation for the delay?", "zh": "這次誤點我可以申請賠償嗎？", "tip": "entitled to = 有權獲得", "tag": "賠償", "level": 3 },
+      { "en": "Is my checked bag going to make the connection?", "zh": "我托運的行李來得及轉機嗎？", "tip": "checked bag = 托運行李", "tag": "行李", "level": 3 }
+    ],
+    "dialogue": {
+      "title": "班機取消，在櫃台改簽",
+      "youRole": "你（旅客）",
+      "npcRole": "地勤",
+      "lines": [
+        { "who": "npc", "en": "Good evening. How can I help you?", "zh": "晚安，有什麼需要幫忙的嗎？", "alt": [ { "en": "Hi there, what can I do for you?", "zh": "你好，需要我幫什麼忙嗎？" }, { "en": "Next in line, please. How may I help?", "zh": "下一位，請問需要什麼服務？" } ] },
+        { "who": "you", "en": "My flight was cancelled. Can you rebook me on the next flight?", "zh": "我的班機取消了，可以幫我改訂下一班嗎？" },
+        { "who": "npc", "en": "I'm sorry about that. Let me check availability.", "zh": "很抱歉，我幫你查一下還有沒有位子。", "alt": [ { "en": "So sorry for the trouble. One moment while I look.", "zh": "造成不便很抱歉，稍等我查一下。" }, { "en": "Apologies. Let me see what flights are open.", "zh": "抱歉，我看看還有哪些班機。" } ] },
+        { "who": "you", "en": "Can you rebook me at no extra charge?", "zh": "可以免加價幫我改簽嗎？" },
+        { "who": "npc", "en": "Yes, since the cancellation was our fault, there's no charge.", "zh": "可以，因為是我們的取消，不會收費。", "alt": [ { "en": "Of course, the change fee is waived for a cancellation.", "zh": "當然，取消改票免手續費。" }, { "en": "Absolutely, no extra charge in this case.", "zh": "沒問題，這種情況不另外收費。" } ] },
+        { "who": "you", "en": "Great. I also missed my connection. Which gate for connecting flights?", "zh": "太好了。我還錯過了轉機，轉機要去哪個登機門？" },
+        { "who": "npc", "en": "The next flight leaves from Gate 22. I'll put you on it.", "zh": "下一班從22號登機門起飛，我幫你排上去。" },
+        { "who": "you", "en": "How long is the delay? Will the airline cover a hotel for tonight?", "zh": "誤點多久？航空公司會提供今晚的住宿嗎？" },
+        { "who": "npc", "en": "About five hours. Yes, we'll provide a hotel and a meal voucher.", "zh": "大約五小時。會的，我們提供住宿和餐券。" },
+        { "who": "you", "en": "Thank you. Can you put me on standby for an earlier flight too?", "zh": "謝謝。也可以幫我排更早班機的候補嗎？" },
+        { "who": "npc", "en": "Of course. You're on the standby list now. Here's your new boarding pass.", "zh": "當然，你已在候補名單上了，這是你的新登機證。" },
+        { "who": "you", "en": "Thank you so much for your help.", "zh": "非常感謝你的幫忙。" }
+      ]
+    }
+  },
+  {
+    "id": "safety",
+    "icon": "🛡️",
+    "title": "防扒與自保",
+    "titleEn": "Safety & Scams",
+    "desc": "防扒手、拒絕推銷搭訕、報平安、借用求助",
+    "country": "US",
+    "words": [
+      { "en": "pickpocket", "zh": "扒手", "ico": "🖐️" },
+      { "en": "scam", "zh": "詐騙", "ico": "⚠️" },
+      { "en": "wallet", "zh": "皮夾", "ico": "👛" },
+      { "en": "taxi", "zh": "計程車", "ico": "🚕" },
+      { "en": "emergency", "zh": "緊急狀況", "ico": "🆘" },
+      { "en": "suspicious", "zh": "可疑的", "ico": "👀" },
+      { "en": "police", "zh": "警察", "ico": "👮" },
+      { "en": "phone", "zh": "手機", "ico": "📱" }
+    ],
+    "patterns": [
+      { "en": "Please ___.", "zh": "請…。", "slots": ["leave me alone", "call me a taxi", "watch my bags for a second"] },
+      { "en": "No, ___.", "zh": "不用了，…。", "slots": ["thank you", "I'm not interested"] }
+    ],
+    "phrases": [
+      { "en": "No, thank you.", "zh": "不用了，謝謝。", "tip": "堅定但有禮貌", "tag": "拒絕", "level": 1, "survival": true, "homophone": "弄，山Q" },
+      { "en": "I'm not interested.", "zh": "我沒興趣。", "tip": "interested = 有興趣的", "tag": "拒絕", "level": 1 },
+      { "en": "Please leave me alone.", "zh": "請別再纏著我。", "tip": "被糾纏時用，語氣要堅定", "tag": "拒絕", "level": 1, "survival": true, "homophone": "普利斯 立夫 米 額弄" },
+      { "en": "I've been pickpocketed!", "zh": "我被扒了！", "tip": "pickpocket = 扒手", "tag": "遭竊", "level": 2, "survival": true, "homophone": "愛夫 賓 匹克帕基特" },
+      { "en": "Someone stole my wallet!", "zh": "有人偷了我的皮夾！", "tip": "stole = steal 的過去式", "tag": "遭竊", "level": 2 },
+      { "en": "Keep your hands off my bag!", "zh": "把手拿開，別碰我的包！", "tip": "察覺有人靠太近時大聲說", "tag": "遭竊", "level": 2 },
+      { "en": "Can I use your phone? It's an emergency.", "zh": "可以借用你的手機嗎？這是緊急狀況。", "tip": "報平安或報警都用得到", "tag": "求助", "level": 2, "survival": true, "homophone": "坎 愛 又斯 幼兒 風？依次 恩 伊墨真西" },
+      { "en": "Where can I charge my phone?", "zh": "哪裡可以幫手機充電？", "tip": "charge = 充電", "tag": "手機", "level": 1 },
+      { "en": "Can you call me a taxi?", "zh": "可以幫我叫計程車嗎？", "tip": "call a taxi = 叫車", "tag": "交通", "level": 2 },
+      { "en": "Please watch my bags for a second.", "zh": "請幫我顧一下行李。", "tip": "for a second = 一下下", "tag": "財物", "level": 2 },
+      { "en": "Is this area safe at night?", "zh": "這一帶晚上安全嗎？", "tip": "safe = 安全的", "tag": "安全", "level": 2 },
+      { "en": "Sorry, I don't do surveys.", "zh": "抱歉，我不填問卷。", "tip": "假問卷常是分心扒竊手法", "tag": "防詐", "level": 2 },
+      { "en": "Can I see your police ID, please?", "zh": "可以出示你的警察證件嗎？", "tip": "假警察會要你交錢包，先驗證件", "tag": "防詐", "level": 3 },
+      { "en": "I'm not buying anything, thank you.", "zh": "我什麼都不買，謝謝。", "tip": "面對強迫推銷，重複同一句就好", "tag": "拒絕", "level": 2 },
+      { "en": "I'm meeting my friends over there.", "zh": "我朋友在那邊等我。", "tip": "讓對方知道你不是落單，方便脫身", "tag": "自保", "level": 2 },
+      { "en": "I need to report a theft.", "zh": "我要報案（失竊）。", "tip": "theft = 竊盜", "tag": "報警", "level": 2 }
+    ],
+    "dialogue": {
+      "title": "皮夾被扒，向店家求助報平安",
+      "youRole": "你（旅客）",
+      "npcRole": "店員",
+      "lines": [
+        { "who": "you", "en": "Excuse me, I need help. I've been pickpocketed!", "zh": "不好意思，我需要幫忙，我被扒了！" },
+        { "who": "npc", "en": "Oh no, are you okay? What happened?", "zh": "天啊，你還好嗎？發生什麼事？", "alt": [ { "en": "That's terrible. Are you hurt?", "zh": "太糟了，你有受傷嗎？" }, { "en": "Calm down, tell me what happened.", "zh": "冷靜一點，告訴我怎麼了。" } ] },
+        { "who": "you", "en": "Someone stole my wallet on the street. Can I use your phone? It's an emergency.", "zh": "有人在街上偷了我的皮夾。可以借用你的手機嗎？這是緊急狀況。" },
+        { "who": "npc", "en": "Of course. Here, use mine.", "zh": "當然，來，用我的。", "alt": [ { "en": "Sure, take my phone.", "zh": "沒問題，手機拿去用。" }, { "en": "Here you go, dial away.", "zh": "拿去，儘管打。" } ] },
+        { "who": "you", "en": "Thank you. Can you also call me a taxi to the police station?", "zh": "謝謝。也可以幫我叫台計程車去警察局嗎？" },
+        { "who": "npc", "en": "Sure, I'll call one now. Please keep your other bags close.", "zh": "好，我馬上叫車。你其他的包包也顧緊一點。", "alt": [ { "en": "On it. Watch your belongings while we wait.", "zh": "在處理了，等車時看好你的東西。" }, { "en": "Right away. Hold your bag tight, just in case.", "zh": "馬上，包包抓緊點以防萬一。" } ] },
+        { "who": "you", "en": "A man kept pushing me to buy something right before it happened.", "zh": "出事前有個男的一直纏著我要我買東西。" },
+        { "who": "npc", "en": "That's a common scam here. They distract you and take your wallet.", "zh": "這裡常見這種手法，他們分散你注意再偷皮夾。" },
+        { "who": "you", "en": "Is this area safe at night?", "zh": "這一帶晚上安全嗎？" },
+        { "who": "npc", "en": "It's better to avoid the crowds after dark. Stay alert.", "zh": "天黑後最好別往人多的地方去，多留意四周。" },
+        { "who": "you", "en": "Thank you so much. Where can I charge my phone too?", "zh": "太謝謝你了。另外哪裡可以幫手機充電？" },
+        { "who": "npc", "en": "There's an outlet by the counter. Take your time.", "zh": "櫃台旁有插座，你慢慢來。" }
+      ]
+    }
+  }
+]

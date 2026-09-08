@@ -1,0 +1,180 @@
+[
+  {
+    "id": "shopping",
+    "icon": "🛍️",
+    "title": "購物退稅",
+    "titleEn": "Shopping & Tax Refund",
+    "desc": "詢價、試穿、尺寸、結帳、退稅、退貨退款",
+    "country": "US",
+    "words": [
+      { "en": "refund", "zh": "退款/退稅", "ico": "💵" },
+      { "en": "size", "zh": "尺寸", "ico": "📏" },
+      { "en": "fitting room", "zh": "試衣間", "ico": "🚪" },
+      { "en": "receipt", "zh": "收據", "ico": "🧾" },
+      { "en": "discount", "zh": "折扣", "ico": "🏷️" },
+      { "en": "card", "zh": "信用卡", "ico": "💳" },
+      { "en": "color", "zh": "顏色", "ico": "🎨" },
+      { "en": "return", "zh": "退貨", "ico": "↩️" }
+    ],
+    "patterns": [
+      { "en": "Can I ___?", "zh": "我可以…嗎？", "slots": ["try this on", "get a refund", "pay by card"] },
+      { "en": "Do you have this in ___?", "zh": "這個有…嗎？", "slots": ["a bigger size", "another color", "black"] }
+    ],
+    "phrases": [
+      { "en": "How much is this?", "zh": "這個多少錢？", "tip": "也可說 What's the price of this?", "tag": "詢價", "level": 1, "survival": true, "homophone": "好・馬取・易斯・利斯" },
+      { "en": "I'm just looking, thanks.", "zh": "我只是看看，謝謝。", "tip": "店員問要不要幫忙時的禮貌回應", "tag": "詢價", "level": 1, "survival": true, "homophone": "愛姆・賈斯特・魯京・山克斯" },
+      { "en": "It's too expensive.", "zh": "太貴了。", "tip": "百貨專櫃多為不二價、不殺價；殺價只在市集攤販", "tag": "詢價", "level": 1, "survival": true, "homophone": "依茨・兔・伊克斯潘西夫" },
+      { "en": "I'll take this one.", "zh": "我要買這個。", "tip": "決定購買時說", "tag": "結帳", "level": 1 },
+      { "en": "Can I try this on?", "zh": "我可以試穿這件嗎？", "tip": "試穿必備句", "tag": "試穿", "level": 1, "survival": true, "homophone": "肯・愛・踹・利斯・昂" },
+      { "en": "Can I pay by card?", "zh": "可以刷卡嗎？", "tip": "付現說 I'll pay in cash.", "tag": "結帳", "level": 1, "survival": true, "homophone": "肯・愛・配・拜・卡" },
+      { "en": "Do you have this in a bigger size?", "zh": "這個有大一號的嗎？", "tip": "小一號用 smaller size", "tag": "尺寸", "level": 2 },
+      { "en": "Do you have this in another color?", "zh": "這個有其他顏色嗎？", "tip": "指定顏色可說 Do you have it in black?（美式拼 color）", "tag": "尺寸", "level": 2 },
+      { "en": "Where is the fitting room?", "zh": "試衣間在哪裡？", "tip": "fitting room = 試衣間，英式常說 changing room", "tag": "試穿", "level": 2 },
+      { "en": "Is this on sale?", "zh": "這個有打折嗎？", "tip": "詢問折扣 Is there any discount?", "tag": "結帳", "level": 2 },
+      { "en": "Can I get a refund?", "zh": "我可以退款嗎？", "tip": "refund = 退款/退稅通用", "tag": "退貨", "level": 2 },
+      { "en": "I'd like to return this.", "zh": "我想退這個。", "tip": "return = 退貨，記得帶收據與吊牌", "tag": "退貨", "level": 2 },
+      { "en": "It doesn't fit.", "zh": "這件不合身。", "tip": "太緊 too tight／太鬆 too loose", "tag": "退貨", "level": 2 },
+      { "en": "It's faulty.", "zh": "這件有瑕疵。", "tip": "faulty = 瑕疵/故障，退貨最有力的理由", "tag": "退貨", "level": 2 },
+      { "en": "Can I get a tax refund?", "zh": "我可以退稅嗎？", "tip": "tax refund = 退稅，需帶護照", "tag": "退稅", "level": 2 },
+      { "en": "Could I get a receipt?", "zh": "可以給我收據嗎？", "tip": "退稅與退貨都需要收據，記得留好", "tag": "退稅", "level": 2 },
+      { "en": "Could you fill out the tax refund form for me?", "zh": "可以幫我辦退稅表嗎？", "tip": "tax refund form = 退稅表", "tag": "退稅", "level": 3 },
+      { "en": "How much do I need to spend to qualify for the refund?", "zh": "要消費多少才能退稅？", "tip": "詢問退稅門檻", "tag": "退稅", "level": 3 }
+    ],
+    "dialogue": {
+      "title": "在服飾店試穿並退稅",
+      "youRole": "你（觀光客）",
+      "npcRole": "店員",
+      "lines": [
+        { "who": "npc", "en": "Hi there! Can I help you find anything?", "zh": "您好！需要幫您找什麼嗎？", "alt": [ { "en": "Hello! Are you looking for anything special?", "zh": "您好！在找什麼特別的嗎？" }, { "en": "Welcome in! Let me know if you need help.", "zh": "歡迎光臨！需要幫忙再跟我說。" } ] },
+        { "who": "you", "en": "I'm just looking, thanks. Oh, how much is this jacket?", "zh": "我只是看看，謝謝。喔，這件外套多少錢？" },
+        { "who": "npc", "en": "That one is 89 dollars. It also comes in navy and gray.", "zh": "那件是 89 美元，還有深藍色和灰色。", "alt": [ { "en": "It's 89 dollars, and we have it in navy and gray too.", "zh": "89 美元，我們還有深藍和灰色。" }, { "en": "That's 89 dollars. The gray one is really popular.", "zh": "那件 89 美元，灰色那款很受歡迎。" } ] },
+        { "who": "you", "en": "Nice. Can I try this on? And do you have it in a bigger size?", "zh": "不錯。我可以試穿嗎？還有，有大一號的嗎？" },
+        { "who": "npc", "en": "Sure. The fitting room is right over there. Let me grab a large for you.", "zh": "當然，試衣間就在那邊。我幫您拿件大號的。", "alt": [ { "en": "Of course. Fitting rooms are on your left. I'll bring a large.", "zh": "當然，試衣間在您左邊，我拿件大號來。" } ] },
+        { "who": "you", "en": "Thanks. This fits perfectly. I'll take it.", "zh": "謝謝，這件剛剛好，我要買這件。" },
+        { "who": "npc", "en": "Great choice. Will you be paying by card or cash?", "zh": "很好的選擇。您要刷卡還是付現？" },
+        { "who": "you", "en": "By card, please. Can I get a tax refund on this?", "zh": "刷卡，謝謝。這個可以退稅嗎？" },
+        { "who": "npc", "en": "Yes, you can. Do you have your passport with you?", "zh": "可以喔，您有帶護照嗎？" },
+        { "who": "you", "en": "I do. Could you fill out the tax refund form for me?", "zh": "有，可以幫我辦退稅表嗎？" },
+        { "who": "npc", "en": "Of course. Here's your form and receipt. Show them at the airport.", "zh": "沒問題。這是您的退稅表和收據，在機場出示即可。" },
+        { "who": "you", "en": "Perfect, thank you so much!", "zh": "太好了，非常謝謝你！" }
+      ]
+    }
+  },
+  {
+    "id": "money",
+    "icon": "💱",
+    "title": "換匯銀行",
+    "titleEn": "Money & Bank",
+    "desc": "換匯、提款機、匯率、刷卡糾紛",
+    "country": "US",
+    "words": [
+      { "en": "exchange", "zh": "換匯", "ico": "💱" },
+      { "en": "exchange rate", "zh": "匯率", "ico": "📈" },
+      { "en": "service fee", "zh": "手續費", "ico": "💸" },
+      { "en": "bills", "zh": "鈔票", "ico": "💵" },
+      { "en": "ATM", "zh": "提款機", "ico": "🏧" },
+      { "en": "withdraw", "zh": "提款", "ico": "💰" },
+      { "en": "currency", "zh": "貨幣", "ico": "💴" },
+      { "en": "receipt", "zh": "收據", "ico": "🧾" }
+    ],
+    "patterns": [
+      { "en": "I'd like to ___.", "zh": "我想要…。", "slots": ["exchange some money", "change ten thousand Taiwan dollars", "withdraw some cash"] },
+      { "en": "Where is the nearest ___?", "zh": "最近的…在哪裡？", "slots": ["ATM", "bank", "exchange counter"] }
+    ],
+    "phrases": [
+      { "en": "I'd like to exchange some money.", "zh": "我想換一些錢。", "tip": "換匯開場白", "tag": "換匯", "level": 1, "survival": true, "homophone": "愛・賴克・兔・伊克斯淺吉・桑・媽尼" },
+      { "en": "Where is the nearest ATM?", "zh": "最近的提款機在哪裡？", "tip": "ATM = 提款機", "tag": "提款機", "level": 1, "survival": true, "homophone": "威爾・易斯・惹・尼爾瑞斯特・A-T-M" },
+      { "en": "Can I pay in cash?", "zh": "我可以付現金嗎？", "tip": "cash = 現金，card = 信用卡", "tag": "刷卡問題", "level": 1, "survival": true, "homophone": "肯・愛・配・引・卡許" },
+      { "en": "What's the exchange rate today?", "zh": "今天的匯率是多少？", "tip": "exchange rate = 匯率", "tag": "匯率", "level": 2, "survival": true, "homophone": "哇茨・惹・伊克斯淺吉・瑞特・特day" },
+      { "en": "I'd like to change these Taiwan dollars into US dollars.", "zh": "我想把台幣換成美金。", "tip": "換成日圓 into Japanese yen", "tag": "換匯", "level": 2 },
+      { "en": "Is there a commission or service fee?", "zh": "有手續費嗎？", "tip": "commission / service fee = 手續費", "tag": "匯率", "level": 2 },
+      { "en": "Could I have some smaller bills?", "zh": "可以換一些小鈔嗎？", "tip": "美式 bills = 鈔票（英式說 notes）；coins = 硬幣", "tag": "換匯", "level": 2 },
+      { "en": "Can I withdraw cash with this card here?", "zh": "我可以用這張卡在這裡提款嗎？", "tip": "withdraw = 提款", "tag": "提款機", "level": 2 },
+      { "en": "My card was declined. Can you check why?", "zh": "我的卡刷不過，可以幫我查一下嗎？", "tip": "declined = 交易被拒", "tag": "刷卡問題", "level": 2 },
+      { "en": "Do you accept foreign cards?", "zh": "你們收外國的卡嗎？", "tip": "確認是否能用海外卡", "tag": "刷卡問題", "level": 2 },
+      { "en": "Please charge it in the local currency, not Taiwan dollars.", "zh": "請用當地貨幣結帳，不要用台幣。", "tip": "DCC（外幣直接換台幣）最坑，選當地貨幣結帳最省錢", "tag": "刷卡問題", "level": 3 },
+      { "en": "I was charged twice.", "zh": "我被扣了兩次款。", "tip": "twice = 兩次", "tag": "刷卡問題", "level": 2 },
+      { "en": "There's a double charge.", "zh": "有一筆重複扣款。", "tip": "double charge = 重複扣款", "tag": "刷卡問題", "level": 2 },
+      { "en": "This amount is wrong.", "zh": "這個金額不對。", "tip": "amount = 金額", "tag": "刷卡問題", "level": 2 },
+      { "en": "I was overcharged.", "zh": "我被多收錢了。", "tip": "overcharged = 被多收費", "tag": "刷卡問題", "level": 3 },
+      { "en": "Could I get a receipt for the exchange?", "zh": "換匯可以給我收據嗎？", "tip": "留收據方便核對", "tag": "換匯", "level": 2 }
+    ],
+    "dialogue": {
+      "title": "在銀行換匯與處理重複扣款",
+      "youRole": "你（觀光客）",
+      "npcRole": "銀行行員",
+      "lines": [
+        { "who": "npc", "en": "Good morning. How can I help you today?", "zh": "早安，今天需要什麼服務？", "alt": [ { "en": "Hi there. What can I do for you?", "zh": "您好，需要什麼服務嗎？" }, { "en": "Welcome. How may I assist you?", "zh": "歡迎，請問需要什麼協助？" } ] },
+        { "who": "you", "en": "Hi, I'd like to exchange some money. Taiwan dollars into US dollars.", "zh": "您好，我想換錢，把台幣換成美金。" },
+        { "who": "npc", "en": "Sure. How much would you like to exchange?", "zh": "好的，您想換多少呢？", "alt": [ { "en": "Of course. What amount are you changing today?", "zh": "當然，今天要換多少呢？" } ] },
+        { "who": "you", "en": "I'd like to change ten thousand Taiwan dollars. What's the exchange rate today?", "zh": "我想換一萬元台幣。今天的匯率是多少？" },
+        { "who": "npc", "en": "Today it's 32 Taiwan dollars to one US dollar. After a two-dollar service fee, that's about 310 US dollars.", "zh": "今天是 32 元台幣兌 1 美元。扣掉兩美元手續費後，大約是 310 美元。", "alt": [ { "en": "The rate is 32 to 1 today. So ten thousand comes to roughly 310 US dollars after the fee.", "zh": "今天匯率 32 兌 1，一萬元扣手續費後約 310 美元。" } ] },
+        { "who": "you", "en": "That's fine. Could I have some smaller bills, please?", "zh": "沒問題。可以給我一些小鈔嗎？" },
+        { "who": "npc", "en": "No problem. Here you go — mostly twenties and tens.", "zh": "沒問題，這是您的錢，大多是二十和十元的。" },
+        { "who": "you", "en": "Thanks. By the way, I think I was charged twice on my card here earlier.", "zh": "謝謝。對了，我剛剛在這裡刷卡，好像被扣了兩次款。" },
+        { "who": "npc", "en": "I'm sorry about that. Do you have the receipt so I can check?", "zh": "很抱歉，您有收據嗎？我幫您查一下。" },
+        { "who": "you", "en": "Yes, here it is. There's a double charge for the same amount.", "zh": "有，在這裡。有一筆金額重複扣了兩次。" },
+        { "who": "npc", "en": "You're right — I see the double charge. I'll reverse the extra one right away.", "zh": "您說得對，我看到重複扣款了，我馬上幫您取消多的那筆。" },
+        { "who": "you", "en": "Great, thank you for your help!", "zh": "太好了，謝謝你的幫忙！" }
+      ]
+    }
+  },
+  {
+    "id": "attractions",
+    "icon": "🎡",
+    "title": "景點售票",
+    "titleEn": "Attractions & Tickets",
+    "desc": "買門票、開放時間、導覽、拍照",
+    "country": "US",
+    "words": [
+      { "en": "ticket", "zh": "門票", "ico": "🎟️" },
+      { "en": "admission", "zh": "入場費", "ico": "🎫" },
+      { "en": "adult", "zh": "成人", "ico": "🧑" },
+      { "en": "child", "zh": "兒童", "ico": "🧒" },
+      { "en": "guided tour", "zh": "導覽", "ico": "🧭" },
+      { "en": "audio guide", "zh": "語音導覽", "ico": "🎧" },
+      { "en": "map", "zh": "地圖", "ico": "🗺️" },
+      { "en": "restroom", "zh": "廁所", "ico": "🚻" }
+    ],
+    "patterns": [
+      { "en": "___, please.", "zh": "請給我…。", "slots": ["Two adult tickets", "One student ticket", "Two adults and one child"] },
+      { "en": "What time do you ___?", "zh": "你們幾點…？", "slots": ["open", "close", "start the last tour"] },
+      { "en": "Is there a ___?", "zh": "有…嗎？", "slots": ["guided tour", "family ticket", "discount"] }
+    ],
+    "phrases": [
+      { "en": "Two adult tickets, please.", "zh": "兩張成人票，謝謝。", "tip": "一大兩小 = one adult and two children", "tag": "買門票", "level": 1, "survival": true, "homophone": "凸・額斗特・踢kits・普利斯" },
+      { "en": "How much is admission?", "zh": "門票多少錢？", "tip": "admission = 入場費", "tag": "買門票", "level": 1, "survival": true, "homophone": "好・馬取・易斯・額d密遜" },
+      { "en": "What time do you open and close?", "zh": "你們幾點開門、幾點關門？", "tip": "closing time = 關門時間", "tag": "開放時間", "level": 1, "survival": true, "homophone": "哇特・太m・讀・you・歐盆・an・克落斯" },
+      { "en": "Can I take photos here?", "zh": "這裡可以拍照嗎？", "tip": "No flash, please = 請勿使用閃光燈", "tag": "拍照", "level": 1, "survival": true, "homophone": "肯・愛・têk・佛頭斯・here" },
+      { "en": "Where are the restrooms?", "zh": "廁所在哪裡？", "tip": "restroom / toilet = 廁所", "tag": "設施", "level": 1, "survival": true, "homophone": "威爾・阿・惹・瑞斯特潤斯" },
+      { "en": "Do you have student tickets?", "zh": "有學生票嗎？", "tip": "student ticket = 學生票，記得帶學生證", "tag": "買門票", "level": 2 },
+      { "en": "Is there a family ticket?", "zh": "有家庭票嗎？", "tip": "family ticket 通常更划算", "tag": "買門票", "level": 2 },
+      { "en": "Are children under six free?", "zh": "六歲以下小孩免費嗎？", "tip": "確認兒童優惠", "tag": "買門票", "level": 2 },
+      { "en": "What time is the last entry?", "zh": "最後入場時間是幾點？", "tip": "也可說 When's last admission?（last entry 是時間點，不用 start）", "tag": "開放時間", "level": 2 },
+      { "en": "Is there a guided tour?", "zh": "有導覽嗎？", "tip": "guided tour = 導覽", "tag": "導覽", "level": 2 },
+      { "en": "Do you have an audio guide in Chinese?", "zh": "有中文的語音導覽嗎？", "tip": "audio guide = 語音導覽", "tag": "導覽", "level": 2 },
+      { "en": "Could you take a photo of us, please?", "zh": "可以幫我們拍張照嗎？", "tip": "請人幫拍照的禮貌說法", "tag": "拍照", "level": 2 },
+      { "en": "Is there a map or a brochure?", "zh": "有地圖或簡介嗎？", "tip": "brochure = 簡介手冊", "tag": "設施", "level": 2 },
+      { "en": "Do we need to book in advance?", "zh": "我們需要事先預約嗎？", "tip": "book in advance = 事先預約", "tag": "買門票", "level": 3 }
+    ],
+    "dialogue": {
+      "title": "在景點售票口買票",
+      "youRole": "你（觀光客）",
+      "npcRole": "售票員",
+      "lines": [
+        { "who": "npc", "en": "Hello! How many tickets would you like?", "zh": "您好！請問要幾張票？", "alt": [ { "en": "Hi there! How many tickets can I get you?", "zh": "您好！要幫您買幾張票？" }, { "en": "Welcome! How many in your group today?", "zh": "歡迎！今天你們幾位呢？" } ] },
+        { "who": "you", "en": "Two adult tickets and one child, please. Do you have student tickets?", "zh": "兩張成人票和一張兒童票，謝謝。有學生票嗎？" },
+        { "who": "npc", "en": "We do. Does anyone have a student ID?", "zh": "有的，有人有學生證嗎？", "alt": [ { "en": "Yes, we offer them. Anyone with a student card?", "zh": "有的，有人帶學生證嗎？" } ] },
+        { "who": "you", "en": "My daughter does. And are children under six free?", "zh": "我女兒有。還有，六歲以下小孩免費嗎？" },
+        { "who": "npc", "en": "Yes, under six is free. So that's two adults and one student.", "zh": "是的，六歲以下免費。所以是兩張成人加一張學生票。" },
+        { "who": "you", "en": "Great. What time do you close today?", "zh": "太好了。你們今天幾點關門？" },
+        { "who": "npc", "en": "We close at six, and the last entry is at five.", "zh": "我們六點關門，最後入場時間是五點。", "alt": [ { "en": "Closing is at six, and last admission is five.", "zh": "六點關門，最後入場是五點。" } ] },
+        { "who": "you", "en": "Perfect. Is there an audio guide in Chinese?", "zh": "很好。有中文的語音導覽嗎？" },
+        { "who": "npc", "en": "Yes, you can rent one at the desk on your left.", "zh": "有的，可以在您左邊的櫃台租借。" },
+        { "who": "you", "en": "Thanks. Can I take photos inside?", "zh": "謝謝。裡面可以拍照嗎？" },
+        { "who": "npc", "en": "Photos are fine, but no flash, please. The restrooms are just past the entrance.", "zh": "可以拍照，但請勿使用閃光燈。廁所就在入口過去一點。" },
+        { "who": "you", "en": "Got it. Thank you so much for your help!", "zh": "了解，非常謝謝你的幫忙！" }
+      ]
+    }
+  }
+]

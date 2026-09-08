@@ -1,0 +1,181 @@
+[
+  {
+    "id": "car-rental",
+    "icon": "🚗",
+    "title": "租車",
+    "titleEn": "Car Rental",
+    "desc": "取車、保險、還車、車禍救援",
+    "country": "US",
+    "words": [
+      { "en": "reservation", "zh": "預約訂單", "ico": "📋" },
+      { "en": "deposit", "zh": "押金", "ico": "💳" },
+      { "en": "automatic", "zh": "自排車", "ico": "⚙️" },
+      { "en": "deductible", "zh": "自負額", "ico": "📄" },
+      { "en": "collision coverage", "zh": "碰撞險", "ico": "🛡️" },
+      { "en": "mileage", "zh": "里程數", "ico": "🛣️" },
+      { "en": "scratch", "zh": "刮痕", "ico": "🔧" },
+      { "en": "roadside assistance", "zh": "道路救援", "ico": "🚨" }
+    ],
+    "patterns": [
+      { "en": "Does the ___ include ___?", "zh": "這個…有含…嗎？", "slots": ["price", "insurance"] },
+      { "en": "Do I need to add on ___?", "zh": "我需要加購…嗎？", "slots": ["collision coverage"] },
+      { "en": "What's the ___ if I have an accident?", "zh": "萬一出事，…是多少？", "slots": ["deductible"] }
+    ],
+    "phrases": [
+      { "en": "Hi, I have a reservation to pick up a car.", "zh": "你好，我有預約要取車。", "tip": "報姓氏最快找到訂單，也可說 booking", "tag": "取車", "level": 1, "survival": true, "homophone": "嗨，愛 have 阿 瑞惹非遜 兔 匹克 阿普 阿 卡" },
+      { "en": "Here's my driver's license, passport, and credit card.", "zh": "這是我的駕照、護照和信用卡。", "tip": "台灣人記得帶國際駕照 International Driving Permit", "tag": "取車", "level": 1 },
+      { "en": "Could I have an automatic car? I'm not used to a manual.", "zh": "可以給我自排車嗎？我不太習慣開手排。", "tip": "自排 automatic／手排 manual (stick shift)", "tag": "取車", "level": 2 },
+      { "en": "Does the price include full insurance, or do I need to take out the CDW?", "zh": "這個價錢有含全險嗎？還是我要另外加購 CDW？", "tip": "CDW = Collision Damage Waiver 碰撞損害免責；口語也說 take out / add on", "tag": "保險", "level": 2 },
+      { "en": "Do I need to add on collision coverage?", "zh": "我需要加購碰撞險嗎？", "tip": "美式 collision coverage 就是 CDW 保的部分", "tag": "保險", "level": 2 },
+      { "en": "What's the deductible if I have an accident?", "zh": "萬一我出車禍，自負額是多少？", "tip": "deductible 是美式「自負額」；英式叫 excess，同一個意思", "tag": "保險", "level": 3 },
+      { "en": "I'd like the zero deductible option, please.", "zh": "我想選零自負額的方案，謝謝。", "tip": "zero deductible 出事完全不用自付；英式會寫 zero excess", "tag": "保險", "level": 2 },
+      { "en": "How much is the deposit, and when will it be refunded?", "zh": "押金要多少？大概什麼時候退還？", "tip": "押金 deposit，通常還車後幾天退回", "tag": "押金", "level": 2 },
+      { "en": "Can I add a child seat? My daughter is four.", "zh": "可以加一張兒童座椅嗎？我女兒四歲。", "tip": "兒童座椅 child seat／增高墊 booster seat", "tag": "配備", "level": 2 },
+      { "en": "There are already scratches here and a dent on the bumper.", "zh": "這裡本來就有刮痕，保險桿上還有一個凹痕。", "tip": "取車先繞一圈檢查；dent 凹痕／scratch 刮痕", "tag": "車況", "level": 2 },
+      { "en": "Let me take a few photos before I drive off.", "zh": "我先拍幾張照片再開走。", "tip": "拍照存證超重要，避免還車被賴", "tag": "車況", "level": 2 },
+      { "en": "Do I need to return it with a full tank of gas?", "zh": "還車時需要把油加滿嗎？", "tip": "full tank 滿油；full-to-full 借滿還滿最划算", "tag": "還車", "level": 2 },
+      { "en": "I've had an accident.", "zh": "我出車禍了。", "tip": "報平安、報位置後說這句；先確認有沒有人受傷", "tag": "緊急", "level": 1, "survival": true, "homophone": "愛夫 黑德 恩 阿克夕登" },
+      { "en": "The car broke down.", "zh": "車子拋錨了。", "tip": "break down 拋錨、故障；打電話給租車公司", "tag": "緊急", "level": 1, "survival": true, "homophone": "惹 卡 布羅克 黨" },
+      { "en": "I need roadside assistance.", "zh": "我需要道路救援。", "tip": "roadside assistance 道路救援，租車合約上通常有專線", "tag": "緊急", "level": 2, "survival": true, "homophone": "愛 逆的 摟賽的 阿西斯疼斯" },
+      { "en": "Can we exchange insurance details?", "zh": "我們可以交換保險資料嗎？", "tip": "出事雙方互換保險與聯絡資料；記得拍照", "tag": "緊急", "level": 2 },
+      { "en": "What's the number for roadside assistance?", "zh": "道路救援的電話是幾號？", "tip": "先問清楚 24 小時救援專線，存進手機", "tag": "緊急", "level": 2 }
+    ],
+    "dialogue": {
+      "title": "在機場租車櫃台取車",
+      "youRole": "來取車的旅客",
+      "npcRole": "租車公司櫃台人員",
+      "lines": [
+        { "who": "npc", "en": "Good afternoon! Do you have a reservation with us?", "zh": "午安！請問您有跟我們預約嗎？", "alt": [ { "en": "Hi there! Are you picking up or dropping off today?", "zh": "您好！請問今天是取車還是還車？" }, { "en": "Welcome! Can I get the name on the booking?", "zh": "歡迎！可以給我訂單上的名字嗎？" } ] },
+        { "who": "you", "en": "Yes, it's under the name Chen. Here's my passport and international driving permit.", "zh": "有的，訂位人是 Chen。這是我的護照和國際駕照。" },
+        { "who": "npc", "en": "Great, I found your booking. You reserved a compact automatic, correct?", "zh": "好的，找到您的訂單了。您預訂的是小型自排車，對嗎？", "alt": [ { "en": "Perfect, here it is. A compact automatic for three days, right?", "zh": "沒問題，找到了。是租三天的小型自排車，對嗎？" }, { "en": "Got it. You went with the automatic, yes?", "zh": "找到了。您選的是自排車，對嗎？" } ] },
+        { "who": "you", "en": "That's right. Does the rate already include full insurance?", "zh": "沒錯。這個價錢有含全險了嗎？" },
+        { "who": "npc", "en": "It includes basic coverage. For an extra 15 dollars a day, you can add full coverage with zero deductible.", "zh": "有含基本險。每天多加 15 美金，就能升級成零自負額的全險。", "alt": [ { "en": "Only basic. I'd recommend adding collision coverage so a scratch won't cost you.", "zh": "只有基本險。我會建議加購碰撞險，這樣有刮傷也不用自付。" } ] },
+        { "who": "you", "en": "Let's add the full coverage. Could I also get a child seat for a four-year-old?", "zh": "那幫我加全險。另外可以加一張四歲小孩用的兒童座椅嗎？" },
+        { "who": "npc", "en": "No problem, I'll add one. We'll hold a 200-dollar deposit on your credit card.", "zh": "沒問題，我幫您加一張。我們會在您信用卡上預刷 200 美金押金。" },
+        { "who": "you", "en": "Okay. I noticed some scratches on the door earlier. Can we mark those down?", "zh": "好的。我剛剛看到車門上有一些刮痕，可以先登記起來嗎？" },
+        { "who": "npc", "en": "Of course. I'll note the existing damage, and feel free to take photos too.", "zh": "當然，我會把原有的損傷記下來，您也可以自己拍照存證。" },
+        { "who": "you", "en": "Perfect. And do I return it with a full tank?", "zh": "太好了。還車時要加滿油嗎？" },
+        { "who": "npc", "en": "Yes, please bring it back full and drop it off at the same lot by 6 p.m.", "zh": "是的，請加滿油，並在晚上六點前還到同一個停車場。" },
+        { "who": "you", "en": "Got it. Thanks for your help!", "zh": "了解，謝謝你的幫忙！" }
+      ]
+    }
+  },
+  {
+    "id": "driving-gas",
+    "icon": "⛽",
+    "title": "開車加油",
+    "titleEn": "Driving & Gas Station",
+    "desc": "加油、收費站、停車、違停",
+    "country": "US",
+    "words": [
+      { "en": "regular", "zh": "普通汽油", "ico": "⛽" },
+      { "en": "premium", "zh": "高級汽油", "ico": "🔝" },
+      { "en": "gallon", "zh": "加侖", "ico": "🛢️" },
+      { "en": "fuel cap", "zh": "油箱蓋", "ico": "🔩" },
+      { "en": "pump", "zh": "加油機", "ico": "🔧" },
+      { "en": "toll", "zh": "過路費", "ico": "🚧" },
+      { "en": "transponder", "zh": "收費感應器", "ico": "📡" },
+      { "en": "parking lot", "zh": "停車場", "ico": "🅿️" }
+    ],
+    "patterns": [
+      { "en": "How much is it per ___?", "zh": "一…多少錢？", "slots": ["gallon"] },
+      { "en": "Is there a ___ nearby?", "zh": "附近有…嗎？", "slots": ["parking lot"] },
+      { "en": "How do I pay the ___?", "zh": "…要怎麼付？", "slots": ["toll"] }
+    ],
+    "phrases": [
+      { "en": "Where's the nearest gas station?", "zh": "最近的加油站在哪裡？", "tip": "gas station 美式加油站；英式叫 petrol station", "tag": "加油", "level": 1, "survival": true, "homophone": "威兒斯 惹 尼爾瑞斯特 蓋斯 史逮遜" },
+      { "en": "Which grade of gas does this car take, regular or premium?", "zh": "這台車要加幾號油？普通還是高級的？", "tip": "美式 regular／premium（都是汽油 gas）；英式說 unleaded／petrol", "tag": "加油", "level": 2 },
+      { "en": "Fill it up, please. How much is it per gallon?", "zh": "麻煩幫我加滿，一加侖多少錢？", "tip": "美式論加侖 gallon 計價；台灣是公升 liter，別搞混", "tag": "加油", "level": 1, "survival": true, "homophone": "菲爾 一特 阿普，普利斯" },
+      { "en": "How do I open the fuel cap on this car?", "zh": "這台車的油箱蓋要怎麼打開？", "tip": "油箱蓋 fuel cap／fuel door，多半有拉桿或直接壓開", "tag": "加油", "level": 1, "survival": true, "homophone": "浩 度 愛 歐盆 惹 fuel 卡普" },
+      { "en": "Is this self-service? How do I pay at the pump?", "zh": "這是自助加油嗎？要怎麼在加油機付款？", "tip": "self-service 自助；full-service 有人服務", "tag": "加油", "level": 2 },
+      { "en": "The pump won't take my card. Can I pay inside instead?", "zh": "加油機刷不了我的卡，我可以進去店裡付嗎？", "tip": "pay inside／pay at the counter 到店內結帳", "tag": "加油", "level": 2 },
+      { "en": "Do I need to prepay, or do I pump first and then pay?", "zh": "我要先預付嗎？還是先加油再付？", "tip": "美國很多站要 prepay 先付", "tag": "加油", "level": 2 },
+      { "en": "Does this rental car have a toll tag or transponder?", "zh": "這台租來的車有收費感應器嗎？", "tip": "美國高速公路常見 E-ZPass 感應器；ETC 是台灣、日本的講法", "tag": "收費站", "level": 2 },
+      { "en": "How do I pay the toll, with cash, card, or the transponder?", "zh": "過路費要怎麼付？現金、刷卡還是用感應器？", "tip": "toll 過路費；toll booth 收費站", "tag": "收費站", "level": 2 },
+      { "en": "I think I went through the toll without paying. How do I settle it?", "zh": "我好像沒付錢就過收費站了，之後要怎麼補繳？", "tip": "settle／pay online 事後上網補繳", "tag": "收費站", "level": 3 },
+      { "en": "Is there a parking lot nearby? I can't find a spot.", "zh": "附近有停車場嗎？我找不到車位。", "tip": "parking lot 美式／car park 英式；spot 車位", "tag": "停車", "level": 1, "survival": true, "homophone": "伊斯 淚兒 阿 趴慶 辣 尼爾拜" },
+      { "en": "How much is parking per hour, and do I pay at the machine?", "zh": "停車一小時多少錢？是在繳費機付嗎？", "tip": "pay station／meter 繳費機", "tag": "停車", "level": 2 },
+      { "en": "Am I allowed to park here, or is this a no-parking zone?", "zh": "這裡可以停車嗎？還是這是禁止停車區？", "tip": "no-parking zone 禁停區，別被拖吊", "tag": "停車", "level": 2 },
+      { "en": "I think I got a parking ticket. Where do I pay the fine?", "zh": "我好像被開了違停罰單，罰款要去哪裡繳？", "tip": "parking ticket 違停單；fine 罰款", "tag": "違停", "level": 3 },
+      { "en": "The car is making a strange noise. Is there a garage nearby?", "zh": "車子發出怪聲音，附近有修車廠嗎？", "tip": "garage／mechanic 修車廠", "tag": "車況", "level": 2 }
+    ],
+    "dialogue": {
+      "title": "在自助加油站加油並詢問付款",
+      "youRole": "開租來的車的旅客",
+      "npcRole": "加油站店員",
+      "lines": [
+        { "who": "you", "en": "Hi, is this a self-service station?", "zh": "你好，這裡是自助加油嗎？" },
+        { "who": "npc", "en": "Yes, it is. Pick a pump, and you can pay by card right there or come pay inside.", "zh": "是的。您選一個加油機，可以直接刷卡，或進來店裡付都行。", "alt": [ { "en": "It is. Prepay at the counter or tap your card at the pump.", "zh": "是的。可以在櫃台先付，或直接在加油機感應刷卡。" }, { "en": "Yep, all self-serve. Which pump number are you on?", "zh": "對，全都是自助的。請問您在幾號加油機？" } ] },
+        { "who": "you", "en": "Got it. This is a rental car, so I'm not sure which grade it takes.", "zh": "了解。這是租來的車，我不太確定要加幾號油。" },
+        { "who": "npc", "en": "Most rentals take regular unleaded. Check the label inside the fuel door to be sure.", "zh": "大部分租車加普通無鉛就好，您可以看油箱蓋內側的標籤確認。", "alt": [ { "en": "Regular is fine for almost every rental. Only sports cars need premium.", "zh": "幾乎所有租車加普通油就好，只有跑車才要高級油。" } ] },
+        { "who": "you", "en": "Thanks. Actually, how do I open the fuel cap? I can't find the button.", "zh": "謝謝。對了，油箱蓋要怎麼開？我找不到按鈕。" },
+        { "who": "npc", "en": "There's usually a lever down by the driver's seat, or just push the fuel door in.", "zh": "駕駛座旁邊通常有個拉桿，不然直接壓一下油箱蓋也會彈開。", "alt": [ { "en": "Try the little lever near the floor on the driver's side.", "zh": "找一下駕駛座腳邊的小拉桿試試。" } ] },
+        { "who": "you", "en": "Found it, thanks. My card got declined at the pump, though.", "zh": "找到了，謝謝。不過我的卡在加油機刷不過。" },
+        { "who": "npc", "en": "No worries. Pump first, then come inside and pay at the counter.", "zh": "沒關係，您先加油，加完再進來櫃台付就好。" },
+        { "who": "you", "en": "Okay. I'd like to fill it up. Do you have a restroom I can use?", "zh": "好，我要加滿。你們有洗手間可以借用嗎？" },
+        { "who": "npc", "en": "Sure, it's around the side, and here's the key. Just bring it back when you're done.", "zh": "有的，在側邊，這是鑰匙，用完拿回來給我就行。" },
+        { "who": "you", "en": "Great. By the way, is there parking near the old town? I couldn't find any earlier.", "zh": "太好了。順便問一下，舊城區附近有停車場嗎？我剛剛都找不到。" },
+        { "who": "npc", "en": "There's a paid lot two blocks past the church. It's usually the easiest place to find a spot.", "zh": "過教堂再兩個路口有個收費停車場，那邊通常最好找位子。" }
+      ]
+    }
+  },
+  {
+    "id": "directions",
+    "icon": "🧭",
+    "title": "問路導航",
+    "titleEn": "Asking Directions",
+    "desc": "問路、看地圖、找廁所、找地標",
+    "country": "US",
+    "words": [
+      { "en": "restroom", "zh": "廁所", "ico": "🚻" },
+      { "en": "straight", "zh": "直走", "ico": "⬆️" },
+      { "en": "turn", "zh": "轉彎", "ico": "↩️" },
+      { "en": "traffic light", "zh": "紅綠燈", "ico": "🚦" },
+      { "en": "landmark", "zh": "地標", "ico": "🗿" },
+      { "en": "exit", "zh": "出口", "ico": "🚪" },
+      { "en": "map", "zh": "地圖", "ico": "🗺️" },
+      { "en": "shortcut", "zh": "捷徑", "ico": "✂️" }
+    ],
+    "patterns": [
+      { "en": "How do I get to the ___?", "zh": "我要怎麼去…？", "slots": ["train station"] },
+      { "en": "Where's the nearest ___?", "zh": "最近的…在哪裡？", "slots": ["restroom"] },
+      { "en": "Is the ___ far from here?", "zh": "…離這裡遠嗎？", "slots": ["museum"] }
+    ],
+    "phrases": [
+      { "en": "Excuse me, how do I get to the train station?", "zh": "不好意思，我要怎麼去火車站？", "tip": "禮貌開頭 Excuse me；換地點就把 train station 換掉", "tag": "問路", "level": 1, "survival": true, "homophone": "衣克斯Q斯 密，浩 度 愛 給特 兔 惹 春 史逮遜" },
+      { "en": "I'm lost. Where am I on this map?", "zh": "我迷路了，我現在在地圖上的哪裡？", "tip": "I'm lost 是超實用的救命句，直接遞地圖最快", "tag": "問路", "level": 1, "survival": true, "homophone": "愛姆 落斯特。威兒 恩 愛 昂 利斯 賣普" },
+      { "en": "Is it far, or is it within walking distance?", "zh": "很遠嗎？還是走路就到得了？", "tip": "within walking distance 走路可到", "tag": "問路", "level": 1, "survival": true, "homophone": "伊斯 一特 罰，歐 伊斯 一特 位吝 沃慶 迪斯疼斯" },
+      { "en": "Excuse me, where's the nearest restroom?", "zh": "不好意思，最近的廁所在哪裡？", "tip": "restroom 美式／toilet 英式／washroom 加拿大", "tag": "找廁所", "level": 1, "survival": true, "homophone": "威兒斯 惹 尼爾瑞斯特 瑞斯特入姆" },
+      { "en": "How long does it take to walk there from here?", "zh": "從這裡走過去要多久？", "tip": "回答常是 about ten minutes", "tag": "問路", "level": 2 },
+      { "en": "Should I go straight, or do I need to turn somewhere?", "zh": "我要直走嗎？還是要在哪裡轉彎？", "tip": "go straight 直走；turn left／right 左右轉", "tag": "方向", "level": 2 },
+      { "en": "So I turn left at the second traffic light, is that right?", "zh": "所以我在第二個紅綠燈左轉，對嗎？", "tip": "traffic light 紅綠燈；複誦確認很重要", "tag": "方向", "level": 2 },
+      { "en": "Is it on this side of the street or the other side?", "zh": "它在這一側，還是馬路的對面？", "tip": "across the street 對街；on your right 在右手邊", "tag": "方向", "level": 2 },
+      { "en": "Do I need to buy something to use the restroom here?", "zh": "在這裡用廁所需要先消費嗎？", "tip": "有些店廁所要消費或要密碼", "tag": "找廁所", "level": 2 },
+      { "en": "I'm looking for this landmark. Am I heading the right way?", "zh": "我在找這個地標，我走的方向對嗎？", "tip": "landmark 地標；heading the right way 方向對", "tag": "找地標", "level": 2 },
+      { "en": "Could you show me on my phone map where it is?", "zh": "你可以在我的手機地圖上指給我看它在哪嗎？", "tip": "直接把手機遞過去最快", "tag": "看地圖", "level": 2 },
+      { "en": "Which exit should I take to get to the museum?", "zh": "我要走哪個出口才能到博物館？", "tip": "捷運／地鐵出口編號很重要", "tag": "找地標", "level": 2 },
+      { "en": "Is there a shortcut, or is this the fastest way?", "zh": "有沒有捷徑？還是這就是最快的路？", "tip": "shortcut 捷徑；the fastest way 最快的路", "tag": "問路", "level": 3 },
+      { "en": "Sorry, could you say that again a bit more slowly?", "zh": "抱歉，可以再說一次，慢一點嗎？", "tip": "聽不懂就請對方放慢，很正常", "tag": "問路", "level": 1, "survival": true, "homophone": "搜瑞，庫 U say 類 阿乾 阿 比特 摩 史落利" },
+      { "en": "Thanks so much for your help. Have a great day!", "zh": "非常謝謝你的幫忙，祝你有美好的一天！", "tip": "問完路道謝，禮貌收尾", "tag": "問路", "level": 1 }
+    ],
+    "dialogue": {
+      "title": "在街上向路人問路找博物館和廁所",
+      "youRole": "迷路的旅客",
+      "npcRole": "熱心的當地路人",
+      "lines": [
+        { "who": "you", "en": "Excuse me, sorry to bother you. Could you help me find the city museum?", "zh": "不好意思，打擾一下，可以幫我找市立博物館嗎？" },
+        { "who": "npc", "en": "Of course! It's not far. Are you walking or driving?", "zh": "當然可以！其實不遠。您是走路還是開車？", "alt": [ { "en": "Sure! It's just a few minutes away. On foot?", "zh": "當然！只要幾分鐘就到。您是走路嗎？" }, { "en": "No problem. Do you mean the big museum on Main Street?", "zh": "沒問題。您是說主街上那間大博物館嗎？" } ] },
+        { "who": "you", "en": "Walking. Is it within walking distance from here?", "zh": "走路。從這裡走過去會到嗎？" },
+        { "who": "npc", "en": "Yes, about ten minutes. Go straight down this street and turn left at the second light.", "zh": "會，大概十分鐘。沿這條街直走，在第二個紅綠燈左轉。", "alt": [ { "en": "Easy walk, ten minutes tops. Straight ahead, then left at the second light.", "zh": "很好走，最多十分鐘。直直走，第二個紅綠燈左轉。" } ] },
+        { "who": "you", "en": "Turn left at the second traffic light. Then is it on this side of the street?", "zh": "第二個紅綠燈左轉。那它在這一側嗎？" },
+        { "who": "npc", "en": "It'll be across the street, a big stone building. You can't miss it.", "zh": "在對街，是一棟很大的石造建築，你一定看得到。", "alt": [ { "en": "Nope, it's on the far side, the big grey building with columns.", "zh": "不是，在對面，就是那棟有柱子的灰色大建築。" } ] },
+        { "who": "you", "en": "Perfect. Could you show me on my phone map, just to be sure?", "zh": "太好了。可以在我手機地圖上指一下嗎？想確認一下。" },
+        { "who": "npc", "en": "Sure, here. You're right here, and the museum is this spot.", "zh": "好啊，來。你在這裡，博物館在這個點。" },
+        { "who": "you", "en": "Thank you! One more thing, where's the nearest restroom?", "zh": "謝謝你！還有一件事，最近的廁所在哪裡？" },
+        { "who": "npc", "en": "There's a public one in the park on your way, right before the museum.", "zh": "你會經過的公園裡有一間公廁，就在博物館前面。" },
+        { "who": "you", "en": "That's so helpful. Do I need to pay to use it?", "zh": "太有幫助了。用那個廁所要付錢嗎？" },
+        { "who": "npc", "en": "No, it's free. Enjoy the museum, and have a great day!", "zh": "不用，是免費的。好好逛博物館，祝你有美好的一天！" }
+      ]
+    }
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "id": "hotel-checkin",
+    "icon": "🏨",
+    "title": "飯店入住",
+    "titleEn": "Hotel Check-in",
+    "desc": "入住、退房、寄放行李、早餐",
+    "country": "US",
+    "words": [
+      { "en": "reservation", "zh": "訂房", "ico": "📖" },
+      { "en": "passport", "zh": "護照", "ico": "🛂" },
+      { "en": "deposit", "zh": "押金", "ico": "💰" },
+      { "en": "check-in", "zh": "入住", "ico": "🔑" },
+      { "en": "checkout", "zh": "退房", "ico": "🚪" },
+      { "en": "luggage", "zh": "行李", "ico": "🧳" },
+      { "en": "key card", "zh": "房卡", "ico": "💳" },
+      { "en": "breakfast", "zh": "早餐", "ico": "🍳" },
+      { "en": "floor", "zh": "樓層", "ico": "🏢" }
+    ],
+    "patterns": [
+      { "en": "Could I have ___, please?", "zh": "可以給我…嗎？", "slots": ["two key cards", "extra towels", "a wake-up call"] },
+      { "en": "Is it possible to ___?", "zh": "可以…嗎？", "slots": ["check in early", "get a late check-out", "store our luggage"] }
+    ],
+    "phrases": [
+      { "en": "I have a reservation.", "zh": "我有訂房。", "tip": "最基本的報到句，接著報上姓氏", "tag": "報到", "level": 1, "survival": true, "homophone": "愛 黑夫 阿 瑞惹V訊" },
+      { "en": "Here's my passport.", "zh": "這是我的護照。", "tip": "遞護照時說；也可一起出示訂房確認單", "tag": "報到", "level": 1, "survival": true, "homophone": "喝兒斯 買 趴斯波特" },
+      { "en": "What time is checkout?", "zh": "退房是幾點？", "tip": "checkout time 通常是 11 點或中午", "tag": "退房", "level": 1, "survival": true, "homophone": "華特 太安 逆斯 切克奧特" },
+      { "en": "Is breakfast included?", "zh": "早餐有含嗎？", "tip": "included = 包含在房價裡", "tag": "早餐", "level": 1, "survival": true, "homophone": "意思 布雷克佛斯 因庫魯低德" },
+      { "en": "Hi, I have a reservation under the name Chen.", "zh": "你好，我有訂房，登記在 Chen 的名下。", "tip": "把 Chen 換成你的姓；也可說 booked under…", "tag": "報到", "level": 2 },
+      { "en": "We booked a family room for three nights.", "zh": "我們訂了一間家庭房，住三晚。", "tip": "double room 雙人房／twin room 兩張單人床", "tag": "報到", "level": 2 },
+      { "en": "Is it possible to check in early? Our flight landed this morning.", "zh": "可以提早入住嗎？我們的班機今早就到了。", "tip": "check in early = 提早入住", "tag": "提早入住", "level": 2 },
+      { "en": "If the room isn't ready, could we leave our bags here for now?", "zh": "如果房間還沒好，我們可以先把行李寄放在這裡嗎？", "tip": "leave / store our luggage 都可以", "tag": "行李寄放", "level": 2 },
+      { "en": "Could we have a room on a high floor, please?", "zh": "可以幫我們安排高樓層的房間嗎？", "tip": "美式用 elevator（英式 lift）；可換 a quiet room / away from the elevator", "tag": "房間要求", "level": 2 },
+      { "en": "We'd prefer a quiet room, away from the street if possible.", "zh": "如果可以的話，我們希望要安靜、不靠馬路的房間。", "tip": "away from the street = 不靠馬路那側", "tag": "房間要求", "level": 3 },
+      { "en": "Do you need a deposit or a card on file for any extras?", "zh": "需要押金，或預留一張卡支付額外費用嗎？", "tip": "card on file = 存檔卡號；比行話 incidentals 更口語", "tag": "報到", "level": 2 },
+      { "en": "Could we get a late check-out? Our flight isn't until the evening.", "zh": "可以晚一點退房嗎？我們的班機是晚上才飛。", "tip": "late check-out 常需加價或看空房", "tag": "退房", "level": 3 },
+      { "en": "We've already checked out. Can we store our luggage until 4 p.m.?", "zh": "我們已經退房了，可以把行李寄放到下午四點嗎？", "tip": "退房後寄放行李很常見，通常免費", "tag": "行李寄放", "level": 3 },
+      { "en": "Could I have two key cards, please?", "zh": "可以給我兩張房卡嗎？", "tip": "key card = 房卡（門卡）", "tag": "房間要求", "level": 1 }
+    ],
+    "dialogue": {
+      "title": "抵達飯店辦理入住",
+      "youRole": "旅客（爸爸）",
+      "npcRole": "飯店櫃檯人員",
+      "lines": [
+        { "who": "npc", "en": "Good afternoon! Welcome. How can I help you?", "zh": "午安，歡迎光臨！有什麼可以為您服務的嗎？", "alt": [
+          { "en": "Hello! Are you checking in?", "zh": "您好！要辦入住嗎？" },
+          { "en": "Welcome! Do you have a reservation with us?", "zh": "歡迎！您有在我們這裡訂房嗎？" }
+        ] },
+        { "who": "you", "en": "Hi, we have a reservation under the name Chen, for a family room.", "zh": "你好，我們有訂房，登記在 Chen 的名下，是一間家庭房。" },
+        { "who": "npc", "en": "Let me check. Yes, three nights with breakfast. May I see your passport?", "zh": "我查一下。有的，三晚含早餐。可以看一下您的護照嗎？", "alt": [
+          { "en": "Found it—three nights, breakfast included. Passport, please.", "zh": "找到了，三晚含早餐。請給我護照。" },
+          { "en": "Yes, I see your booking. Could I have your passport?", "zh": "有的，我看到您的訂房了。可以給我護照嗎？" }
+        ] },
+        { "who": "you", "en": "Sure, here you go. It's a bit early. Is our room ready yet?", "zh": "當然，給你。現在有點早，我們的房間好了嗎？" },
+        { "who": "npc", "en": "I'm afraid it won't be ready until 3 p.m. Would you like to leave your bags with us?", "zh": "恐怕要到下午三點才會好。您要先把行李寄放在我們這裡嗎？", "alt": [
+          { "en": "Sorry, check-in starts at 3 p.m. Shall I hold your bags?", "zh": "抱歉，入住從下午三點開始。要幫您寄放行李嗎？" },
+          { "en": "The room needs another hour or two. Want to leave your luggage?", "zh": "房間還要一兩個小時。要先寄放行李嗎？" }
+        ] },
+        { "who": "you", "en": "Yes, please. Also, could we have a quiet room on a high floor?", "zh": "好的，麻煩了。另外，可以給我們高樓層、比較安靜的房間嗎？" },
+        { "who": "npc", "en": "Of course. I've noted a high floor away from the elevator.", "zh": "沒問題，我已經幫您註記高樓層、遠離電梯的房間。" },
+        { "who": "you", "en": "Great. What time is breakfast served?", "zh": "太好了。早餐是幾點供應？" },
+        { "who": "npc", "en": "From 7 to 10 a.m. in the restaurant on the second floor.", "zh": "早上七點到十點，在二樓餐廳。" },
+        { "who": "you", "en": "Perfect. And check-out is at eleven?", "zh": "太好了。退房是十一點嗎？" },
+        { "who": "npc", "en": "That's right. Here are your two key cards. Enjoy your stay!", "zh": "沒錯。這是您的兩張房卡，祝您住得愉快！" },
+        { "who": "you", "en": "Thank you so much!", "zh": "非常謝謝你！" }
+      ]
+    }
+  },
+  {
+    "id": "room-service",
+    "icon": "🛎️",
+    "title": "客房與服務",
+    "titleEn": "Room & Service",
+    "desc": "客房要求、故障報修、加床、叫醒服務、客訴升級",
+    "country": "US",
+    "words": [
+      { "en": "air conditioning", "zh": "冷氣", "ico": "❄️" },
+      { "en": "hot water", "zh": "熱水", "ico": "🚿" },
+      { "en": "towel", "zh": "毛巾", "ico": "🧻" },
+      { "en": "pillow", "zh": "枕頭", "ico": "🛏️" },
+      { "en": "blanket", "zh": "毯子", "ico": "🧣" },
+      { "en": "wake-up call", "zh": "叫醒服務", "ico": "⏰" },
+      { "en": "extra bed", "zh": "加床", "ico": "🛌" },
+      { "en": "housekeeping", "zh": "房務清潔", "ico": "🧹" },
+      { "en": "manager", "zh": "經理", "ico": "👔" },
+      { "en": "Wi-Fi", "zh": "無線網路", "ico": "📶" }
+    ],
+    "patterns": [
+      { "en": "The ___ isn't working.", "zh": "…壞了／不能用。", "slots": ["air conditioning", "TV", "heater"] },
+      { "en": "Could we get ___, please?", "zh": "可以給我們…嗎？", "slots": ["extra towels", "two more pillows", "a blanket"] },
+      { "en": "I'd like to ___.", "zh": "我想要…。", "slots": ["change rooms", "speak to the manager", "get a refund"] }
+    ],
+    "phrases": [
+      { "en": "This is room 812.", "zh": "這裡是 812 房。", "tip": "打電話報房號的開場白", "tag": "客房服務", "level": 1, "survival": true, "homophone": "利斯 意思 入母 誒特-萬-兔" },
+      { "en": "There's no hot water.", "zh": "沒有熱水。", "tip": "最短的報修句", "tag": "故障報修", "level": 1, "survival": true, "homophone": "淶爾斯 弄 哈特 沃特" },
+      { "en": "The air conditioning isn't working.", "zh": "冷氣壞了。", "tip": "換 the heater 暖氣／the TV 電視", "tag": "故障報修", "level": 1, "survival": true, "homophone": "惹 誒兒 康低訊寧 意任 沃King" },
+      { "en": "Could I speak to the manager?", "zh": "我可以跟經理說話嗎？", "tip": "客訴升級：要找主管出面時說", "tag": "客訴", "level": 1, "survival": true, "homophone": "庫得 愛 斯批克 兔 惹 妹你這" },
+      { "en": "Hi, this is room 812. The air conditioning isn't cooling at all.", "zh": "你好，這裡是 812 房，冷氣完全不冷。", "tip": "報房號＋故障，最實用的組合", "tag": "故障報修", "level": 2 },
+      { "en": "The toilet won't flush. Could you send someone up?", "zh": "馬桶沖不了水，可以請人上來嗎？", "tip": "won't flush = 沖不下去", "tag": "故障報修", "level": 2 },
+      { "en": "Could we get some extra towels, please?", "zh": "可以再給我們一些毛巾嗎？", "tip": "extra pillows 多的枕頭／a blanket 毯子", "tag": "備品", "level": 1 },
+      { "en": "Could we have two more pillows and a blanket?", "zh": "可以再給我們兩顆枕頭和一條毯子嗎？", "tip": "one more = 再一個", "tag": "備品", "level": 2 },
+      { "en": "What's the Wi-Fi password for the room?", "zh": "房間的 Wi-Fi 密碼是多少？", "tip": "network name 網路名稱（SSID）", "tag": "設施", "level": 2 },
+      { "en": "The Wi-Fi keeps disconnecting. Is there anything you can do?", "zh": "Wi-Fi 一直斷線，你們有辦法處理嗎？", "tip": "keeps disconnecting = 一直斷", "tag": "設施", "level": 3 },
+      { "en": "Could we add an extra bed for our child?", "zh": "可以幫我們的小孩加一張床嗎？", "tip": "extra bed 加床／crib 嬰兒床", "tag": "加床", "level": 2 },
+      { "en": "Is there a charge for the extra bed?", "zh": "加床要另外收費嗎？", "tip": "Is it free? 免費嗎", "tag": "加床", "level": 2 },
+      { "en": "Could we have a wake-up call at six thirty tomorrow morning?", "zh": "明天早上六點半可以幫我們設個叫醒服務嗎？", "tip": "wake-up call = 電話叫醒", "tag": "叫醒服務", "level": 2 },
+      { "en": "The room next door is really noisy. Could you help?", "zh": "隔壁房間很吵，可以幫忙處理一下嗎？", "tip": "noisy = 吵；也可說 loud", "tag": "客訴", "level": 2 },
+      { "en": "This isn't the room I booked.", "zh": "這不是我訂的房型。", "tip": "客訴升級：房型與訂單不符時說", "tag": "客訴", "level": 2 },
+      { "en": "I'd like to change rooms.", "zh": "我想要換房。", "tip": "change rooms = 換房間", "tag": "客訴", "level": 2 },
+      { "en": "Can I get a refund or a discount for this?", "zh": "這部分可以退費或給我折扣嗎？", "tip": "refund 退費／discount 折扣", "tag": "客訴", "level": 3 }
+    ],
+    "dialogue": {
+      "title": "打電話到櫃檯反映問題",
+      "youRole": "旅客（媽媽）",
+      "npcRole": "櫃檯／客房服務人員",
+      "lines": [
+        { "who": "npc", "en": "Front desk, good evening. How may I help you?", "zh": "櫃檯您好，晚安，有什麼可以為您服務的嗎？", "alt": [
+          { "en": "Front desk. What can I do for you?", "zh": "櫃檯，有什麼能為您服務？" },
+          { "en": "Good evening, how can I help?", "zh": "晚安，有什麼需要幫忙的嗎？" }
+        ] },
+        { "who": "you", "en": "Hi, this is room 812. The air conditioning isn't cooling at all.", "zh": "你好，這裡是 812 房，冷氣完全不冷。" },
+        { "who": "npc", "en": "I'm so sorry about that. I'll send a technician right away.", "zh": "非常抱歉，我馬上派技術人員過去。", "alt": [
+          { "en": "So sorry! I'll get maintenance up there now.", "zh": "很抱歉！我馬上請維修人員上去。" },
+          { "en": "My apologies. Someone will come to fix it shortly.", "zh": "抱歉，很快會有人上去處理。" }
+        ] },
+        { "who": "you", "en": "Thank you. Also, there's no hot water in the shower.", "zh": "謝謝。另外，浴室也沒有熱水。" },
+        { "who": "npc", "en": "I'll have him check that too. Is there anything else you need?", "zh": "我會請他一併檢查。還有其他需要嗎？", "alt": [
+          { "en": "He'll look at both. Anything else?", "zh": "他會一起檢查。還需要別的嗎？" },
+          { "en": "I'll add that to the request. Do you need anything more?", "zh": "我會一併登記。還有其他需要嗎？" }
+        ] },
+        { "who": "you", "en": "Yes, could we get two extra towels and one more pillow?", "zh": "有的，可以再給我們兩條毛巾和一顆枕頭嗎？" },
+        { "who": "npc", "en": "Certainly. And what's your room number again?", "zh": "當然可以。再請問一次您的房號？" },
+        { "who": "you", "en": "Room 812. Oh, and could we add an extra bed for our son?", "zh": "812 房。對了，可以幫我兒子加一張床嗎？" },
+        { "who": "npc", "en": "Of course. The extra bed is free of charge for children.", "zh": "沒問題，兒童加床是免費的。" },
+        { "who": "you", "en": "Great. One last thing—a wake-up call at six thirty tomorrow, please.", "zh": "太好了。最後一件事，明天早上六點半麻煩幫我們叫醒。" },
+        { "who": "npc", "en": "Noted—6:30 a.m. Everything will be taken care of shortly.", "zh": "記下了，早上六點半。所有事情很快都會處理好。" },
+        { "who": "you", "en": "Thank you so much for your help.", "zh": "真的很謝謝你的幫忙。" }
+      ]
+    }
+  },
+  {
+    "id": "transport",
+    "icon": "🚇",
+    "title": "大眾運輸",
+    "titleEn": "Public Transport",
+    "desc": "買票、地鐵公車、轉乘、班次",
+    "country": "US",
+    "words": [
+      { "en": "ticket", "zh": "車票", "ico": "🎫" },
+      { "en": "platform", "zh": "月台", "ico": "🚉" },
+      { "en": "one-way", "zh": "單程", "ico": "➡️" },
+      { "en": "round-trip", "zh": "來回", "ico": "🔁" },
+      { "en": "transfer", "zh": "轉乘", "ico": "🔀" },
+      { "en": "stop", "zh": "站", "ico": "🚏" },
+      { "en": "day pass", "zh": "一日票", "ico": "📅" },
+      { "en": "last train", "zh": "末班車", "ico": "🌙" },
+      { "en": "metro", "zh": "地鐵", "ico": "🚇" },
+      { "en": "fare", "zh": "車資", "ico": "💵" }
+    ],
+    "patterns": [
+      { "en": "___, please.", "zh": "我要…，謝謝。", "slots": ["One ticket", "Two tickets to Central Station", "A day pass"] },
+      { "en": "Which platform for ___?", "zh": "往…是哪個月台？", "slots": ["the airport", "the Old Town", "the red line"] },
+      { "en": "How many stops to ___?", "zh": "到…還有幾站？", "slots": ["the harbor", "the museum", "City Hall"] }
+    ],
+    "phrases": [
+      { "en": "One ticket, please.", "zh": "一張票，謝謝。", "tip": "最短的買票句；two tickets = 兩張", "tag": "買票", "level": 1, "survival": true, "homophone": "萬 踢殻特 普利斯" },
+      { "en": "Which platform?", "zh": "哪個月台？", "tip": "platform = 月台", "tag": "月台", "level": 1, "survival": true, "homophone": "威取 普雷特佛姆" },
+      { "en": "Two tickets to Central Station, please.", "zh": "兩張到中央車站的票，謝謝。", "tip": "把 Central Station 換成你的目的地", "tag": "買票", "level": 1, "survival": true, "homophone": "兔 踢殻茲 兔 深戳 斯得訊 普利斯" },
+      { "en": "Take the train to Platform 2.", "zh": "到第 2 月台搭車。", "tip": "數字填空練習：把「2」換成聽到的月台號", "tag": "月台", "level": 1 },
+      { "en": "It's four stops from here.", "zh": "從這裡還有 4 站。", "tip": "數字填空練習：把「four」換成聽到的站數", "tag": "下車", "level": 2 },
+      { "en": "The last train is at midnight.", "zh": "末班車是午夜 12 點。", "tip": "數字填空練習：把「midnight」換成聽到的時間", "tag": "班次", "level": 2 },
+      { "en": "How much is a one-way ticket to the airport?", "zh": "到機場的單程票多少錢？", "tip": "one-way 單程／round-trip 來回", "tag": "買票", "level": 2 },
+      { "en": "Is there a day pass for the whole family?", "zh": "有全家可以用的一日票嗎？", "tip": "day pass 一日票／group ticket 團體票", "tag": "票種", "level": 2 },
+      { "en": "Does this train go to the Old Town?", "zh": "這班車有到舊城區嗎？", "tip": "換 this bus 這班公車", "tag": "確認路線", "level": 2 },
+      { "en": "Which platform does the train to the airport leave from?", "zh": "往機場的車是從哪個月台出發？", "tip": "platform 月台", "tag": "月台", "level": 2 },
+      { "en": "Do I need to change trains, or is it a direct line?", "zh": "我需要轉車嗎，還是這條線直達？", "tip": "change trains 轉車／direct 直達", "tag": "轉乘", "level": 2 },
+      { "en": "Where do I transfer to the blue line?", "zh": "我要在哪裡轉搭藍線？", "tip": "transfer = 轉乘／換線", "tag": "轉乘", "level": 2 },
+      { "en": "How many stops is it to the harbor?", "zh": "到港口還有幾站？", "tip": "stops = 站數", "tag": "下車", "level": 2 },
+      { "en": "What time is the last train tonight?", "zh": "今晚的末班車是幾點？", "tip": "last train 末班車／first train 首班車", "tag": "班次", "level": 2 },
+      { "en": "Does this card work on both the metro and the buses?", "zh": "這張卡地鐵和公車都能用嗎？", "tip": "美式 subway/metro，英式 underground/tube", "tag": "票種", "level": 3 },
+      { "en": "Could you tell me when we reach my stop?", "zh": "到我那一站時可以跟我說一聲嗎？", "tip": "請司機或乘客提醒你下車", "tag": "下車", "level": 3 }
+    ],
+    "dialogue": {
+      "title": "在地鐵站買票與問路",
+      "youRole": "旅客（爸爸）",
+      "npcRole": "站務人員",
+      "lines": [
+        { "who": "you", "en": "Hi, we'd like to go to the Old Town. Two adults and two kids.", "zh": "你好，我們想去舊城區，兩個大人、兩個小孩。" },
+        { "who": "npc", "en": "Sure. Are you planning to travel around all day?", "zh": "好的，你們打算一整天都在市區移動嗎？", "alt": [
+          { "en": "Of course. Will you be riding all day?", "zh": "當然。你們會搭一整天嗎？" },
+          { "en": "Sure thing. Just this trip, or all day?", "zh": "沒問題。只有這趟，還是一整天？" }
+        ] },
+        { "who": "you", "en": "Yes, we'll be sightseeing the whole day. Is there a day pass?", "zh": "對，我們一整天都會觀光。有一日票嗎？" },
+        { "who": "npc", "en": "There is. A family day pass covers all metro and bus lines.", "zh": "有的，家庭一日票地鐵和公車路線都可以搭。" },
+        { "who": "you", "en": "Great, we'll take one. Does the metro go directly to the Old Town?", "zh": "太好了，我們買一張。地鐵有直達舊城區嗎？" },
+        { "who": "npc", "en": "Almost. Take the red line, then transfer to the blue line at City Hall.", "zh": "差不多，搭紅線，然後在市政廳站轉搭藍線。", "alt": [
+          { "en": "Not quite. Red line first, then switch to the blue line at City Hall.", "zh": "不完全。先搭紅線，在市政廳換藍線。" },
+          { "en": "Nearly. Ride the red line and change to blue at City Hall.", "zh": "差不多。搭紅線，在市政廳換藍線。" }
+        ] },
+        { "who": "you", "en": "Which platform is the red line?", "zh": "紅線在哪個月台？" },
+        { "who": "npc", "en": "Platform 2, just down the stairs on your right.", "zh": "第二月台，下樓梯右手邊就是。", "alt": [
+          { "en": "That's Platform 2, down the stairs to your right.", "zh": "是第 2 月台，下樓梯右手邊。" },
+          { "en": "Platform 2. Take the stairs on the right.", "zh": "第 2 月台，走右邊樓梯。" }
+        ] },
+        { "who": "you", "en": "And how many stops until we transfer?", "zh": "到轉車那站還有幾站？" },
+        { "who": "npc", "en": "Four stops to City Hall, then two more on the blue line.", "zh": "到市政廳四站，再搭藍線兩站。" },
+        { "who": "you", "en": "Perfect. One more thing—what time is the last train back?", "zh": "太好了。還有一件事，回程的末班車是幾點？" },
+        { "who": "npc", "en": "Around midnight. Enjoy your day in the Old Town!", "zh": "大約午夜。祝你們在舊城區玩得愉快！" }
+      ]
+    }
+  }
+]
