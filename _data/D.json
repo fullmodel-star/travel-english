@@ -1,0 +1,142 @@
+[
+  {
+    "id": "restaurant",
+    "icon": "🍽️",
+    "title": "餐廳點餐",
+    "titleEn": "Restaurant",
+    "desc": "訂位、點餐、過敏、結帳、給小費",
+    "phrases": [
+      { "en": "Hi, do you have a table for two?", "zh": "你好，有兩位的座位嗎？", "tip": "人數換數字即可，例如 for four。", "tag": "訂位入座" },
+      { "en": "I have a reservation under the name Lin.", "zh": "我有訂位，用林這個名字訂的。", "tip": "reservation 是「訂位」，under the name 指用誰的名字。", "tag": "訂位入座" },
+      { "en": "Could we sit by the window, please?", "zh": "可以坐窗邊嗎？", "tip": "換位子可說 sit outside（坐外面）。", "tag": "訂位入座" },
+      { "en": "How long is the wait?", "zh": "大概要等多久？", "tag": "訂位入座" },
+      { "en": "Could I see the menu, please?", "zh": "可以給我看一下菜單嗎？", "tag": "點餐" },
+      { "en": "What do you recommend?", "zh": "你推薦什麼？", "tip": "問招牌菜可說 What's your signature dish?", "tag": "點餐" },
+      { "en": "What's the house specialty here?", "zh": "你們這裡的招牌菜是什麼？", "tag": "點餐" },
+      { "en": "I'll have the grilled chicken, please.", "zh": "我要烤雞，謝謝。", "tip": "I'll have… 是點餐最常用的說法。", "tag": "點餐" },
+      { "en": "Is this dish spicy?", "zh": "這道菜會辣嗎？", "tip": "不要辣可說 Not spicy, please.", "tag": "點餐" },
+      { "en": "I'm allergic to peanuts. Does this contain any?", "zh": "我對花生過敏，這道菜裡面有嗎？", "tip": "allergic to 就是「對…過敏」，最重要的救命句。", "tag": "過敏特殊需求" },
+      { "en": "I'm vegetarian. Do you have any meat-free options?", "zh": "我吃素，有沒有不含肉的餐點？", "tip": "meat-free＝不含肉；純素可說 vegan。", "tag": "過敏特殊需求" },
+      { "en": "Could I get a glass of water, please?", "zh": "可以給我一杯水嗎？", "tip": "要冰水說 ice water；要溫水說 warm water。", "tag": "過敏特殊需求" },
+      { "en": "Excuse me, this isn't what I ordered.", "zh": "不好意思，這不是我點的。", "tag": "遇到問題" },
+      { "en": "Could we get some more napkins?", "zh": "可以再給我們一些餐巾紙嗎？", "tag": "遇到問題" },
+      { "en": "Could we have the check, please?", "zh": "可以買單嗎？", "tip": "美式 check＝英式 bill，兩個都通。", "tag": "結帳小費" },
+      { "en": "Can we pay separately?", "zh": "我們可以分開付嗎？", "tip": "一起付說 We'll pay together.", "tag": "結帳小費" },
+      { "en": "Do you take credit cards?", "zh": "你們可以刷卡嗎？", "tip": "問能不能刷卡的標準說法。", "tag": "結帳小費" },
+      { "en": "Is the tip included?", "zh": "小費有含在裡面嗎？", "tip": "tip 是小費，美國餐廳通常給 15-20%。", "tag": "結帳小費" },
+      { "en": "Keep the change.", "zh": "不用找了。", "tip": "把零錢當小費留下的常用說法。", "tag": "結帳小費" },
+      { "en": "Could I get this to go, please?", "zh": "這個可以幫我打包嗎？", "tip": "美式 to go＝英式 takeaway，都是外帶/打包。", "tag": "結帳小費" }
+    ],
+    "dialogue": {
+      "title": "一家四口上餐廳",
+      "youRole": "你（帶家人用餐）",
+      "npcRole": "服務生 Server",
+      "lines": [
+        { "who": "npc", "en": "Hi there! Welcome. How many in your party?", "zh": "嗨，歡迎光臨！請問幾位？" },
+        { "who": "you", "en": "A table for four, please. Could we sit by the window?", "zh": "四位，謝謝。可以坐窗邊嗎？" },
+        { "who": "npc", "en": "Of course. Right this way. Here are your menus.", "zh": "當然可以，這邊請。這是你們的菜單。" },
+        { "who": "you", "en": "Thanks. What do you recommend?", "zh": "謝謝。你推薦什麼？" },
+        { "who": "npc", "en": "Our grilled salmon is very popular, and so is the beef pasta.", "zh": "我們的烤鮭魚很受歡迎，牛肉義大利麵也是。" },
+        { "who": "you", "en": "Sounds good. But my son is allergic to peanuts. Does the pasta contain any?", "zh": "聽起來不錯。不過我兒子對花生過敏，義大利麵裡有花生嗎？" },
+        { "who": "npc", "en": "No peanuts at all. I'll let the kitchen know to be careful.", "zh": "完全沒有花生。我會提醒廚房特別注意。" },
+        { "who": "you", "en": "Great. We'll have two salmon and two pasta, and a glass of water for everyone.", "zh": "太好了。那我們要兩份鮭魚、兩份義大利麵，每個人再一杯水。" },
+        { "who": "npc", "en": "Perfect. I'll bring that right out.", "zh": "沒問題，我馬上為你們送來。" },
+        { "who": "you", "en": "Excuse me, could we have the check? Can we pay by credit card?", "zh": "不好意思，可以買單嗎？可以刷卡嗎？" },
+        { "who": "npc", "en": "Absolutely. Was everything okay tonight?", "zh": "當然可以。今晚一切都還滿意嗎？" },
+        { "who": "you", "en": "Everything was great, thank you. Keep the change.", "zh": "都很棒，謝謝你。不用找了。" }
+      ]
+    }
+  },
+  {
+    "id": "cafe-fastfood",
+    "icon": "☕",
+    "title": "咖啡速食",
+    "titleEn": "Cafe & Fast Food",
+    "desc": "點飲料、外帶、客製化、速食店",
+    "phrases": [
+      { "en": "Can I get a medium latte, please?", "zh": "我要一杯中杯拿鐵，謝謝。", "tip": "杯型：small 小 / medium 中 / large 大。", "tag": "點飲料" },
+      { "en": "Iced, please. No ice, actually — sorry, hot.", "zh": "冰的，謝謝。啊不對，去冰…抱歉，我要熱的。", "tip": "去冰 no ice；少冰 light ice；正常冰 regular ice。", "tag": "點飲料" },
+      { "en": "Could I have less sugar?", "zh": "可以幫我少糖嗎？", "tip": "半糖 half sugar；無糖 no sugar。", "tag": "點飲料" },
+      { "en": "Can I add an extra shot of espresso?", "zh": "可以多加一份濃縮咖啡嗎？", "tip": "extra shot＝多一份濃縮，會更濃更提神。", "tag": "點飲料" },
+      { "en": "Do you have oat milk?", "zh": "你們有燕麥奶嗎？", "tip": "常見替代奶：oat 燕麥、soy 豆、almond 杏仁。", "tag": "點飲料" },
+      { "en": "Is this for here or to go?", "zh": "（店員問）內用還是外帶？", "tip": "for here＝內用，to go＝外帶，這是店員最常問你的一句。", "tag": "內用外帶" },
+      { "en": "For here, please.", "zh": "內用，謝謝。", "tip": "回答內用就說 for here。", "tag": "內用外帶" },
+      { "en": "To go, please.", "zh": "外帶，謝謝。", "tip": "英式常說 takeaway，意思一樣。", "tag": "內用外帶" },
+      { "en": "Could I get a cup holder and a couple of napkins?", "zh": "可以給我一個杯架和幾張餐巾紙嗎？", "tag": "內用外帶" },
+      { "en": "I'll have the number two meal, please.", "zh": "我要二號餐，謝謝。", "tip": "速食店餐點常用號碼點，最快最省事。", "tag": "速食店" },
+      { "en": "Can I make it a large, please?", "zh": "可以幫我加大嗎？", "tip": "加大套餐 make it large／supersize（美式口語）。", "tag": "速食店" },
+      { "en": "No onions on the burger, please.", "zh": "漢堡不要加洋蔥，謝謝。", "tip": "去掉某料：No + 食材；例如 no pickles 不要酸黃瓜。", "tag": "客製化" },
+      { "en": "Could I have extra ketchup on the side?", "zh": "可以另外多給我一些番茄醬嗎？", "tip": "on the side＝醬料另外附，不要淋上去。", "tag": "客製化" },
+      { "en": "Can I swap the fries for a salad?", "zh": "可以把薯條換成沙拉嗎？", "tip": "swap A for B＝把 A 換成 B。", "tag": "客製化" },
+      { "en": "Are free refills available?", "zh": "飲料可以免費續杯嗎？", "tip": "refill＝續杯，美國速食店汽水常可免費續。", "tag": "速食店" },
+      { "en": "Could I get a receipt, please?", "zh": "可以給我收據嗎？", "tag": "速食店" },
+      { "en": "How long is the wait for the order?", "zh": "餐點大概要等多久？", "tag": "速食店" },
+      { "en": "Sorry, I think you gave me the wrong drink.", "zh": "不好意思，我想你給錯飲料了。", "tag": "遇到問題" }
+    ],
+    "dialogue": {
+      "title": "咖啡店外帶點單",
+      "youRole": "你（趕著逛景點）",
+      "npcRole": "店員 Barista",
+      "lines": [
+        { "who": "npc", "en": "Hi! What can I get for you?", "zh": "嗨！請問要點什麼？" },
+        { "who": "you", "en": "Can I get a medium latte, iced, with less sugar?", "zh": "我要一杯中杯拿鐵，冰的，少糖。" },
+        { "who": "npc", "en": "Sure. Any milk preference? We have oat and soy.", "zh": "好的。牛奶有偏好嗎？我們有燕麥奶和豆奶。" },
+        { "who": "you", "en": "Oat milk, please. And can I add an extra shot?", "zh": "燕麥奶，謝謝。可以再多加一份濃縮嗎？" },
+        { "who": "npc", "en": "You got it. Is this for here or to go?", "zh": "沒問題。內用還是外帶？" },
+        { "who": "you", "en": "To go, please. Could I get a cup holder too?", "zh": "外帶，謝謝。可以順便給我一個杯架嗎？" },
+        { "who": "npc", "en": "Of course. Anything else?", "zh": "當然可以。還需要別的嗎？" },
+        { "who": "you", "en": "That's all. How long is the wait?", "zh": "這樣就好。大概要等多久？" },
+        { "who": "npc", "en": "Just a couple of minutes. That'll be five fifty.", "zh": "只要幾分鐘。總共五塊五。" },
+        { "who": "you", "en": "Here you go. Could I get a receipt, please?", "zh": "錢在這，可以給我收據嗎？" },
+        { "who": "npc", "en": "Here's your receipt. I'll call your name when it's ready.", "zh": "這是你的收據，好了我會叫你的名字。" },
+        { "who": "you", "en": "Thank you so much!", "zh": "非常感謝！" }
+      ]
+    }
+  },
+  {
+    "id": "taxi",
+    "icon": "🚕",
+    "title": "計程車Uber",
+    "titleEn": "Taxi & Uber",
+    "desc": "叫車、告知目的地、跳表、下車",
+    "phrases": [
+      { "en": "Could you call a taxi for us, please?", "zh": "可以幫我們叫一台計程車嗎？", "tip": "在飯店櫃檯常用這句請人代叫。", "tag": "叫車" },
+      { "en": "Are you free? We're going to the airport.", "zh": "有空嗎？我們要去機場。", "tip": "路邊攔車先確認對方 available。", "tag": "叫車" },
+      { "en": "Hi, are you the Uber for Lin?", "zh": "你好，你是林叫的 Uber 嗎？", "tip": "上 Uber 前先核對名字，較安全。", "tag": "叫車" },
+      { "en": "Could you take us to this address?", "zh": "可以載我們到這個地址嗎？", "tip": "直接把手機地址給司機看最保險。", "tag": "告知目的地" },
+      { "en": "We'd like to go to the Grand Hotel, please.", "zh": "我們要去圓山大飯店，謝謝。", "tag": "告知目的地" },
+      { "en": "It's on the corner of Fifth and Main.", "zh": "就在第五街和大街的轉角。", "tip": "on the corner of A and B＝在 A 街和 B 街的轉角。", "tag": "告知目的地" },
+      { "en": "About how much will it cost?", "zh": "大約要多少錢？", "tip": "上車前先問價，避免爭議。", "tag": "車資跳表" },
+      { "en": "Do you use the meter?", "zh": "你有跳表嗎？", "tip": "meter＝計程表；沒跳表可能是喊價，要小心。", "tag": "車資跳表" },
+      { "en": "Is there an extra charge for luggage?", "zh": "行李要另外加錢嗎？", "tag": "車資跳表" },
+      { "en": "Could you take the highway? We're in a bit of a hurry.", "zh": "可以走高速公路嗎？我們有點趕。", "tip": "英式高速公路叫 motorway。", "tag": "路線" },
+      { "en": "Could you avoid the traffic if possible?", "zh": "可以的話盡量避開塞車好嗎？", "tag": "路線" },
+      { "en": "Is it okay if we make a quick stop?", "zh": "可以中途稍微停一下嗎？", "tag": "路線" },
+      { "en": "Could you slow down a little, please?", "zh": "可以請你開慢一點嗎？", "tip": "覺得太快時禮貌提醒司機。", "tag": "路線" },
+      { "en": "You can just stop here, thanks.", "zh": "在這裡停就好，謝謝。", "tip": "下車前一段先講，讓司機有時間靠邊。", "tag": "下車付款" },
+      { "en": "Could you pull over up ahead?", "zh": "可以在前面靠邊停嗎？", "tip": "pull over＝靠邊停車。", "tag": "下車付款" },
+      { "en": "How much do I owe you?", "zh": "我要付你多少錢？", "tag": "下車付款" },
+      { "en": "Keep the change, thanks for the ride.", "zh": "不用找了，謝謝載我們。", "tip": "在美國搭計程車通常也會給一點小費。", "tag": "下車付款" },
+      { "en": "Could I get a receipt, please?", "zh": "可以給我收據嗎？", "tip": "報帳或核對車資都用得到。", "tag": "下車付款" }
+    ],
+    "dialogue": {
+      "title": "從飯店搭車去景點",
+      "youRole": "你（帶家人趕行程）",
+      "npcRole": "司機 Driver",
+      "lines": [
+        { "who": "npc", "en": "Hello! Where are you headed today?", "zh": "你好！今天要去哪裡？" },
+        { "who": "you", "en": "Hi, could you take us to this address? It's the art museum.", "zh": "你好，可以載我們到這個地址嗎？是美術館。" },
+        { "who": "npc", "en": "Sure thing. Hop in. That's about twenty minutes away.", "zh": "沒問題，上車吧。大概二十分鐘的路程。" },
+        { "who": "you", "en": "About how much will it cost?", "zh": "大約要多少錢？" },
+        { "who": "npc", "en": "It runs on the meter, probably around fifteen dollars.", "zh": "都是跳表計費，大概十五塊左右。" },
+        { "who": "you", "en": "Okay. Could you take the highway? We're in a bit of a hurry.", "zh": "好的。可以走高速公路嗎？我們有點趕。" },
+        { "who": "npc", "en": "No problem, the highway is faster this time of day.", "zh": "沒問題，這個時段走高速比較快。" },
+        { "who": "you", "en": "Great, thanks. Is there an extra charge for the luggage?", "zh": "太好了，謝謝。行李要另外加錢嗎？" },
+        { "who": "npc", "en": "No extra charge. We're almost there — which entrance?", "zh": "不用另外加。快到了，你們要在哪個入口？" },
+        { "who": "you", "en": "You can just stop here, thanks. How much do I owe you?", "zh": "在這裡停就好，謝謝。我要付你多少錢？" },
+        { "who": "npc", "en": "That'll be fourteen fifty.", "zh": "總共十四塊五。" },
+        { "who": "you", "en": "Here's fifteen — keep the change. Could I get a receipt, please?", "zh": "給你十五塊，不用找了。可以給我收據嗎？" }
+      ]
+    }
+  }
+]
